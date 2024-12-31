@@ -6,13 +6,20 @@ import { DashboardTableOfContents } from "@/components/utils/toc";
 import { ChevronRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+type PageProps = {
+  params: any;
+  searchParams?: any;
+};
+
 function getDocumentBySlug(slug: string) {
   return documents.find((document) => document.slug === slug);
 }
 
-export default function Home({ params }: { params: { slug: string } }) {
-  const doc = getDocumentBySlug(params.slug);
+export default async function Home({ params }: PageProps) {
+  const { slug } = await params;
+  const doc = getDocumentBySlug(slug);
   if (!doc) return notFound();
+
   return (
     <div className="flex gap-3">
       <div className="mx-auto flex flex-col w-full min-w-0 py-6 lg:py-8 px-3">
