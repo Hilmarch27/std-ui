@@ -1,0 +1,15 @@
+{
+  "name": "unauthorized-error",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import { Button } from \"@/components/ui/button\";\r\n\r\nexport default function UnauthorisedError() {\r\n  return (\r\n    <div className=\"h-svh\">\r\n      <div className=\"m-auto flex h-full w-full flex-col items-center justify-center gap-2\">\r\n        <h1 className=\"text-[7rem] font-bold leading-tight\">401</h1>\r\n        <span className=\"font-medium\">Unauthorized Access</span>\r\n        <p className=\"text-center text-muted-foreground\">\r\n          Please log in with the appropriate credentials <br /> to access this\r\n          resource.\r\n        </p>\r\n        <div className=\"mt-6 flex gap-4\">\r\n          <Button variant=\"outline\">Go Back</Button>\r\n          <Button>Back to Home</Button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "ui/unauthorized-error.tsx",
+      "target": "components/ui/unauthorized-error.tsx"
+    }
+  ]
+}

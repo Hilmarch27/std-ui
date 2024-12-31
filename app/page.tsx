@@ -7,7 +7,7 @@ import {
   Blocks,
   ChevronRight,
   Component,
-  PlayIcon,
+  // PlayIcon,
   Webhook,
 } from "lucide-react";
 import Link from "next/link";
@@ -207,7 +207,7 @@ export default function Home() {
             className="relative  aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-t from-teal-400 via-emerald-500 to-green-600 opacity-15 sm:w-[72.1875rem]"
           />
         </div>
-        <Link
+        {/* <Link
           href="https://youtu.be/IV6sChTZFLQ"
           className="absolute flex items-center gap-2 bottom-10 xl:left-20 left-1/2 max-xl:-translate-x-1/2"
         >
@@ -217,7 +217,7 @@ export default function Home() {
           <p className="bg-primary/60 text-white py-2 px-3 rounded-full text-sm">
             Watch Demo
           </p>
-        </Link>
+        </Link> */}
       </div>
       <div className="w-full flex flex-col gap-5 h-full justify-center items-center px-4 md:px-0">
         <div className="bg-accent/50 rounded-full text-sm px-4 py-2 w-fit flex items-center gap-2">
@@ -240,13 +240,13 @@ export default function Home() {
 
         <div className="flex flex-col sm:flex-row gap-3 mt-4">
           <Link
-            href="/docs/sidebar-01"
+            href="/docs/hint"
             className="bg-accent flex gap-1 items-center px-4 py-2 rounded-full text-sm hover:bg-accent/70"
           >
             Browse Components <ArrowTopRightIcon />
           </Link>
           <Link
-            href="https://github.com/bwestwood11/ui-cart"
+            href="https://github.com/Hilmarch27/std-ui"
             className="bg-foreground justify-center flex gap-2 items-center text-background px-4 py-2 rounded-full text-sm hover:bg-foreground/70"
           >
             <GitHubLogoIcon />

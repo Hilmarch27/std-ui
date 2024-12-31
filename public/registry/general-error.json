@@ -1,0 +1,15 @@
+{
+  "name": "general-error",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import { cn } from \"@/lib/utils\";\r\nimport { Button } from \"@/components/ui/button\";\r\n\r\ninterface GeneralErrorProps extends React.HTMLAttributes<HTMLDivElement> {\r\n  minimal?: boolean;\r\n}\r\n\r\nexport default function GeneralError({\r\n  className,\r\n  minimal = false,\r\n}: GeneralErrorProps) {\r\n  return (\r\n    <div className={cn(\"h-svh w-full\", className)}>\r\n      <div className=\"m-auto flex h-full w-full flex-col items-center justify-center gap-2\">\r\n        {!minimal && (\r\n          <h1 className=\"text-[7rem] font-bold leading-tight\">500</h1>\r\n        )}\r\n        <span className=\"font-medium\">Oops! Something went wrong {`:')`}</span>\r\n        <p className=\"text-center text-muted-foreground\">\r\n          We apologize for the inconvenience. <br /> Please try again later.\r\n        </p>\r\n        {!minimal && (\r\n          <div className=\"mt-6 flex gap-4\">\r\n            <Button variant=\"outline\">Go Back</Button>\r\n            <Button>Back to Home</Button>\r\n          </div>\r\n        )}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "ui/general-error.tsx",
+      "target": "components/ui/general-error.tsx"
+    }
+  ]
+}

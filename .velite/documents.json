@@ -1,0 +1,152 @@
+[
+  {
+    "title": "Forbidden Error",
+    "description": "Forbidden Error Page.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "forbidden-error",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 23
+    },
+    "content": "const{Fragment:e,jsx:r,jsxs:n}=arguments[0];function _createMdxContent(a){const d={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:t,Tabs:l,TabsContent:o,TabsList:s,TabsTrigger:i}=d;return t||_missingMdxReference(\"ComponentPreview\",!0),l||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),s||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[r(d.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",r(t,{name:\"forbidden-error\",shouldExpand:!0}),\"\\n\",n(l,{defaultValue:\"cli\",children:[r(s,{children:r(i,{value:\"cli\",children:\"CLI\"})}),r(o,{value:\"cli\",children:r(d.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(d.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:r(d.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(d.span,{\"data-line\":\"\",children:[r(d.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),r(d.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),r(d.span,{style:{color:\"#CE9178\"},children:\" add\"}),r(d.span,{style:{color:\"#CE9178\"},children:\" https://www.uicart.io/registry/forbidden-error.json\"})]})})})})})]}),\"\\n\",r(d.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",r(d.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(d.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(d.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(d.span,{\"data-line\":\"\",children:[r(d.span,{style:{color:\"#C586C0\"},children:\"import\"}),r(d.span,{style:{color:\"#9CDCFE\"},children:\" ForbiddenError\"}),r(d.span,{style:{color:\"#C586C0\"},children:\" from\"}),r(d.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/forbidden-error\"'}),r(d.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",r(\"br\",{}),\"\\n\",r(d.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(d.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(d.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(d.span,{\"data-line\":\"\",children:[r(d.span,{style:{color:\"#808080\"},children:\"<\"}),r(d.span,{style:{color:\"#4EC9B0\"},children:\"ForbiddenError\"}),r(d.span,{style:{color:\"#808080\"},children:\"/>\"})]})})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?r(n,{...e,children:r(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,r){throw new Error(\"Expected \"+(r?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/forbidden-error"
+  },
+  {
+    "title": "Hint",
+    "description": "A popup tooltip that appears when you hover over an element.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      },
+      {
+        "title": "Examples",
+        "url": "#examples",
+        "items": [
+          {
+            "title": "Without Animations",
+            "url": "#without-animations",
+            "items": []
+          },
+          {
+            "title": "Adjust Bounce Effect",
+            "url": "#adjust-bounce-effect",
+            "items": []
+          },
+          {
+            "title": "Animation Entrance Direction",
+            "url": "#animation-entrance-direction",
+            "items": []
+          },
+          {
+            "title": "Disable The ToolTip",
+            "url": "#disable-the-tooltip",
+            "items": []
+          },
+          {
+            "title": "Delay The Hint",
+            "url": "#delay-the-hint",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "slug": "hint",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 172
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:l}=arguments[0];function _createMdxContent(r){const t={code:\"code\",figure:\"figure\",h2:\"h2\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:a,Tabs:o,TabsContent:c,TabsList:s,TabsTrigger:i}=t;return a||_missingMdxReference(\"ComponentPreview\",!0),o||_missingMdxReference(\"Tabs\",!0),c||_missingMdxReference(\"TabsContent\",!0),s||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),l(e,{children:[n(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(a,{name:\"hint\"}),\"\\n\",l(o,{defaultValue:\"cli\",children:[n(s,{children:n(i,{value:\"cli\",children:\"CLI\"})}),n(c,{value:\"cli\",children:n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" https://www.uicart.io/registry/hint.json\"})]})})})})})]}),\"\\n\",n(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" Hint\"}),n(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),n(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/hint\"'}),n(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h2,{id:\"examples\",children:\"Examples\"}),\"\\n\",n(t.h3,{id:\"without-animations\",children:\"Without Animations\"}),\"\\n\",l(t.p,{children:[\"You can enable or disable the bounce effect by passing the \",n(t.code,{children:\"isAnimating\"}),\" prop. By default, the bounce effect is enabled.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" isAnimating\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{false}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"adjust-bounce-effect\",children:\"Adjust Bounce Effect\"}),\"\\n\",l(t.p,{children:[\"You can adjust the stiffness of the bounce effect by passing the \",n(t.code,{children:\"animationStiffness\"}),\" prop. The higher the value the more bouncy the effect will be.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" animationStiffness\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(t.span,{style:{color:\"#B5CEA8\"},children:\"100\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"animation-entrance-direction\",children:\"Animation Entrance Direction\"}),\"\\n\",l(t.p,{children:[\"You can adjust the direction of the bounce effect by passing the \",n(t.code,{children:\"animationFrom\"}),\" prop. By default, the bounce effect is from the top. You can set it to \",n(t.code,{children:\"left\"}),\", \",n(t.code,{children:\"right\"}),\", \",n(t.code,{children:\"top\"}),\", or \",n(t.code,{children:\"bottom\"}),\".\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" animationFrom\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"left\"'}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"disable-the-tooltip\",children:\"Disable The ToolTip\"}),\"\\n\",l(t.p,{children:[\"You can disable the tooltip by passing the \",n(t.code,{children:\"enabled\"}),\" prop. By default, the tooltip is enabled.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" enabled\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{false}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"delay-the-hint\",children:\"Delay The Hint\"}),\"\\n\",l(t.p,{children:[\"You can delay the hint by passing the \",n(t.code,{children:\"delay\"}),\" prop. By default, the delay is 0.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" delay\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(t.span,{style:{color:\"#B5CEA8\"},children:\"1000\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})})]})}return{default:function(e={}){const{wrapper:l}=e.components||{};return l?n(l,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/hint"
+  },
+  {
+    "title": "Vertical List",
+    "description": "A ul li element with line.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      },
+      {
+        "title": "Examples",
+        "url": "#examples",
+        "items": [
+          {
+            "title": "Without Icon and Sub Items",
+            "url": "#without-icon-and-sub-items",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "slug": "vertical-list",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 51
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:l}=arguments[0];function _createMdxContent(r){const s={code:\"code\",figure:\"figure\",h2:\"h2\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:a,Tabs:c,TabsContent:t,TabsList:o,TabsTrigger:i}=s;return a||_missingMdxReference(\"ComponentPreview\",!0),c||_missingMdxReference(\"Tabs\",!0),t||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),l(e,{children:[n(s.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(a,{name:\"vertical-list\"}),\"\\n\",l(c,{defaultValue:\"cli\",children:[n(o,{children:n(i,{value:\"cli\",children:\"CLI\"})}),n(t,{value:\"cli\",children:n(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(s.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(s.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(s.span,{style:{color:\"#CE9178\"},children:\" https://www.uicart.io/registry/vertical-list.json\"})]})})})})})]}),\"\\n\",n(s.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),n(s.span,{style:{color:\"#9CDCFE\"},children:\"VerticalLineList\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),n(s.span,{style:{color:\"#C586C0\"},children:\"from\"}),n(s.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/vertical-list\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#808080\"},children:\"<\"}),n(s.span,{style:{color:\"#4EC9B0\"},children:\"VerticalLineList\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"  items\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"[\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),n(s.span,{style:{color:\"#CE9178\"},children:' \"Step 1\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),n(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      icon:\"}),n(s.span,{style:{color:\"#808080\"},children:\" <\"}),n(s.span,{style:{color:\"#4EC9B0\"},children:\"User\"}),n(s.span,{style:{color:\"#9CDCFE\"},children:\" size\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(s.span,{style:{color:\"#B5CEA8\"},children:\"12\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(s.span,{style:{color:\"#808080\"},children:\" />\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),n(s.span,{style:{color:\"#CE9178\"},children:' \"Step 2\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),n(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),n(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 2\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      icon:\"}),n(s.span,{style:{color:\"#808080\"},children:\" <\"}),n(s.span,{style:{color:\"#4EC9B0\"},children:\"CheckIcon\"}),n(s.span,{style:{color:\"#9CDCFE\"},children:\" size\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(s.span,{style:{color:\"#B5CEA8\"},children:\"12\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(s.span,{style:{color:\"#808080\"},children:\" />\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#D4D4D4\"},children:\"  ]\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#808080\"},children:\"/>\"})})]})})}),\"\\n\",n(s.h2,{id:\"examples\",children:\"Examples\"}),\"\\n\",n(s.h3,{id:\"without-icon-and-sub-items\",children:\"Without Icon and Sub Items\"}),\"\\n\",l(s.p,{children:[\"You can adding icons by passing the \",n(s.code,{children:\"Icon JSX\"}),\" prop. By default it is optional.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#808080\"},children:\"<\"}),n(s.span,{style:{color:\"#4EC9B0\"},children:\"VerticalLineList\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"  items\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"[\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),n(s.span,{style:{color:\"#CE9178\"},children:' \"Step 1\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),n(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),n(s.span,{style:{color:\"#CE9178\"},children:' \"Step 2\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),n(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),n(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),n(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 2\"'}),n(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:[n(s.span,{style:{color:\"#D4D4D4\"},children:\"  ]\"}),n(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:n(s.span,{style:{color:\"#808080\"},children:\"/>\"})})]})})})]})}return{default:function(e={}){const{wrapper:l}=e.components||{};return l?n(l,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/vertical-list"
+  }
+]

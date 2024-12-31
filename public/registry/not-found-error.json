@@ -1,0 +1,15 @@
+{
+  "name": "not-found-error",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "import { Button } from \"@/components/ui/button\";\r\n\r\nexport default function NotFoundError() {\r\n  return (\r\n    <div className=\"h-svh\">\r\n      <div className=\"m-auto flex h-full w-full flex-col items-center justify-center gap-2\">\r\n        <h1 className=\"text-[7rem] font-bold leading-tight\">404</h1>\r\n        <span className=\"font-medium\">Oops! Page Not Found!</span>\r\n        <p className=\"text-center text-muted-foreground\">\r\n          It seems like the page you&apos;re looking for <br />\r\n          does not exist or might have been removed.\r\n        </p>\r\n        <div className=\"mt-6 flex gap-4\">\r\n          <Button variant=\"outline\">Go Back</Button>\r\n          <Button>Back to Home</Button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "ui/not-found-error.tsx",
+      "target": "components/ui/not-found-error.tsx"
+    }
+  ]
+}

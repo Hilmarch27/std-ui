@@ -6,7 +6,6 @@ import Link from "next/link";
 import React from "react";
 import { Navbar } from "./nav";
 
-
 export default function LayoutHome() {
   return (
     <>
@@ -19,7 +18,7 @@ export default function LayoutHome() {
             </div>
             <nav className="flex items-center">
               <Link
-                href={"https://github.com/bwestwood11/ui-cart"}
+                href={"https://github.com/Hilmarch27/std-ui"}
                 target="_blank"
                 rel="noreferrer"
               >

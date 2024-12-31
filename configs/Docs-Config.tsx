@@ -13,46 +13,46 @@ export const docsConfig: DocsConfig = {
     },
   ],
   sidebarNav: [
-    {
-      title: "Blocks",
-      items: [
-        {
-          title: "Sidebar-01",
-          href: "/docs/sidebar-01",
-          items: [],
-        },
-        {
-          title: "Sidebar-02",
-          href: "/docs/sidebar-02",
-          items: [],
-        },
-      ],
-    },
-    {
-      title: "Bento Grid",
-      items: [
-        {
-          title: "Music Bento Grid",
-          href: "/docs/bento-grid-01",
-          items: [],
-        },
-      ],
-    },
-    {
-      title: "Bento Grid Cards",
-      items: [
-        {
-          title: "Sonic Bento Card",
-          href: "/docs/sonic-bento-card",
-          items: [],
-        },
-        {
-          title: "Animated Design Board",
-          href: "/docs/animated-design-board-bento-card",
-          items: [],
-        },
-      ],
-    },
+    // {
+    //   title: "Blocks",
+    //   items: [
+    //     {
+    //       title: "Sidebar-01",
+    //       href: "/docs/sidebar-01",
+    //       items: [],
+    //     },
+    //     {
+    //       title: "Sidebar-02",
+    //       href: "/docs/sidebar-02",
+    //       items: [],
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Bento Grid",
+    //   items: [
+    //     {
+    //       title: "Music Bento Grid",
+    //       href: "/docs/bento-grid-01",
+    //       items: [],
+    //     },
+    //   ],
+    // },
+    // {
+    //   title: "Bento Grid Cards",
+    //   items: [
+    //     {
+    //       title: "Sonic Bento Card",
+    //       href: "/docs/sonic-bento-card",
+    //       items: [],
+    //     },
+    //     {
+    //       title: "Animated Design Board",
+    //       href: "/docs/animated-design-board-bento-card",
+    //       items: [],
+    //     },
+    //   ],
+    // },
     {
       title: "Components",
       items: [
@@ -62,8 +62,13 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Animated Button",
-          href: "/docs/animated-button",
+          title: "Vertical List",
+          href: "/docs/vertical-list",
+          items: [],
+        },
+        {
+          title: "Forbidden Error",
+          href: "/docs/forbidden-error",
           items: [],
         },
       ],
