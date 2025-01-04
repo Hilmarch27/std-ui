@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function UnauthorisedError() {
   return (
-    <div className="h-svh">
+    <div>
       <div className="m-auto flex h-full w-full flex-col items-center justify-center gap-2">
         <h1 className="text-[7rem] font-bold leading-tight">401</h1>
         <span className="font-medium">Unauthorized Access</span>

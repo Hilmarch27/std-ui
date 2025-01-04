@@ -14,7 +14,7 @@ const eslintConfig = [
   {
     rules: {
       // Add your new rules here
-      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];

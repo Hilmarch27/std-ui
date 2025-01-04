@@ -22,7 +22,6 @@ export function Hint({
   children,
   className,
   direction = "top",
-  asChild = false,
   onOpenChange,
   enabled = true,
   delay = 2,
@@ -32,8 +31,8 @@ export function Hint({
     <>
       <TooltipProvider>
         <Tooltip delayDuration={delay} onOpenChange={onOpenChange}>
-          <TooltipTrigger asChild={asChild}>{children}</TooltipTrigger>
-          <TooltipContent side={direction} asChild>
+          <TooltipTrigger asChild>{children}</TooltipTrigger>
+          <TooltipContent side={direction}>
             <p className={cn("text-sm", className)}>{content}</p>
           </TooltipContent>
         </Tooltip>
@@ -41,7 +40,6 @@ export function Hint({
     </>
   );
 }
-
 const HintPreview = () => {
   return (
     <Hint content="This is the hint text">

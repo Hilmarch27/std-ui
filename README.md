@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Name
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project is a React-based application featuring a sidebar component that includes navigation groups, user information, and team switching capabilities. It utilizes modern UI components such as dropdown menus and avatars, and integrates with various libraries for enhanced functionality.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Sidebar Navigation**: Collapsible sidebar with navigation groups and items.
+- **User Profile**: Displays user information, including name, email, and avatar.
+- **Team Switcher**: Allows switching between different teams.
+- **Responsive Design**: Adapts to various screen sizes, supporting both mobile and desktop views.
+- **Vertical List**: Ul Li with line vertical
+- **Hint**: its for infomation if you hovvered the element
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To set up this project locally, follow these steps:
 
-## Learn More
+1. Initial the project:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npx shadcn@latest init
+   # or
+   pnpm dlx shadcn@latest init
+   # or
+   yarn shadcn@latest init
+   # or
+   bunx --bun shadcn@latest init
+   # or
+   denox shadcn@latest init
+   # or
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Add component:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   # or
+   pnpm dlx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   # or
+   yarn shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   # or
+   bunx --bun shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   # or
+   denox shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   # or
+   ```
 
-## Deploy on Vercel
+3. Import the components:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   import components from "block/ui"
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any bugs or feature requests.
+
+## Contact
+
+For questions or support, please contact [Hilman](mailto:hilmarch03@gmail.com).
+
+## Author
+
+Crafted with 🤍 by [@hilmarch03](https://github.com/hilmarch03)

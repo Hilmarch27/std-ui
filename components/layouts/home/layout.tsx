@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import { Navbar } from "./nav";
+import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
 export default function LayoutHome() {
   return (
@@ -35,7 +36,7 @@ export default function LayoutHome() {
                 </div>
               </Link>
               <Link
-                href={"https://x.com/brett__westwood"}
+                href={"https://instagram.com/hilmarch03"}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -47,8 +48,8 @@ export default function LayoutHome() {
                     "h-8 w-8 px-0"
                   )}
                 >
-                  <Icons.twitter className="h-3 w-3 fill-current" />
-                  <span className="sr-only">Twitter</span>
+                  <InstagramLogoIcon className="h-3 w-3 fill-current" />
+                  <span className="sr-only">Instagram</span>
                 </div>
               </Link>
             </nav>

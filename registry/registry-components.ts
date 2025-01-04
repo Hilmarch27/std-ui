@@ -14,6 +14,28 @@ export const ui: Registry = [
     files: ["ui/vertical-list.tsx"],
   },
   {
+    name: "sidebar",
+    type: "registry:block",
+    registryDependencies: [
+      "sidebar",
+      "button",
+      "collapsible",
+      "badge",
+      "input",
+      "dropdown-menu",
+      "avatar",
+    ],
+    dependencies: ["lucide-react"],
+    files: [
+      "block/sidebar/app-sidebar.tsx",
+      "block/sidebar/data-sidebar.ts",
+      "block/sidebar/nav-group.tsx",
+      "block/sidebar/nav-user.tsx",
+      "block/sidebar/team-switcher.tsx",
+      "block/sidebar/types.ts",
+    ],
+  },
+  {
     name: "forbidden-error",
     type: "registry:ui",
     registryDependencies: ["button"],

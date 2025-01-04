@@ -1,18 +1,18 @@
 ---
-title: "Forbidden Error"
-description: "Forbidden Error Page."
+title: "Unauthorized Error"
+description: "Unauthorized Error Page."
 published: true
 links:
   - title: "Home"
     url: "/"
   - title: "About"
     url: "/about"
-slug: "forbidden-error"
+slug: "unauthorized-error"
 ---
 
 ## Installation
 
-<ComponentPreview name="forbidden-error" />
+<ComponentPreview name="unauthorized-error" />
 
 <Tabs defaultValue="cli">
 
@@ -23,7 +23,7 @@ slug: "forbidden-error"
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add https://std-ui.vercel.app/registry/forbidden-error.json
+npx shadcn@latest add https://std-ui.vercel.app/registry/unauthorized-error.json
 ```
 
 </TabsContent>
@@ -33,10 +33,10 @@ npx shadcn@latest add https://std-ui.vercel.app/registry/forbidden-error.json
 ## Usage
 
 ```tsx
-import ForbiddenError from "@/components/ui/forbidden-error";
+import UnauthorizedError from "@/components/ui/unauthorized-error";
 ```
 
 <br />
 ```tsx
-<ForbiddenError/>
+<UnauthorizedError />
 ```

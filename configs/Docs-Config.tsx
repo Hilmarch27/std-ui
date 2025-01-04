@@ -13,21 +13,16 @@ export const docsConfig: DocsConfig = {
     },
   ],
   sidebarNav: [
-    // {
-    //   title: "Blocks",
-    //   items: [
-    //     {
-    //       title: "Sidebar-01",
-    //       href: "/docs/sidebar-01",
-    //       items: [],
-    //     },
-    //     {
-    //       title: "Sidebar-02",
-    //       href: "/docs/sidebar-02",
-    //       items: [],
-    //     },
-    //   ],
-    // },
+    {
+      title: "Blocks",
+      items: [
+        {
+          title: "Sidebar",
+          href: "/docs/sidebar",
+          items: [],
+        },
+      ],
+    },
     // {
     //   title: "Bento Grid",
     //   items: [
@@ -66,9 +61,34 @@ export const docsConfig: DocsConfig = {
           href: "/docs/vertical-list",
           items: [],
         },
+      ],
+    },
+    {
+      title: "Error Page",
+      items: [
         {
           title: "Forbidden Error",
           href: "/docs/forbidden-error",
+          items: [],
+        },
+        {
+          title: "General Error",
+          href: "/docs/general-error",
+          items: [],
+        },
+        {
+          title: "Maintenance Error",
+          href: "/docs/maintenance-error",
+          items: [],
+        },
+        {
+          title: "Not Found Error",
+          href: "/docs/not-found-error",
+          items: [],
+        },
+        {
+          title: "Unauthorized Error",
+          href: "/docs/unauthorized-error",
           items: [],
         },
       ],
