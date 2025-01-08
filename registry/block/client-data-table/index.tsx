@@ -69,6 +69,7 @@ export function DataTable<TData, TValue>({
       rowSelection,
       columnFilters,
     },
+    globalFilterFn: "includesString",
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,

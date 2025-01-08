@@ -79,20 +79,16 @@ export function ComponentPreview({
                 >
                   Preview
                 </TabsTrigger>
-                {files.map((file) => {
-                  return (
-                    <>
-                      <TabsTrigger
-                        key={file.path}
-                        value={file.path}
-                        className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-                      >
-                        {file.path.split("/").pop()}
-                      </TabsTrigger>
-                    </>
-                  );
-                })}
-                <ScrollBar orientation="horizontal"  className="h-1"/>
+                {files.map((file) => (
+                  <TabsTrigger
+                    key={file.path}
+                    value={file.path}
+                    className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+                  >
+                    {file.path.split("/").pop()}
+                  </TabsTrigger>
+                ))}
+                <ScrollBar orientation="horizontal" className="h-1" />
               </ScrollArea>
               {/* <TabsTrigger
                 value="preview"
@@ -153,26 +149,19 @@ export function ComponentPreview({
             </React.Suspense>
           </div>
         </TabsContent>
-        {files.map((file) => {
-          return (
-            <>
-              <TabsContent key={file.path} value={file.path}>
-                <div className="flex flex-col space-y-4">
-                  <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
-                    <pre
-                      className="text-sm text-muted-foreground"
-                      key={file.path}
-                    >
-                      <code className="block break-words text-wrap">
-                        {file.content}
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-              </TabsContent>
-            </>
-          );
-        })}
+        {files.map((file) => (
+          <TabsContent key={file.path} value={file.path}>
+            <div className="flex flex-col space-y-4">
+              <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
+                <pre className="text-sm text-muted-foreground">
+                  <code className="block break-words text-wrap">
+                    {file.content}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </TabsContent>
+        ))}
       </Tabs>
     </div>
   );
