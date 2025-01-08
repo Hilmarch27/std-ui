@@ -1,4 +1,16 @@
-import { Aperture, AudioWaveform, BadgeHelp, Ban, Bug, BugPlay, Check, CircleHelp, Command, Construction, X } from "lucide-react";
+import {
+  Aperture,
+  AudioWaveform,
+  BadgeHelp,
+  Ban,
+  Bug,
+  BugPlay,
+  Check,
+  CircleHelp,
+  Command,
+  Construction,
+  X,
+} from "lucide-react";
 import { type SidebarData } from "./types";
 
 export const sidebarData: SidebarData = {

@@ -1,5 +1,41 @@
 [
   {
+    "title": "Client Data Table",
+    "description": "Client Data Table",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "client-data-table",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 40
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const a={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:s,Tabs:t,TabsContent:c,TabsList:o,TabsTrigger:d}=a;return s||_missingMdxReference(\"ComponentPreview\",!0),t||_missingMdxReference(\"Tabs\",!0),c||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),d||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(a.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(s,{name:\"client-data-table\",shouldExpand:!0}),\"\\n\",n(t,{defaultValue:\"cli\",children:[l(o,{children:l(d,{value:\"cli\",children:\"CLI\"})}),l(c,{value:\"cli\",children:l(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(a.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(a.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(a.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(a.span,{style:{color:\"#CE9178\"},children:\"  https://std-ui.vercel.app/registry/client-data-table.json\"})]})})})})})]}),\"\\n\",l(a.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(a.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"columns\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(a.span,{style:{color:\"#CE9178\"},children:' \"@/components/block/client-data-table/columns\"'}),l(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]}),\"\\n\",n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"DataTable\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(a.span,{style:{color:\"#CE9178\"},children:' \"@/components/block/client-data-table\"'}),l(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]}),\"\\n\",n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"UserData\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(a.span,{style:{color:\"#CE9178\"},children:' \"./data/example\"'}),l(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})]})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(a.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(a.span,{\"data-line\":\"\",children:l(a.span,{style:{color:\"#808080\"},children:\"<>\"})}),\"\\n\",n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#808080\"},children:\"  <\"}),l(a.span,{style:{color:\"#4EC9B0\"},children:\"DataTable\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\" data\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"UserData\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\" columns\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"columns\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(a.span,{style:{color:\"#808080\"},children:\" />\"})]}),\"\\n\",l(a.span,{\"data-line\":\"\",children:l(a.span,{style:{color:\"#808080\"},children:\"</>\"})})]})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/client-data-table"
+  },
+  {
     "title": "Forbidden Error",
     "description": "Forbidden Error Page.",
     "published": true,

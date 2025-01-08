@@ -21,6 +21,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/sidebar",
           items: [],
         },
+        {
+          title: "Client Data Table",
+          href: "/docs/client-data-table",
+          items: [],
+        },
       ],
     },
     // {
