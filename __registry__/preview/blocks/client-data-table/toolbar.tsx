@@ -1,20 +1,34 @@
 "use client";
 
 import { Table } from "@tanstack/react-table";
-import { X } from "lucide-react";
+import { UserRoundPlus, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./view-options";
 import { DataTableFacetedFilter } from "./faceted-filter";
-import { Data } from "./data/data";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
+  facetedFilters?: {
+    column: string;
+    title: string;
+    options: {
+      label: string;
+      value: string;
+      icon?: React.ComponentType<{ className?: string }>;
+    }[];
+  }[];
+  create?: {
+    onClick: () => void; // onClick menjadi wajib (tidak ada ?)
+    label?: string; // label tetap optional
+  };
 }
 
 export function DataTableToolbar<TData>({
   table,
+  facetedFilters,
+  create,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
 
@@ -29,13 +43,15 @@ export function DataTableToolbar<TData>({
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("status") && (
+        {facetedFilters?.map((filter) => (
           <DataTableFacetedFilter
-            column={table.getColumn("status")}
-            title="Status"
-            options={Data.role}
+            key={filter.column}
+            column={table.getColumn(filter.column)}
+            title={filter.title}
+            options={filter.options}
           />
-        )}
+        ))}
+
         {isFiltered && (
           <Button
             variant="ghost"
@@ -47,7 +63,20 @@ export function DataTableToolbar<TData>({
           </Button>
         )}
       </div>
-      <DataTableViewOptions table={table} />
+      <div className="flex items-center space-x-2">
+        {create && (
+          <Button
+            onClick={create.onClick}
+            variant="outline"
+            size="sm"
+            className="h-8"
+          >
+            {create.label || "Tambah Data"} {/* Menggunakan default value */}
+            <UserRoundPlus className="ml-2 h-4 w-4" />
+          </Button>
+        )}
+        <DataTableViewOptions table={table} />
+      </div>
     </div>
   );
 }

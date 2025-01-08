@@ -29,15 +29,31 @@ import { DataTablePagination } from "./pagination";
 import { DataTableToolbar } from "./toolbar";
 import { UserData } from "./data/example";
 import { columns } from "./columns";
+import { Data } from "./data/data";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  facetedFilters?: {
+    column: string;
+    title: string;
+    options: {
+      label: string;
+      value: string;
+      icon?: React.ComponentType<{ className?: string }>;
+    }[];
+  }[];
+  create?: {
+    onClick: () => void;
+    label?: string;
+  };
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  facetedFilters,
+  create,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
@@ -71,7 +87,11 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} />
+      <DataTableToolbar
+        create={create}
+        table={table}
+        facetedFilters={facetedFilters}
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
@@ -131,7 +151,23 @@ export default function PreviewClientDataTable() {
   return (
     <>
       <div>
-        <DataTable data={UserData} columns={columns} />
+        <DataTable
+          facetedFilters={[
+            {
+              column: "role",
+              title: "Role",
+              options: Data.role, // Bisa menambahkan option lain di sini
+            },
+            // Bisa menambahkan filter lain di sini
+          ]}
+          create={{
+            onClick: () => {
+              console.log("create clicked");
+            },
+          }}
+          data={UserData}
+          columns={columns}
+        />
       </div>
     </>
   );

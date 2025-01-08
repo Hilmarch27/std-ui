@@ -31,11 +31,26 @@ import { DataTableToolbar } from "./toolbar";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  facetedFilters?: {
+    column: string;
+    title: string;
+    options: {
+      label: string;
+      value: string;
+      icon?: React.ComponentType<{ className?: string }>;
+    }[];
+  }[];
+  create?: {
+    onClick: () => void;
+    label?: string;
+  };
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  facetedFilters,
+  create,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
@@ -69,7 +84,11 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <DataTableToolbar table={table} />
+      <DataTableToolbar
+        create={create}
+        table={table}
+        facetedFilters={facetedFilters}
+      />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
