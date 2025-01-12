@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -13,7 +13,7 @@ function Index() {
 
   const onSubmit = (data: any) => {
     toast.success(
-      <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+      <pre className="w-[340px] rounded-md bg-slate-950 p-4">
         <code className="text-white">{JSON.stringify(data, null, 2)}</code>
       </pre>
     );

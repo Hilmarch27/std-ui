@@ -83,7 +83,7 @@ export function InputForm({
         return (
           <Input
             disabled={disabled}
-            className="w-full h-9"
+            className={cn("w-full h-9", className)}
             type={type}
             placeholder={placeholder}
             {...field}
@@ -98,7 +98,7 @@ export function InputForm({
         control={form.control}
         name={fields}
         render={({ field }) => (
-          <FormItem className={className}>
+          <FormItem>
             <Popover>
               <FormLabel>{placeholder}</FormLabel>
               <FormControl>{renderInputField(field)}</FormControl>
