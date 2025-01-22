@@ -1,6 +1,7 @@
 import React from "react";
 
 export const components = {
+  // ui preview
   hint: {
     name: "hint",
     type: "registry:ui",
@@ -30,6 +31,53 @@ export const components = {
       },
     ],
     component: React.lazy(() => import("./preview/ui/vertical-list")),
+  },
+  "input-password": {
+    name: "input-password",
+    type: "registry:ui",
+    registryDependencies: ["input", "button"],
+    dependencies: ["lucide-react"],
+    files: [
+      {
+        type: "registry:ui",
+        content:
+          '"use client";\r\n\r\nimport * as React from "react";\r\nimport { EyeIcon, EyeOffIcon } from "lucide-react";\r\n\r\nimport { Button } from "@/components/ui/button";\r\nimport { Input } from "@/components/ui/input";\r\nimport { cn } from "@/lib/utils";\r\n\r\nconst InputPassword = React.forwardRef<\r\n  HTMLInputElement,\r\n  React.ComponentProps<"input">\r\n>(({ className, ...props }, ref) => {\r\n  const [showPassword, setShowPassword] = React.useState(false);\r\n  const disabled =\r\n    props.value === "" || props.value === undefined || props.disabled;\r\n\r\n  return (\r\n    <div className="relative">\r\n      <Input\r\n        type={showPassword ? "text" : "password"}\r\n        className={cn("hide-password-toggle pr-10", className)}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n      <Button\r\n        type="button"\r\n        variant="ghost"\r\n        size="sm"\r\n        className="absolute right-0 top-1 h-full px-3 py-2 hover:bg-transparent"\r\n        onClick={() => setShowPassword((prev) => !prev)}\r\n        disabled={disabled}\r\n      >\r\n        {showPassword && !disabled ? (\r\n          <EyeIcon className="h-4 w-4" aria-hidden="true" />\r\n        ) : (\r\n          <EyeOffIcon className="h-4 w-4" aria-hidden="true" />\r\n        )}\r\n        <span className="sr-only">\r\n          {showPassword ? "Hide password" : "Show password"}\r\n        </span>\r\n      </Button>\r\n\r\n      {/* hides browsers password toggles */}\r\n      <style>{`\r\n\t\t\t\t\t.hide-password-toggle::-ms-reveal,\r\n\t\t\t\t\t.hide-password-toggle::-ms-clear {\r\n\t\t\t\t\t\tvisibility: hidden;\r\n\t\t\t\t\t\tpointer-events: none;\r\n\t\t\t\t\t\tdisplay: none;\r\n\t\t\t\t\t}\r\n\t\t\t\t`}</style>\r\n    </div>\r\n  );\r\n});\r\nInputPassword.displayName = "InputPassword";\r\n\r\nexport { InputPassword };\r\n',
+        path: "ui/input-password.tsx",
+        target: "components/ui/input-password.tsx",
+      },
+    ],
+    component: React.lazy(() => import("./preview/ui/input-password")),
+  },
+  // blocks preview
+  login: {
+    name: "login",
+    type: "registry:block",
+    registryDependencies: [
+      "form",
+      "card",
+      "button",
+      "input",
+      "sonner",
+      "https://std-ui.vercel.app/registry/hint.json",
+    ],
+    dependencies: ["zod", "@hookform/resolvers", "react-hook-form"],
+    files: [
+      {
+        type: "registry:block",
+        content:
+          '"use client";\r\n\r\nimport {\r\n  Card,\r\n  CardContent,\r\n  CardDescription,\r\n  CardHeader,\r\n  CardTitle,\r\n} from "@/components/ui/card";\r\nimport LoginForm from "./form";\r\n\r\nexport default function Login() {\r\n  return (\r\n    <div className="flex flex-col min-h-[50vh] h-full w-full items-center justify-center px-4">\r\n      <Card className="mx-auto max-w-sm">\r\n        <CardHeader>\r\n          <CardTitle className="text-2xl">Login</CardTitle>\r\n          <CardDescription>\r\n            Enter your email and password to login to your account.\r\n          </CardDescription>\r\n        </CardHeader>\r\n        <CardContent>\r\n          <LoginForm />\r\n          <div className="mt-4 text-center text-sm">\r\n            Don&apos;t have an account?{" "}\r\n            <a href="#" className="underline">\r\n              Sign up\r\n            </a>\r\n          </div>\r\n        </CardContent>\r\n      </Card>\r\n    </div>\r\n  );\r\n}\r\n',
+        path: "block/login/index.tsx",
+        target: "components/block/login/index.tsx",
+      },
+      {
+        type: "registry:block",
+        content:
+          'import React from "react";\r\nimport { z } from "zod";\r\nimport { zodResolver } from "@hookform/resolvers/zod";\r\nimport { useForm } from "react-hook-form";\r\nimport { toast } from "sonner";\r\nimport { Input } from "@/components/ui/input";\r\nimport { InputPassword } from "@/components/ui/input-password";\r\nimport {\r\n  Form,\r\n  FormControl,\r\n  FormField,\r\n  FormItem,\r\n  FormLabel,\r\n  FormMessage,\r\n} from "@/components/ui/form";\r\nimport { Button } from "@/components/ui/button";\r\n\r\n// Improved schema with additional validation rules\r\nconst formSchema = z.object({\r\n  email: z.string().email({ message: "Invalid email address" }),\r\n  password: z\r\n    .string()\r\n    .min(6, { message: "Password must be at least 6 characters long" })\r\n    .regex(/[a-zA-Z0-9]/, { message: "Password must be alphanumeric" }),\r\n});\r\n\r\nfunction LoginForm() {\r\n  const form = useForm<z.infer<typeof formSchema>>({\r\n    resolver: zodResolver(formSchema),\r\n    defaultValues: {\r\n      email: "",\r\n      password: "",\r\n    },\r\n  });\r\n\r\n  async function onSubmit(values: z.infer<typeof formSchema>) {\r\n    try {\r\n      // Assuming an async login function\r\n      console.log(values);\r\n      toast(\r\n        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">\r\n          <code className="text-white">{JSON.stringify(values, null, 2)}</code>\r\n        </pre>\r\n      );\r\n    } catch (error) {\r\n      console.error("Form submission error", error);\r\n      toast.error("Failed to submit the form. Please try again.");\r\n    }\r\n  }\r\n\r\n  return (\r\n    <Form {...form}>\r\n      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">\r\n        <div className="grid gap-4">\r\n          <FormField\r\n            control={form.control}\r\n            name="email"\r\n            render={({ field }) => (\r\n              <FormItem className="grid gap-2">\r\n                <FormLabel htmlFor="email">Email</FormLabel>\r\n                <FormControl>\r\n                  <Input\r\n                    id="email"\r\n                    placeholder="hilmarch03 @mail.com"\r\n                    type="email"\r\n                    autoComplete="email"\r\n                    {...field}\r\n                  />\r\n                </FormControl>\r\n                <FormMessage />\r\n              </FormItem>\r\n            )}\r\n          />\r\n          <FormField\r\n            control={form.control}\r\n            name="password"\r\n            render={({ field }) => (\r\n              <FormItem className="grid gap-2">\r\n                <div className="flex justify-between items-center">\r\n                  <FormLabel htmlFor="password">Password</FormLabel>\r\n                  <a\r\n                    href="#"\r\n                    className="ml-auto inline-block text-sm underline"\r\n                  >\r\n                    Forgot your password?\r\n                  </a>\r\n                </div>\r\n                <FormControl>\r\n                  <InputPassword\r\n                    id="password"\r\n                    placeholder="******"\r\n                    autoComplete="current-password"\r\n                    {...field}\r\n                  />\r\n                </FormControl>\r\n                <FormMessage />\r\n              </FormItem>\r\n            )}\r\n          />\r\n          <Button type="submit" className="w-full">\r\n            Login\r\n          </Button>\r\n          <Button variant="outline" className="w-full">\r\n            Login with Google\r\n          </Button>\r\n        </div>\r\n      </form>\r\n    </Form>\r\n  );\r\n}\r\n\r\nexport default LoginForm;\r\n',
+        path: "block/login/form.tsx",
+        target: "components/block/login/form.tsx",
+      },
+    ],
+    component: React.lazy(() => import("./preview/blocks/login")),
   },
   sidebar: {
     name: "sidebar",
@@ -185,8 +233,11 @@ export const components = {
         target: "components/block/client-data-table/view-options.tsx",
       },
     ],
-    component: React.lazy(() => import("./preview/blocks/client-data-table/index")),
+    component: React.lazy(
+      () => import("./preview/blocks/client-data-table/index")
+    ),
   },
+  // pages preview
   "forbidden-error": {
     name: "forbidden-error",
     type: "registry:ui",

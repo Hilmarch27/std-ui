@@ -1,10 +1,15 @@
-import React from 'react'
+"use client";
+import Login from "@/registry/block/login";
+import React from "react";
 
 function Index() {
+
+
   return (
-    <div className='h-svh flex items-center justify-center'>
+    <div>
+      <Login/>
     </div>
-  )
+  );
 }
 
-export default Index
+export default Index;
