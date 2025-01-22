@@ -1,6 +1,7 @@
 import { Registry } from "./schema";
 
 export const ui: Registry = [
+  // ui registry
   {
     name: "hint",
     type: "registry:ui",
@@ -12,6 +13,28 @@ export const ui: Registry = [
     type: "registry:ui",
     dependencies: ["@radix-ui/react-slot"],
     files: ["ui/vertical-list.tsx"],
+  },
+  {
+    name: "input-password",
+    type: "registry:ui",
+    registryDependencies: ["input", "button"],
+    dependencies: ["lucide-react"],
+    files: ["ui/input-password.tsx"],
+  },
+  // blocks registry
+  {
+    name: "login",
+    type: "registry:block",
+    registryDependencies: [
+      "form",
+      "card",
+      "button",
+      "input",
+      "sonner",
+      "https://std-ui.vercel.app/registry/input-password.json",
+    ],
+    dependencies: ["zod", "@hookform/resolvers", "react-hook-form"],
+    files: ["block/login/index.tsx", "block/login/form.tsx"],
   },
   {
     name: "sidebar",
@@ -65,6 +88,7 @@ export const ui: Registry = [
       "block/client-data-table/view-options.tsx",
     ],
   },
+  // pages registry
   {
     name: "forbidden-error",
     type: "registry:ui",

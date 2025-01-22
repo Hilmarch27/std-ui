@@ -26,6 +26,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/client-data-table",
           items: [],
         },
+        {
+          title: "Login",
+          href: "/docs/login",
+          items: [],
+        },
       ],
     },
     // {
@@ -64,6 +69,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Vertical List",
           href: "/docs/vertical-list",
+          items: [],
+        },
+        {
+          title: "Input Password",
+          href: "/docs/input-password",
           items: [],
         },
       ],
