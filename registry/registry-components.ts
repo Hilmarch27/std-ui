@@ -14,12 +14,31 @@ export const ui: Registry = [
     dependencies: ["@radix-ui/react-slot"],
     files: ["ui/vertical-list.tsx"],
   },
+  // ui input
   {
     name: "input-password",
     type: "registry:ui",
     registryDependencies: ["input", "button"],
     dependencies: ["lucide-react"],
     files: ["ui/input-password.tsx"],
+  },
+  {
+    name: "input-phone",
+    type: "registry:ui",
+    registryDependencies: ["input"],
+    files: ["ui/input-phone.tsx"],
+  },
+  {
+    name: "input-currency",
+    type: "registry:ui",
+    registryDependencies: ["input"],
+    files: ["ui/input-currency.tsx"],
+  },
+  {
+    name: "input-number",
+    type: "registry:ui",
+    registryDependencies: ["input"],
+    files: ["ui/input-number.tsx"],
   },
   // blocks registry
   {

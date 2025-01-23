@@ -71,9 +71,29 @@ export const docsConfig: DocsConfig = {
           href: "/docs/vertical-list",
           items: [],
         },
+      ],
+    },
+    {
+      title: "Input",
+      items: [
         {
           title: "Input Password",
           href: "/docs/input-password",
+          items: [],
+        },
+        {
+          title: "Input Number",
+          href: "/docs/input-number",
+          items: [],
+        },
+        {
+          title: "Input Currency",
+          href: "/docs/input-currency",
+          items: [],
+        },
+        {
+          title: "Input Phone",
+          href: "/docs/input-phone",
           items: [],
         },
       ],
