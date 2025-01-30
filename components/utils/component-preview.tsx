@@ -8,6 +8,7 @@ import { components } from "@/__registry__";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import { CodeBlock } from "./code-block";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   name: keyof typeof components;
@@ -49,20 +50,6 @@ export function ComponentPreview({
     return <Component />;
   }, [name]);
 
-  // const Code = React.useMemo(() => {
-  //   return (
-  //     <pre className="text-sm text-muted-foreground">
-  //       {files.map((file) => {
-  //         return (
-  //           <code className="block" key={file.path}>
-  //             {file.content}
-  //           </code>
-  //         )
-  //       })}
-  //     </pre>
-  //   )
-  // }, [files])
-
   return (
     <div
       className={cn("group relative my-4 flex flex-col space-y-2", className)}
@@ -90,18 +77,6 @@ export function ComponentPreview({
                 ))}
                 <ScrollBar orientation="horizontal" className="h-1" />
               </ScrollArea>
-              {/* <TabsTrigger
-                value="preview"
-                className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-              >
-                Preview
-              </TabsTrigger>
-              <TabsTrigger
-                value="code"
-                className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-              >
-                Code
-              </TabsTrigger> */}
             </TabsList>
           )}
         </div>
@@ -153,11 +128,7 @@ export function ComponentPreview({
           <TabsContent key={file.path} value={file.path}>
             <div className="flex flex-col space-y-4">
               <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
-                <pre className="text-sm text-muted-foreground">
-                  <code className="block break-words text-wrap">
-                    {file.content}
-                  </code>
-                </pre>
+                <CodeBlock code={file.content} />
               </div>
             </div>
           </TabsContent>
