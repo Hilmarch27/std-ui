@@ -52,10 +52,10 @@ export function EditableCell<TData>({
   const [validationMessage, setValidationMessage] = useState("");
 
   useEffect(() => {
-    if (tableMeta?.editedRows![row.id]) {
+    if (tableMeta?.editedRows[row.id]) {
       validateInput(initialValue);
     }
-  }, [tableMeta?.editedRows![row.id]]);
+  }, [tableMeta?.editedRows[row.id]]);
 
   useEffect(() => {
     if (validationMessage) {
@@ -94,7 +94,7 @@ export function EditableCell<TData>({
 
   useEffect(() => {
     setValue(initialValue);
-    if (tableMeta?.editedRows![row.id]) {
+    if (tableMeta?.editedRows[row.id]) {
       validateInput(initialValue);
     }
   }, [initialValue]);
@@ -120,7 +120,7 @@ export function EditableCell<TData>({
     }
 
     setValidationMessage(message);
-    tableMeta?.updateData!(row.index, column.id, inputValue, message === "");
+    tableMeta?.updateData(row.index, column.id, inputValue, message === "");
     return message === "";
   };
 
@@ -202,7 +202,7 @@ export function EditableCell<TData>({
     }
   };
 
-  if (!tableMeta?.editedRows![row.id]) {
+  if (!tableMeta?.editedRows[row.id]) {
     return <span className="w-auto">{value}</span>;
   }
 
@@ -252,11 +252,13 @@ const ComboboxField = ({
                 {options.map((option) => (
                   <CommandItem
                     key={option.value}
-                    value={option.value}
+                    value={option.label} // Search by label
                     onSelect={(currentValue) => {
-                      const newValue =
-                        currentValue === value ? "" : currentValue;
-                      onChange(newValue);
+                      // Find the option with the matching label and save its value
+                      const selectedOption = options.find(
+                        (opt) => opt.label === currentValue
+                      );
+                      onChange(selectedOption ? selectedOption.value : "");
                     }}
                   >
                     {option.label}

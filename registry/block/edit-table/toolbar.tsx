@@ -29,7 +29,7 @@ export function EditableToolbar<TData>({
   const selectedRows = table.getSelectedRowModel().rows;
 
   const removeRows = () => {
-    meta?.removeSelectedRows!(
+    meta?.removeSelectedRows(
       table.getSelectedRowModel().rows.map((row) => row.index)
     );
     table.resetRowSelection();

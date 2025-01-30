@@ -27,9 +27,9 @@ export function EditedCell<TData>({
   title,
 }: EditedCellProps<TData>) {
   const meta = table.options.meta;
-  const validRow = meta?.validRows![row.id];
+  const validRow = meta?.validRows[row.id];
   const removeRow = () => {
-    meta?.removeRow!(row.index);
+    meta?.removeRow(row.index);
   };
 
   const disableSubmit = validRow
@@ -38,16 +38,16 @@ export function EditedCell<TData>({
 
   const handleAction = useCallback(
     (action: "edit" | "cancel" | "done") => {
-      meta?.setEditedRows!((old: Record<string, boolean>) => ({
+      meta?.setEditedRows((old: Record<string, boolean>) => ({
         ...old,
         [row.id]: action === "edit" ? true : false,
       }));
 
       if (action !== "edit") {
         if (action === "cancel") {
-          meta?.revertData!(row.index);
+          meta?.revertData(row.index);
         } else {
-          meta?.updateRow!(row.index);
+          meta?.updateRow(row.index);
         }
       }
     },
@@ -66,7 +66,7 @@ export function EditedCell<TData>({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
         event.preventDefault();
-        if (meta?.editedRows![row.id] && !disableSubmit) {
+        if (meta?.editedRows[row.id] && !disableSubmit) {
           handleAction("done");
         }
       }
@@ -79,7 +79,7 @@ export function EditedCell<TData>({
     };
   }, [handleAction, row.id, meta?.editedRows, disableSubmit]);
 
-  return meta?.editedRows![row.id] ? (
+  return meta?.editedRows[row.id] ? (
     <div className="flex items-center gap-2">
       <Hint delay={500} content="Batal?">
         <Button size={"icon"} onClick={setEditedRows} name="cancel">
