@@ -1,0 +1,136 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "error-page",
+      "type": "registry:component",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/section/error-page/forbidden-error.tsx",
+          "type": "registry:component",
+          "target": "components/section/forbidden-error.tsx"
+        },
+        {
+          "path": "registry/section/error-page/general-error.tsx",
+          "type": "registry:component",
+          "target": "components/section/general-error.tsx"
+        },
+        {
+          "path": "registry/section/error-page/maintenance-error.tsx",
+          "type": "registry:component",
+          "target": "components/section/maintenance-error.tsx"
+        },
+        {
+          "path": "registry/section/error-page/not-found-error.tsx",
+          "type": "registry:component",
+          "target": "components/section/not-found-error.tsx"
+        },
+        {
+          "path": "registry/section/error-page/unauthorized-error.tsx",
+          "type": "registry:component",
+          "target": "components/section/unauthorized-error.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-currency",
+      "type": "registry:ui",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "registry/ui/input/input-currency.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-currency.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-number",
+      "type": "registry:ui",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "registry/ui/input/input-number.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-number.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-password",
+      "type": "registry:ui",
+      "registryDependencies": ["input", "button"],
+      "files": [
+        {
+          "path": "registry/ui/input/input-password.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-password.tsx"
+        }
+      ]
+    },
+    {
+      "name": "input-phone",
+      "type": "registry:ui",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "registry/ui/input/input-phone.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/input-phone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hint",
+      "type": "registry:component",
+      "registryDependencies": ["tooltip"],
+      "files": [
+        {
+          "path": "registry/extension/hint.tsx",
+          "type": "registry:component",
+          "target": "components/extension/hint.tsx"
+        }
+      ]
+    },
+    {
+      "name": "vertical-list",
+      "type": "registry:component",
+      "dependencies": ["@radix-ui/react-slot"],
+      "files": [
+        {
+          "path": "registry/extension/vertical-list.tsx",
+          "type": "registry:component",
+          "target": "components/extension/vertical-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "type": "registry:component",
+      "registryDependencies": [
+        "form",
+        "card",
+        "button",
+        "input",
+        "sonner",
+        "https://std-ui.vercel.app/registry/input-password"
+      ],
+      "dependencies": ["zod", "@hookform/resolvers", "react-hook-form"],
+      "files": [
+        {
+          "path": "registry/block/login/form.tsx",
+          "type": "registry:component",
+          "target": "components/block/login/form.tsx"
+        },
+        {
+          "path": "registry/block/login/index.tsx",
+          "type": "registry:component",
+          "target": "components/block/login/index.tsx"
+        }
+      ]
+    }
+  ]
+}

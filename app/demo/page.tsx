@@ -1,13 +1,13 @@
 "use client";
-import Login from "@/registry/block/login";
 import React from "react";
+import ContentForm from "./_components/content-editor";
 
 function Index() {
 
 
   return (
     <div>
-      <Login/>
+      <ContentForm />
     </div>
   );
 }

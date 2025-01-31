@@ -1,0 +1,15 @@
+{
+  "name": "input-number",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "\"use client\";\r\n\r\nimport type React from \"react\";\r\nimport { forwardRef } from \"react\";\r\nimport { Input } from \"@/components/ui/input\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport interface InputNumberProps\r\n  extends Omit<\r\n    React.InputHTMLAttributes<HTMLInputElement>,\r\n    \"onChange\" | \"value\"\r\n  > {\r\n  onChange?: (value: string) => void;\r\n  value?: string;\r\n}\r\n\r\nconst InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(\r\n  ({ className, onChange, value = \"\", ...props }, ref) => {\r\n    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\r\n      const newValue = event.target.value.replace(/[^\\d]/g, \"\");\r\n      onChange?.(newValue);\r\n    };\r\n\r\n    return (\r\n      <Input\r\n        {...props}\r\n        ref={ref}\r\n        type=\"text\"\r\n        inputMode=\"numeric\"\r\n        pattern=\"[0-9]*\"\r\n        className={cn(\"font-mono\", className)}\r\n        value={value}\r\n        onChange={handleChange}\r\n      />\r\n    );\r\n  }\r\n);\r\nInputNumber.displayName = \"InputNumber\";\r\n\r\nexport { InputNumber };\r\n",
+      "path": "ui/input-number.tsx",
+      "target": "components/ui/input-number.tsx"
+    }
+  ]
+}

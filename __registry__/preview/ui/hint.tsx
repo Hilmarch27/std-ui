@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Hint } from "@/registry/ui/hint";
+import { Hint } from "@/registry/extension/hint";
 
 const HintPreview = () => {
   return (
