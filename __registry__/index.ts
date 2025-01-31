@@ -32,6 +32,7 @@ export const components = {
     ],
     component: React.lazy(() => import("./preview/ui/vertical-list")),
   },
+  // ui input
   "input-password": {
     name: "input-password",
     type: "registry:ui",
@@ -41,12 +42,57 @@ export const components = {
       {
         type: "registry:ui",
         content:
-          '"use client";\r\n\r\nimport * as React from "react";\r\nimport { EyeIcon, EyeOffIcon } from "lucide-react";\r\n\r\nimport { Button } from "@/components/ui/button";\r\nimport { Input } from "@/components/ui/input";\r\nimport { cn } from "@/lib/utils";\r\n\r\nconst InputPassword = React.forwardRef<\r\n  HTMLInputElement,\r\n  React.ComponentProps<"input">\r\n>(({ className, ...props }, ref) => {\r\n  const [showPassword, setShowPassword] = React.useState(false);\r\n  const disabled =\r\n    props.value === "" || props.value === undefined || props.disabled;\r\n\r\n  return (\r\n    <div className="relative">\r\n      <Input\r\n        type={showPassword ? "text" : "password"}\r\n        className={cn("hide-password-toggle pr-10", className)}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n      <Button\r\n        type="button"\r\n        variant="ghost"\r\n        size="sm"\r\n        className="absolute right-0 top-1 h-full px-3 py-2 hover:bg-transparent"\r\n        onClick={() => setShowPassword((prev) => !prev)}\r\n        disabled={disabled}\r\n      >\r\n        {showPassword && !disabled ? (\r\n          <EyeIcon className="h-4 w-4" aria-hidden="true" />\r\n        ) : (\r\n          <EyeOffIcon className="h-4 w-4" aria-hidden="true" />\r\n        )}\r\n        <span className="sr-only">\r\n          {showPassword ? "Hide password" : "Show password"}\r\n        </span>\r\n      </Button>\r\n\r\n      {/* hides browsers password toggles */}\r\n      <style>{`\r\n\t\t\t\t\t.hide-password-toggle::-ms-reveal,\r\n\t\t\t\t\t.hide-password-toggle::-ms-clear {\r\n\t\t\t\t\t\tvisibility: hidden;\r\n\t\t\t\t\t\tpointer-events: none;\r\n\t\t\t\t\t\tdisplay: none;\r\n\t\t\t\t\t}\r\n\t\t\t\t`}</style>\r\n    </div>\r\n  );\r\n});\r\nInputPassword.displayName = "InputPassword";\r\n\r\nexport { InputPassword };\r\n',
+          '"use client";\r\n\r\nimport * as React from "react";\r\nimport { EyeIcon, EyeOffIcon } from "lucide-react";\r\n\r\nimport { Button } from "@/components/ui/button";\r\nimport { Input } from "@/components/ui/input";\r\nimport { cn } from "@/lib/utils";\r\n\r\nconst InputPassword = React.forwardRef<\r\n  HTMLInputElement,\r\n  React.ComponentProps<"input">\r\n>(({ className, ...props }, ref) => {\r\n  const [showPassword, setShowPassword] = React.useState(false);\r\n  const disabled =\r\n    props.value === "" || props.value === undefined || props.disabled;\r\n\r\n  return (\r\n    <div className="relative">\r\n      <Input\r\n        type={showPassword ? "text" : "password"}\r\n        className={cn("hide-password-toggle pr-10", className)}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n      <Button\r\n        type="button"\r\n        variant="ghost"\r\n        size="sm"\r\n        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"\r\n        onClick={() => setShowPassword((prev) => !prev)}\r\n        disabled={disabled}\r\n      >\r\n        {showPassword && !disabled ? (\r\n          <EyeIcon className="h-4 w-4" aria-hidden="true" />\r\n        ) : (\r\n          <EyeOffIcon className="h-4 w-4" aria-hidden="true" />\r\n        )}\r\n        <span className="sr-only">\r\n          {showPassword ? "Hide password" : "Show password"}\r\n        </span>\r\n      </Button>\r\n\r\n      {/* hides browsers password toggles */}\r\n      <style>{`\r\n\t\t\t\t\t.hide-password-toggle::-ms-reveal,\r\n\t\t\t\t\t.hide-password-toggle::-ms-clear {\r\n\t\t\t\t\t\tvisibility: hidden;\r\n\t\t\t\t\t\tpointer-events: none;\r\n\t\t\t\t\t\tdisplay: none;\r\n\t\t\t\t\t}\r\n\t\t\t\t`}</style>\r\n    </div>\r\n  );\r\n});\r\nInputPassword.displayName = "InputPassword";\r\n\r\nexport { InputPassword };\r\n',
         path: "ui/input-password.tsx",
         target: "components/ui/input-password.tsx",
       },
     ],
     component: React.lazy(() => import("./preview/ui/input-password")),
+  },
+  "input-number": {
+    name: "input-number",
+    type: "registry:ui",
+    registryDependencies: ["input"],
+    files: [
+      {
+        type: "registry:ui",
+        content:
+          '"use client";\r\n\r\nimport type React from "react";\r\nimport { forwardRef } from "react";\r\nimport { Input } from "@/components/ui/input";\r\nimport { cn } from "@/lib/utils";\r\n\r\nexport interface InputNumberProps\r\n  extends Omit<\r\n    React.InputHTMLAttributes<HTMLInputElement>,\r\n    "onChange" | "value"\r\n  > {\r\n  onChange?: (value: string) => void;\r\n  value?: string;\r\n}\r\n\r\nconst InputNumber = forwardRef<HTMLInputElement, InputNumberProps>(\r\n  ({ className, onChange, value = "", ...props }, ref) => {\r\n    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\r\n      const newValue = event.target.value.replace(/[^\\d]/g, "");\r\n      onChange?.(newValue);\r\n    };\r\n\r\n    return (\r\n      <Input\r\n        {...props}\r\n        ref={ref}\r\n        type="text"\r\n        inputMode="numeric"\r\n        pattern="[0-9]*"\r\n        className={cn("font-mono", className)}\r\n        value={value}\r\n        onChange={handleChange}\r\n      />\r\n    );\r\n  }\r\n);\r\nInputNumber.displayName = "InputNumber";\r\n\r\nexport { InputNumber };\r\n',
+        path: "ui/input-number.tsx",
+        target: "components/ui/input-number.tsx",
+      },
+    ],
+    component: React.lazy(() => import("./preview/ui/input-number")),
+  },
+  "input-currency": {
+    name: "input-currency",
+    type: "registry:ui",
+    registryDependencies: ["input"],
+    files: [
+      {
+        type: "registry:ui",
+        content:
+          '"use client";\r\n\r\nimport type React from "react";\r\nimport { forwardRef, useEffect, useState } from "react";\r\nimport { Input } from "@/components/ui/input";\r\nimport { cn } from "@/lib/utils";\r\n\r\nexport interface InputCurrencyProps\r\n  extends Omit<\r\n    React.InputHTMLAttributes<HTMLInputElement>,\r\n    "onChange" | "value"\r\n  > {\r\n  onChange?: (value: string) => void;\r\n  value?: string;\r\n  currency?: string;\r\n  locale?: string;\r\n}\r\n\r\nconst InputCurrency = forwardRef<HTMLInputElement, InputCurrencyProps>(\r\n  (\r\n    {\r\n      className,\r\n      onChange,\r\n      value = "",\r\n      currency = "IDR",\r\n      locale = "id-ID",\r\n      ...props\r\n    },\r\n    ref\r\n  ) => {\r\n    const [displayValue, setDisplayValue] = useState(value);\r\n\r\n    const formatCurrency = (value: string) => {\r\n      const number = Number.parseInt(value.replace(/\\D/g, ""));\r\n      if (isNaN(number)) return "";\r\n\r\n      return new Intl.NumberFormat(locale, {\r\n        style: "currency",\r\n        currency: currency,\r\n        minimumFractionDigits: 0,\r\n        maximumFractionDigits: 0,\r\n      }).format(number);\r\n    };\r\n\r\n    useEffect(() => {\r\n      setDisplayValue(formatCurrency(value));\r\n    }, [value, currency, locale]);\r\n\r\n    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\r\n      const rawValue = event.target.value.replace(/\\D/g, "");\r\n      setDisplayValue(formatCurrency(rawValue));\r\n      onChange?.(rawValue);\r\n    };\r\n\r\n    return (\r\n      <Input\r\n        {...props}\r\n        ref={ref}\r\n        className={cn("font-mono", className)}\r\n        value={displayValue}\r\n        onChange={handleChange}\r\n      />\r\n    );\r\n  }\r\n);\r\n\r\nInputCurrency.displayName = "InputCurrency";\r\n\r\nexport { InputCurrency };\r\n',
+        path: "ui/input-currency.tsx",
+        target: "components/ui/input-currency.tsx",
+      },
+    ],
+    component: React.lazy(() => import("./preview/ui/input-currency")),
+  },
+  "input-phone": {
+    name: "input-phone",
+    type: "registry:ui",
+    registryDependencies: ["input"],
+    files: [
+      {
+        type: "registry:ui",
+        content:
+          '"use client";\r\n\r\nimport type React from "react";\r\nimport { forwardRef, useState } from "react";\r\nimport { Input } from "@/components/ui/input";\r\nimport { cn } from "@/lib/utils";\r\n\r\nexport interface InputPhoneProps\r\n  extends Omit<\r\n    React.InputHTMLAttributes<HTMLInputElement>,\r\n    "onChange" | "value"\r\n  > {\r\n  onChange?: (value: string) => void;\r\n  value?: string;\r\n  countryCode?: string;\r\n}\r\n\r\nconst InputPhone = forwardRef<HTMLInputElement, InputPhoneProps>(\r\n  ({ className, onChange, value = "", countryCode = "62", ...props }, ref) => {\r\n    const [rawValue, setRawValue] = useState(value.replace(/\\D/g, ""));\r\n\r\n    const formatPhoneNumber = (input: string) => {\r\n      if (!input) return "";\r\n\r\n      const cleaned = input.replace(/\\D/g, "");\r\n      let formatted = cleaned.replace(/^0+/, "");\r\n\r\n      if (formatted.length > 0) {\r\n        if (!formatted.startsWith(countryCode)) {\r\n          formatted = countryCode + formatted;\r\n        }\r\n\r\n        formatted =\r\n          `+${countryCode} ` +\r\n          formatted\r\n            .slice(countryCode.length)\r\n            .replace(/(\\d{3})(\\d{4})(\\d{4})/, "$1 $2 $3");\r\n      }\r\n\r\n      return formatted.trim();\r\n    };\r\n\r\n    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\r\n      const inputValue = event.target.value\r\n        .replace(/\\D/g, "")\r\n        .replace(/^0+/, "");\r\n\r\n      setRawValue(inputValue);\r\n      onChange?.(inputValue);\r\n    };\r\n\r\n    return (\r\n      <Input\r\n        {...props}\r\n        ref={ref}\r\n        type="tel"\r\n        className={cn("font-mono", className)}\r\n        value={formatPhoneNumber(rawValue)}\r\n        onChange={handleChange}\r\n        placeholder={`+${countryCode} 812 3456 7890`}\r\n      />\r\n    );\r\n  }\r\n);\r\nInputPhone.displayName = "InputPhone";\r\n\r\nexport { InputPhone };\r\n',
+        path: "ui/input-phone.tsx",
+        target: "components/ui/input-phone.tsx",
+      },
+    ],
+    component: React.lazy(() => import("./preview/ui/input-phone")),
   },
   // blocks preview
   login: {
@@ -58,14 +104,14 @@ export const components = {
       "button",
       "input",
       "sonner",
-      "https://std-ui.vercel.app/registry/hint.json",
+      "https://std-ui.vercel.app/registry/input-password.json",
     ],
     dependencies: ["zod", "@hookform/resolvers", "react-hook-form"],
     files: [
       {
         type: "registry:block",
         content:
-          '"use client";\r\n\r\nimport {\r\n  Card,\r\n  CardContent,\r\n  CardDescription,\r\n  CardHeader,\r\n  CardTitle,\r\n} from "@/components/ui/card";\r\nimport LoginForm from "./form";\r\n\r\nexport default function Login() {\r\n  return (\r\n    <div className="flex flex-col min-h-[50vh] h-full w-full items-center justify-center px-4">\r\n      <Card className="mx-auto max-w-sm">\r\n        <CardHeader>\r\n          <CardTitle className="text-2xl">Login</CardTitle>\r\n          <CardDescription>\r\n            Enter your email and password to login to your account.\r\n          </CardDescription>\r\n        </CardHeader>\r\n        <CardContent>\r\n          <LoginForm />\r\n          <div className="mt-4 text-center text-sm">\r\n            Don&apos;t have an account?{" "}\r\n            <a href="#" className="underline">\r\n              Sign up\r\n            </a>\r\n          </div>\r\n        </CardContent>\r\n      </Card>\r\n    </div>\r\n  );\r\n}\r\n',
+          '"use client";\r\n\r\nimport {\r\n  Card,\r\n  CardContent,\r\n  CardDescription,\r\n  CardHeader,\r\n  CardTitle,\r\n} from "@/components/ui/card";\r\nimport LoginForm from "./form";\r\n\r\nexport default function Login() {\r\n  return (\r\n    <div className="flex flex-col min-h-svh h-full w-full items-center justify-center px-4">\r\n      <Card className="mx-auto max-w-sm">\r\n        <CardHeader>\r\n          <CardTitle className="text-2xl">Login</CardTitle>\r\n          <CardDescription>\r\n            Enter your email and password to login to your account.\r\n          </CardDescription>\r\n        </CardHeader>\r\n        <CardContent>\r\n          <LoginForm />\r\n          <div className="mt-4 text-center text-sm">\r\n            Don&apos;t have an account?{" "}\r\n            <a href="#" className="underline">\r\n              Sign up\r\n            </a>\r\n          </div>\r\n        </CardContent>\r\n      </Card>\r\n    </div>\r\n  );\r\n}\r\n',
         path: "block/login/index.tsx",
         target: "components/block/login/index.tsx",
       },

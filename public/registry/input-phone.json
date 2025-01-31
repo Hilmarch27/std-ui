@@ -1,0 +1,15 @@
+{
+  "name": "input-phone",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "input"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "\"use client\";\r\n\r\nimport type React from \"react\";\r\nimport { forwardRef, useState } from \"react\";\r\nimport { Input } from \"@/components/ui/input\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport interface InputPhoneProps\r\n  extends Omit<\r\n    React.InputHTMLAttributes<HTMLInputElement>,\r\n    \"onChange\" | \"value\"\r\n  > {\r\n  onChange?: (value: string) => void;\r\n  value?: string;\r\n  countryCode?: string;\r\n}\r\n\r\nconst InputPhone = forwardRef<HTMLInputElement, InputPhoneProps>(\r\n  ({ className, onChange, value = \"\", countryCode = \"62\", ...props }, ref) => {\r\n    const [rawValue, setRawValue] = useState(value.replace(/\\D/g, \"\"));\r\n\r\n    const formatPhoneNumber = (input: string) => {\r\n      if (!input) return \"\";\r\n\r\n      const cleaned = input.replace(/\\D/g, \"\");\r\n      let formatted = cleaned.replace(/^0+/, \"\");\r\n\r\n      if (formatted.length > 0) {\r\n        if (!formatted.startsWith(countryCode)) {\r\n          formatted = countryCode + formatted;\r\n        }\r\n\r\n        formatted =\r\n          `+${countryCode} ` +\r\n          formatted\r\n            .slice(countryCode.length)\r\n            .replace(/(\\d{3})(\\d{4})(\\d{4})/, \"$1 $2 $3\");\r\n      }\r\n\r\n      return formatted.trim();\r\n    };\r\n\r\n    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {\r\n      const inputValue = event.target.value\r\n        .replace(/\\D/g, \"\")\r\n        .replace(/^0+/, \"\");\r\n\r\n      setRawValue(inputValue);\r\n      onChange?.(inputValue);\r\n    };\r\n\r\n    return (\r\n      <Input\r\n        {...props}\r\n        ref={ref}\r\n        type=\"tel\"\r\n        className={cn(\"font-mono\", className)}\r\n        value={formatPhoneNumber(rawValue)}\r\n        onChange={handleChange}\r\n        placeholder={`+${countryCode} 812 3456 7890`}\r\n      />\r\n    );\r\n  }\r\n);\r\nInputPhone.displayName = \"InputPhone\";\r\n\r\nexport { InputPhone };\r\n",
+      "path": "ui/input-phone.tsx",
+      "target": "components/ui/input-phone.tsx"
+    }
+  ]
+}
