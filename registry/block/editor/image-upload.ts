@@ -2,6 +2,8 @@ import { createImageUpload } from "novel";
 import { toast } from "sonner";
 
 const onUpload = (file: File) => {
+  // ** Upload to Vercel Blob Store or any other cloud storage **//
+
   const promise = fetch("/api/upload", {
     method: "POST",
     headers: {
