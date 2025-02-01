@@ -1,13 +1,3 @@
-export interface Student {
-  id: string;
-  studentNumber: string;
-  name: string;
-  dateOfBirth: string;
-  major: string;
-  createdAt: string;
-}
-
-// types.ts
 import "@tanstack/react-table";
 import { ColumnDef, Row, RowData } from "@tanstack/react-table";
 

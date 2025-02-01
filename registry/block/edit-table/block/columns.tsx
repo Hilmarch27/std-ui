@@ -1,9 +1,9 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { Student } from "./types";
 import { EditableColumnHeader } from "./column-header";
 import { EditedCell } from "./row-action";
 import { EditableCell } from "./editable-cell";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Student } from "@/registry/block/edit-table/lib/table-example";
 
 export const columns: ColumnDef<Student>[] = [
   {
@@ -61,7 +61,7 @@ export const columns: ColumnDef<Student>[] = [
     header: ({ column }) => (
       <EditableColumnHeader column={column} title="Date Of Birth" />
     ),
-     cell: ({ column, getValue, row, table }) => (
+    cell: ({ column, getValue, row, table }) => (
       <EditableCell
         column={column}
         getValue={getValue}
@@ -80,7 +80,7 @@ export const columns: ColumnDef<Student>[] = [
     header: ({ column }) => (
       <EditableColumnHeader column={column} title="Major" />
     ),
-     cell: ({ column, getValue, row, table }) => (
+    cell: ({ column, getValue, row, table }) => (
       <EditableCell
         column={column}
         getValue={getValue}

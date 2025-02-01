@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Student } from "./types";
+import { Student } from "@/registry/block/edit-table/lib/table-example";
 
 const url = "http://localhost:5000/students";
 
@@ -47,7 +47,6 @@ async function getRequest() {
 
   return sortedData;
 }
-
 
 export default function useStudents() {
   const queryClient = useQueryClient();

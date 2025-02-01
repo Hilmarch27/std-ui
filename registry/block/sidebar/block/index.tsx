@@ -10,7 +10,7 @@ import {
 import { NavGroup } from "./nav-group";
 import { NavUser } from "./nav-user";
 import { TeamSwitcher } from "./team-switcher";
-import { sidebarData } from "./data-sidebar";
+import { sidebarData } from "@/registry/block/sidebar/lib/data-sidebar";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (

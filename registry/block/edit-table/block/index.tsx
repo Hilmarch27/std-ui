@@ -10,9 +10,11 @@ import { flexRender } from "@tanstack/react-table";
 import React from "react";
 import { EditableToolbar } from "./toolbar";
 import { EditablePagination } from "./pagination";
-import { BaseData, EdiTableProps } from "./types";
-import { useEditable } from "./use-editable";
-
+import {
+  BaseData,
+  EdiTableProps,
+} from "@/registry/block/edit-table/lib/type-table";
+import { useEditable } from "@/registry/block/edit-table/hook/use-editable";
 
 export function Editable<TData extends BaseData, TValue>({
   columns,

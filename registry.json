@@ -108,6 +108,29 @@
       ]
     },
     {
+      "name": "floating-input",
+      "type": "registry:component",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": ["label"],
+      "files": [
+        {
+          "path": "registry/extension/floating-input/index.tsx",
+          "type": "registry:component",
+          "target": "components/extension/floating-input/index.tsx"
+        },
+        {
+          "path": "registry/extension/floating-input/floating-input.tsx",
+          "type": "registry:component",
+          "target": "components/extension/floating-input/floating-input.tsx"
+        },
+        {
+          "path": "registry/extension/floating-input/floating-label.tsx",
+          "type": "registry:component",
+          "target": "components/extension/floating-input/floating-label.tsx"
+        }
+      ]
+    },
+    {
       "name": "login",
       "type": "registry:component",
       "registryDependencies": [
@@ -129,6 +152,217 @@
           "path": "registry/block/login/index.tsx",
           "type": "registry:component",
           "target": "components/block/login/index.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:block",
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "collapsible",
+        "badge",
+        "input",
+        "dropdown-menu",
+        "avatar"
+      ],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "registry/block/sidebar/block/index.tsx",
+          "type": "registry:block",
+          "target": "components/block/sidebar/index.tsx"
+        },
+        {
+          "path": "registry/block/sidebar/lib/data-sidebar.ts",
+          "type": "registry:lib",
+          "target": "lib/data/data-sidebar.ts"
+        },
+        {
+          "path": "registry/block/sidebar/lib/type-sidebar.ts",
+          "type": "registry:lib",
+          "target": "lib/type/type-sidebar.ts"
+        },
+        {
+          "path": "registry/block/sidebar/block/nav-group.tsx",
+          "type": "registry:block",
+          "target": "components/block/sidebar/nav-group.tsx"
+        },
+        {
+          "path": "registry/block/sidebar/block/nav-user.tsx",
+          "type": "registry:block",
+          "target": "components/block/sidebar/nav-user.tsx"
+        },
+        {
+          "path": "registry/block/sidebar/block/team-switcher.tsx",
+          "type": "registry:block",
+          "target": "components/block/sidebar/team-switcher.tsx"
+        }
+      ]
+    },
+    {
+      "name": "editable",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "dropdown-menu",
+        "checkbox",
+        "badge",
+        "command",
+        "popover",
+        "separator",
+        "select",
+        "alert-dialog",
+        "input",
+        "sonner",
+        "https://std-ui.vercel.app/registry/hint"
+      ],
+      "dependencies": [
+        "lucide-react",
+        "@tanstack/react-table",
+        "zod",
+        "sonner",
+        "@tanstack/react-query"
+      ],
+      "files": [
+        {
+          "path": "registry/block/edit-table/lib/table-example.ts",
+          "type": "registry:lib",
+          "target": "lib/type/table-example.ts"
+        },
+        {
+          "path": "registry/block/edit-table/lib/type-table.d.ts",
+          "type": "registry:lib",
+          "target": "lib/type/table.d.ts"
+        },
+        {
+          "path": "registry/block/edit-table/hook/use-editable.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "registry/block/edit-table/hook/use-querry.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "registry/block/edit-table/block/column-header.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/column-header.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/columns.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/columns.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/editable-cell.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/editable-cell.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/faceted-filter.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/faceted-filter.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/index.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/index.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/pagination.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/pagination.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/row-action.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/row-action.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/toolbar.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/toolbar.tsx"
+        },
+        {
+          "path": "registry/block/edit-table/block/view-options.tsx",
+          "type": "registry:block",
+          "target": "components/block/edit-table/view-options.tsx"
+        }
+      ]
+    },
+    {
+      "name": "novel-editor",
+      "type": "registry:block",
+      "registryDependencies": ["card", "badge", "sonner", "button", "popover"],
+      "dependencies": [
+        "novel@^1.0.2",
+        "@tiptap/extension-text-align",
+        "lowlight",
+        "lucide-react",
+        "@radix-ui/react-popover"
+      ],
+      "files": [
+        {
+          "path": "registry/block/editor/editor-menu.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/editor-menu.tsx"
+        },
+        {
+          "path": "registry/block/editor/extensions.ts",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/extensions.ts"
+        },
+        {
+          "path": "registry/block/editor/image-upload.ts",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/image-upload.ts"
+        },
+        {
+          "path": "registry/block/editor/index.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/index.tsxs"
+        },
+        {
+          "path": "registry/block/editor/slash-command.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/slash-command.tsx"
+        },
+        {
+          "path": "registry/block/editor/selectors/color-selector.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/selectors/color-selector.tsx"
+        },
+        {
+          "path": "registry/block/editor/selectors/link-selector.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/selectors/link-selector.tsx"
+        },
+        {
+          "path": "registry/block/editor/selectors/math-selector.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/selectors/math-selector.tsx"
+        },
+        {
+          "path": "registry/block/editor/selectors/node-selector.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/selectors/node-selector.tsx"
+        },
+        {
+          "path": "registry/block/editor/selectors/text-align.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/selectors/text-align.tsx"
+        },
+        {
+          "path": "registry/block/editor/selectors/text-buttons.tsx",
+          "type": "registry:block",
+          "target": "components/block/novel-editor/selectors/text-buttons.tsx"
+        },
+        {
+          "path": "registry/block/editor/style/prosemirror.css",
+          "type": "registry:file",
+          "target": "styles/prosemirror.css"
         }
       ]
     }

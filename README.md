@@ -35,15 +35,15 @@ To set up this project locally, follow these steps:
 2. Add component:
 
    ```bash
-   npx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   npx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
    # or
-   pnpm dlx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   pnpm dlx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
    # or
-   yarn shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   yarn shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
    # or
-   bunx --bun shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   bunx --bun shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
    # or
-   denox shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>.json
+   denox shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
    # or
    ```
 

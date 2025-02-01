@@ -26,7 +26,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NavCollapsible, NavLink, type NavGroup } from "./types";
+import {
+  NavCollapsible,
+  NavLink,
+  type NavGroup,
+} from "@/registry/block/sidebar/lib/type-sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

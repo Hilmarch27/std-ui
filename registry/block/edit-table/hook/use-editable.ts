@@ -15,7 +15,7 @@ import {
   Row,
 } from "@tanstack/react-table";
 import React from "react";
-import { BaseData, PendingCreate } from "./types";
+import { BaseData, PendingCreate } from "@/registry/block/edit-table/lib/type-table";
 
 interface UseEditableProps<TData extends BaseData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -40,7 +40,6 @@ export function useEditable<TData extends BaseData, TValue>({
   removeRow,
   getRowCanExpand,
 }: UseEditableProps<TData, TValue>) {
-
   /**
    ** States
    */

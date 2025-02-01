@@ -104,7 +104,7 @@ export const components = {
       "button",
       "input",
       "sonner",
-      "https://std-ui.vercel.app/registry/input-password.json",
+      "https://std-ui.vercel.app/registry/input-password",
     ],
     dependencies: ["zod", "@hookform/resolvers", "react-hook-form"],
     files: [

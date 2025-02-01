@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "vertical-list",
+  "type": "registry:component",
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
+  "files": [
+    {
+      "path": "registry/extension/vertical-list.tsx",
+      "content": "import { Slot } from \"@radix-ui/react-slot\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\ntype Item = {\r\n  text: string;\r\n  subItems?: string[];\r\n  icon?: React.ReactNode;\r\n};\r\n\r\ninterface VerticalLineListProps {\r\n  items?: Item[];\r\n  className?: string;\r\n  asChild?: boolean;\r\n}\r\n\r\nexport function VerticalLineList({\r\n  items = [],\r\n  className,\r\n  asChild = false,\r\n}: VerticalLineListProps) {\r\n  const Comp = asChild ? Slot : \"ul\";\r\n\r\n  if (items.length === 0) {\r\n    return null;\r\n  }\r\n\r\n  return (\r\n    <Comp className={cn(\"relative\", className)}>\r\n      {items.map((item, index) => (\r\n        <li key={index} className=\"pl-8 relative\">\r\n          <div className=\"absolute left-0 top-[6px] w-4 h-4 bg-primary rounded-full z-10 flex items-center justify-center\">\r\n            {item.icon && (\r\n              <span className=\"text-white text-xs\">{item.icon}</span>\r\n            )}\r\n          </div>\r\n          {index < items.length - 1 && (\r\n            <div className=\"absolute left-2 top-2 h-[105%] bottom-0 w-0.5 bg-primary\"></div>\r\n          )}\r\n          <span className=\"text-primary font-medium text-lg\">{item.text}</span>\r\n          {item.subItems && item.subItems.length > 0 && (\r\n            <ul className=\"space-y-1\">\r\n              {item.subItems.map((subItem, subIndex) => (\r\n                <li key={subIndex} className=\"text-sm text-primary-foreground\">\r\n                  {subItem}\r\n                </li>\r\n              ))}\r\n            </ul>\r\n          )}\r\n        </li>\r\n      ))}\r\n    </Comp>\r\n  );\r\n}",
+      "type": "registry:component",
+      "target": "components/extension/vertical-list.tsx"
+    }
+  ]
+}
