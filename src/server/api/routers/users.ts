@@ -1,0 +1,54 @@
+import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
+import { searchParams, UserSchema } from "@/lib/schema/users";
+import { z } from "zod";
+
+export const userRouter = createTRPCRouter({
+  getManyUsers: publicProcedure
+    .input(searchParams)
+    .query(async ({ ctx, input }) => {
+      const { pageIndex, pageSize } = input;
+
+      const [users, count] = await Promise.all([
+        ctx.db.user.findMany({
+          orderBy: {
+            name: "desc",
+          },
+          skip: pageIndex * pageSize,
+          take: pageSize,
+        }),
+        ctx.db.user.count(),
+      ]);
+      return {
+        result: users ?? [],
+        rowCount: count,
+      };
+    }),
+
+  create: publicProcedure
+    .input(UserSchema.CREATE)
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.user.create({
+        data: input,
+      });
+    }),
+
+  update: publicProcedure
+    .input(UserSchema.UPDATE)
+    .mutation(async ({ ctx, input }) => {
+      const { id, ...data } = input; // Pisahkan id agar tidak ikut di-update
+      return ctx.db.user.update({
+        where: { id }, // Gunakan id untuk menentukan user yang diupdate
+        data, // Data yang akan diupdate
+      });
+    }),
+
+  delete: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.user.delete({
+        where: {
+          id: input.id,
+        },
+      });
+    }),
+});
