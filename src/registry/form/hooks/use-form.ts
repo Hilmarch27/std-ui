@@ -1,8 +1,6 @@
 import { createFormHookContexts, createFormHook } from "@tanstack/react-form";
-import { TextField } from "../extension/input-form";
-import { SubscribeButton } from "../extension/button-form";
+import { ComboboxField, SubscribeButton, TextField } from "@/registry/form/extension/form";
 
-// export useFieldContext for use in your custom components
 
 export const { fieldContext, useFieldContext, formContext, useFormContext } =
   createFormHookContexts();
@@ -10,6 +8,7 @@ export const { fieldContext, useFieldContext, formContext, useFormContext } =
 export const { useAppForm, withForm } = createFormHook({
   fieldComponents: {
     TextField,
+    ComboboxField,
   },
   formComponents: {
     SubscribeButton,
