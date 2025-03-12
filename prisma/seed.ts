@@ -1,4 +1,4 @@
-import { UserSchema } from "@/lib/schema/users";
+import { UserSchema } from "@/registry/blocks/data-table/lib/schema/table";
 import { faker } from "@faker-js/faker";
 import { db } from "@/server/db";
 

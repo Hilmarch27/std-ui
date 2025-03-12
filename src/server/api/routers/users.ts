@@ -1,20 +1,24 @@
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { searchParams, UserSchema } from "@/lib/schema/users";
+import {
+  searchParams,
+  UserSchema,
+} from "@/registry/blocks/data-table/lib/schema/table";
 import { z } from "zod";
 
 export const userRouter = createTRPCRouter({
   getManyUsers: publicProcedure
     .input(searchParams)
     .query(async ({ ctx, input }) => {
-      const { pageIndex, pageSize } = input;
+      const { page, perPage } = input;
 
+      const skip = (page - 1) * perPage;
       const [users, count] = await Promise.all([
         ctx.db.user.findMany({
           orderBy: {
             name: "desc",
           },
-          skip: pageIndex * pageSize,
-          take: pageSize,
+          skip: skip,
+          take: perPage,
         }),
         ctx.db.user.count(),
       ]);

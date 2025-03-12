@@ -1,4 +1,20 @@
+import {
+  createSearchParamsCache,
+  parseAsInteger,
+} from "nuqs/server";
 import { z, ZodType } from "zod";
+
+export interface SearchParams {
+  [key: string]: string | string[] | undefined;
+}
+
+export const searchParamsCache = createSearchParamsCache({
+  page: parseAsInteger.withDefault(1),
+  perPage: parseAsInteger.withDefault(10),
+});
+
+export type QuerySchema = Awaited<ReturnType<typeof searchParamsCache.parse>>;
+
 
 export class UserSchema {
   static readonly CREATE: ZodType = z.object({
@@ -18,6 +34,6 @@ export class UserSchema {
 }
 
 export const searchParams = z.object({
-  pageIndex: z.number().default(0),
-  pageSize: z.number().max(50).default(10),
+  page: z.number().default(1),
+  perPage: z.number().max(50).default(10),
 });

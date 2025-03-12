@@ -10,8 +10,12 @@ import { User } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { UserRoundPlus } from "lucide-react";
 import { keepPreviousData } from "@tanstack/react-query";
+import { useSearchParams } from "next/navigation";
 
 function TABLE_USER() {
+  const searchParams = useSearchParams();
+  console.log('searchParams incik boss',searchParams);
+
   const [data, setData] = React.useState<User[]>([]);
   const { data: originalData, isLoading } = api.users.getManyUsers.useQuery(
     {},
@@ -47,9 +51,10 @@ function TABLE_USER() {
     }
   }, [isLoading, originalData]);
 
+  // ? useDataTable
   const { table } = useDataTable({
     data: data ?? [],
-    pageCount: originalData?.rowCount ?? 0,
+    pageCount: originalData?.rowCount ?? -1,
     columns,
     originalData: originalData?.result ?? [],
     setData,
@@ -60,8 +65,8 @@ function TABLE_USER() {
         email: "",
         phone: "",
         image: "",
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       };
     },
     createRow(payload) {

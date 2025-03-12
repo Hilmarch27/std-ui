@@ -13,8 +13,11 @@ import {
   getSortedRowModel,
   useReactTable,
   Row,
+  PaginationState,
+  Updater,
 } from "@tanstack/react-table";
 import React from "react";
+import { type UseQueryStateOptions, parseAsInteger, useQueryState } from "nuqs";
 
 interface UseDataTableProps<TData extends { id: string }> {
   columns: ColumnDef<TData>[];
@@ -66,6 +69,12 @@ export function useDataTable<TData extends { id: string }>({
   } | null>(null);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
+  const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  const [perPage, setPerPage] = useQueryState(
+    "perPage",
+    parseAsInteger.withDefault(10)
+  );
+
   // * helper functions
   const initializeValidationState = () => {
     const validationState: Record<string, boolean> = {};
@@ -85,6 +94,23 @@ export function useDataTable<TData extends { id: string }>({
   const handleUpdate = (payload: TData) => {
     onUpdate!(payload);
   };
+
+  // * paginate
+  const pagination: PaginationState = {
+    pageIndex: page - 1, // zero-based index -> one-based index
+    pageSize: perPage,
+  };
+
+  function onPaginationChange(updaterOrValue: Updater<PaginationState>) {
+    if (typeof updaterOrValue === "function") {
+      const newPagination = updaterOrValue(pagination);
+      void setPage(newPagination.pageIndex + 1);
+      void setPerPage(newPagination.pageSize);
+    } else {
+      void setPage(updaterOrValue.pageIndex + 1);
+      void setPerPage(updaterOrValue.pageSize);
+    }
+  }
 
   // * editable functions
   const handleRevertData = (rowIndex: number) => {
@@ -189,6 +215,7 @@ export function useDataTable<TData extends { id: string }>({
     columns,
     pageCount,
     state: {
+      pagination,
       sorting,
       columnVisibility,
       rowSelection,
@@ -197,6 +224,7 @@ export function useDataTable<TData extends { id: string }>({
     },
     globalFilterFn: "includesString",
     enableRowSelection: true,
+    onPaginationChange,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
@@ -226,6 +254,7 @@ export function useDataTable<TData extends { id: string }>({
       removeRow: handleRemoveRow,
       removeSelectedRows: handleRemoveSelectedRows,
     },
+    manualPagination: true,
   });
 
   return { table };
