@@ -3,6 +3,7 @@
 import { Form } from "@/registry/form/extension/form";
 import { useAppForm } from "@/registry/form/hooks/use-form";
 import React from "react";
+import { z } from "zod";
 
 const OptLastName = [
   {
@@ -15,20 +16,27 @@ const OptLastName = [
   },
 ];
 
-function FORM() {
+const SchemaForm = z.object({
+  firstName: z.string().min(3, "First name must be at least 3 characters"),
+  lastName: z.string().min(1, "Last name must be at least 1 characters"),
+});
+
+function USER_FORM() {
   const form = useAppForm({
     defaultValues: {
       firstName: "",
       lastName: "",
     },
-    onSubmit: ({ value }) => {
+    validators: {
+      onChange: SchemaForm,
+    },
+    onSubmit: async ({ value }) => {
       console.log(value);
     },
   });
 
   return (
-    <Form onSubmit={form.handleSubmit}>
-      <form.AppForm>
+    <Form className="max-w-xs" onSubmit={form.handleSubmit}>
         <form.AppField
           name="firstName"
           children={(field) => <field.TextField label="First Name" />}
@@ -42,9 +50,8 @@ function FORM() {
         <form.AppForm>
           <form.SubscribeButton label="Submit" />
         </form.AppForm>
-      </form.AppForm>
     </Form>
   );
 }
 
-export default FORM;
+export default USER_FORM;

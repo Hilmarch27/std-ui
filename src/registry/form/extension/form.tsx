@@ -24,6 +24,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
+import { AnyFieldApi } from "@tanstack/react-form";
 
 type FormProps = Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit"> & {
   onSubmit?: () => Promise<void>;
@@ -49,10 +50,23 @@ function Form({ onSubmit, children, className, ...props }: FormProps) {
   );
 }
 
+// ? form display error
+function FieldInfo({ field }: { field: AnyFieldApi }) {
+  return (
+    <>
+      {field.state.meta.isTouched && field.state.meta.errors.length ? (
+        <em className="text-red-600">{field.state.meta.errors.map((err) => err.message).join(",")}</em>
+      ) : null}
+      {field.state.meta.isValidating ? "Validating..." : null}
+    </>
+  );
+}
+
+
+// ? form components
 type SubscribeButtonProps = React.ComponentProps<"button"> & {
   label: string;
 };
-
 function SubscribeButton({ label, className, ...props }: SubscribeButtonProps) {
   const form = useFormContext();
   return (
@@ -70,6 +84,7 @@ function SubscribeButton({ label, className, ...props }: SubscribeButtonProps) {
   );
 }
 
+// ? form field 
 type TextFieldProps = React.ComponentProps<"input"> & {
   label: string;
 };
@@ -92,6 +107,7 @@ function TextField({
         id={label}
         placeholder={placeholder}
       />
+      <FieldInfo field={field}/>
     </div>
   );
 }
@@ -112,18 +128,24 @@ function ComboboxField({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button
-          {...props}
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-full justify-between"
+        <div
+          className={cn("grid w-full max-w-sm items-center gap-1.5", className)}
         >
-          {field.state.value
-            ? options.find((opt) => opt.value === field.state.value)?.label
-            : `Select ${label.toLowerCase()}...`}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
+          <Label htmlFor={label}>{label}</Label>
+          <Button
+            {...props}
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-full justify-between"
+          >
+            {field.state.value
+              ? options.find((opt) => opt.value === field.state.value)?.label
+              : `Select ${label.toLowerCase()}...`}
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+          <FieldInfo field={field} />
+        </div>
       </PopoverTrigger>
       <PopoverContent className="w-auto max-w-3xs p-0">
         <Command>
@@ -161,4 +183,4 @@ function ComboboxField({
   );
 }
 
-export { Form, SubscribeButton, TextField, ComboboxField };
+export { Form, FieldInfo, SubscribeButton, TextField, ComboboxField };
