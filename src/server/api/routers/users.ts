@@ -10,7 +10,7 @@ export const userRouter = createTRPCRouter({
     .input(searchParams)
     .query(async ({ ctx, input }) => {
       const { page, perPage } = input;
-
+      console.log('page', {input})
       const skip = (page - 1) * perPage;
       const [users, count] = await Promise.all([
         ctx.db.user.findMany({

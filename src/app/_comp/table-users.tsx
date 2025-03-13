@@ -10,15 +10,12 @@ import { User } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { UserRoundPlus } from "lucide-react";
 import { keepPreviousData } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
+import { QuerySchema } from "@/registry/blocks/data-table/lib/schema/table";
 
-function TABLE_USER() {
-  const searchParams = useSearchParams();
-  console.log('searchParams incik boss',searchParams);
-
+function TABLE_USER({ query }: { query: QuerySchema }) {
   const [data, setData] = React.useState<User[]>([]);
   const { data: originalData, isLoading } = api.users.getManyUsers.useQuery(
-    {},
+    { ...query },
     { placeholderData: keepPreviousData }
   );
 

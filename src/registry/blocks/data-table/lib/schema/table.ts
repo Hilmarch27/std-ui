@@ -4,10 +4,6 @@ import {
 } from "nuqs/server";
 import { z, ZodType } from "zod";
 
-export interface SearchParams {
-  [key: string]: string | string[] | undefined;
-}
-
 export const searchParamsCache = createSearchParamsCache({
   page: parseAsInteger.withDefault(1),
   perPage: parseAsInteger.withDefault(10),

@@ -17,7 +17,7 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import React from "react";
-import { type UseQueryStateOptions, parseAsInteger, useQueryState } from "nuqs";
+import { parseAsInteger, useQueryState } from "nuqs";
 
 interface UseDataTableProps<TData extends { id: string }> {
   columns: ColumnDef<TData>[];
@@ -69,10 +69,15 @@ export function useDataTable<TData extends { id: string }>({
   } | null>(null);
   const [expanded, setExpanded] = React.useState<ExpandedState>({});
 
-  const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  const [page, setPage] = useQueryState(
+    "page",
+    parseAsInteger
+      .withDefault(1)
+      .withOptions({ shallow: false })
+  );
   const [perPage, setPerPage] = useQueryState(
     "perPage",
-    parseAsInteger.withDefault(10)
+    parseAsInteger.withDefault(10).withOptions({ shallow: false })
   );
 
   // * helper functions
