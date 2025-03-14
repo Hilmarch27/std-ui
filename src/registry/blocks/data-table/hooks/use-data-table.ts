@@ -56,6 +56,7 @@ export function useDataTable<TData extends { id: string }>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
+  
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [editedRows, setEditedRows] = React.useState<Record<string, boolean>>(
     {}

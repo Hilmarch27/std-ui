@@ -2,8 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import { TRPCReactProvider } from "@/trpc/react";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
+import Providers from "@/components/extension/providers";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -17,12 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={GeistSans.className}>
-        <TRPCReactProvider>
-          <NuqsAdapter>
-            {children}
-            <Toaster richColors position="bottom-right" />
-          </NuqsAdapter>
-        </TRPCReactProvider>
+        <Providers>
+          <TRPCReactProvider>{children}</TRPCReactProvider>
+        </Providers>
       </body>
     </html>
   );
