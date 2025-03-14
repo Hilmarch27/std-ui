@@ -3,7 +3,7 @@
 import { ModalProvider } from "@/registry/hooks/use-modal";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Toaster } from "@/components/ui/sonner";
-import { Modal } from "@/registry/ui/modal";
+import { Modals } from "@/registry/ui/modals";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +11,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       <NuqsAdapter>
         {children}
         <Toaster richColors position="bottom-right" />
-        <Modal />
+        <Modals />
       </NuqsAdapter>
     </ModalProvider>
   );

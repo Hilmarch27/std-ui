@@ -20,7 +20,7 @@ import React from "react";
 import { useMediaQuery } from "@/registry/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 
-export function Modal() {
+export function Modals() {
   const { isOpen, title, content, closeModal } = useModal();
 
   const isDesktop = useMediaQuery("(min-width: 768px)");
