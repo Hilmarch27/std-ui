@@ -13,7 +13,6 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
 } from "@/components/ui/drawer";
 import { useModal } from "@/registry/hooks/use-modal";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
@@ -21,7 +20,7 @@ import React from "react";
 import { useMediaQuery } from "@/registry/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 
-export const Modal: React.FC = () => {
+export function Modal() {
   const { isOpen, title, content, closeModal } = useModal();
 
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -72,6 +71,4 @@ export const Modal: React.FC = () => {
       </DrawerContent>
     </Drawer>
   );
-};
-
-export default Modal;
+}
