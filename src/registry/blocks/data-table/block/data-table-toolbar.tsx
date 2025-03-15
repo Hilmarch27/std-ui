@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./data-table-view-options";
 import { DataTableFacetedFilter } from "@/registry/blocks/data-table/block/data-table-faceted-filter";
 import { cn } from "@/lib/utils";
+import { DebouncedInput } from "@/registry/ui/debounce-input";
 
 interface DataTableToolbarProps<TData>
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -50,11 +51,11 @@ export function DataTableToolbar<TData>({
       {...props}
     >
       <div className="flex flex-1 items-center space-x-2">
-        <Input
-          placeholder="Filter tasks..."
-          value={global ?? ""}
-          onChange={(event) => table.setGlobalFilter(event.target.value)}
+        <DebouncedInput
           className="h-8 w-[150px] lg:w-[250px]"
+          value={global}
+          placeholder="Search..."
+          onChange={(value) => table.setGlobalFilter(value)}
         />
         {facetedFilters?.map((filter) => (
           <DataTableFacetedFilter
@@ -64,7 +65,6 @@ export function DataTableToolbar<TData>({
             options={filter.options}
           />
         ))}
-
         {isFiltered && (
           <Button
             variant="ghost"
@@ -75,7 +75,6 @@ export function DataTableToolbar<TData>({
             <X />
           </Button>
         )}
-
         {selectedRows.length > 0 && (
           <Button variant="destructive" size={"sm"} onClick={removeRows}>
             {`Delete ${selectedRows.length} Selected`}

@@ -17,7 +17,7 @@ import {
   Updater,
 } from "@tanstack/react-table";
 import React from "react";
-import { parseAsInteger, useQueryState } from "nuqs";
+import { parseAsInteger, parseAsString, useQueryState } from "nuqs";
 
 interface UseDataTableProps<TData extends { id: string }> {
   columns: ColumnDef<TData>[];
@@ -56,7 +56,7 @@ export function useDataTable<TData extends { id: string }>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
-  
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [editedRows, setEditedRows] = React.useState<Record<string, boolean>>(
     {}
@@ -72,13 +72,16 @@ export function useDataTable<TData extends { id: string }>({
 
   const [page, setPage] = useQueryState(
     "page",
-    parseAsInteger
-      .withDefault(1)
-      .withOptions({ shallow: false })
+    parseAsInteger.withDefault(1).withOptions({ shallow: false })
   );
   const [perPage, setPerPage] = useQueryState(
     "perPage",
     parseAsInteger.withDefault(10).withOptions({ shallow: false })
+  );
+
+  const [globalFilter, setGlobalFilter] = useQueryState(
+    "search",
+    parseAsString.withDefault("").withOptions({ shallow: false })
   );
 
   // * helper functions
@@ -227,12 +230,14 @@ export function useDataTable<TData extends { id: string }>({
       rowSelection,
       columnFilters,
       expanded,
+      globalFilter,
     },
     globalFilterFn: "includesString",
     enableRowSelection: true,
     onPaginationChange,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
+    onGlobalFilterChange: setGlobalFilter,
     onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
@@ -261,6 +266,8 @@ export function useDataTable<TData extends { id: string }>({
       removeSelectedRows: handleRemoveSelectedRows,
     },
     manualPagination: true,
+    manualFiltering: true,
+    debugTable: true,
   });
 
   return { table };

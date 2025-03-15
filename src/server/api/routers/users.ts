@@ -4,24 +4,55 @@ import {
   UserSchema,
 } from "@/registry/blocks/data-table/lib/schema/table";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 
 export const userRouter = createTRPCRouter({
   getManyUsers: publicProcedure
     .input(searchParams)
     .query(async ({ ctx, input }) => {
-      const { page, perPage } = input;
-      console.log('page', {input})
+      const { page, perPage, search } = input;
+
+      // Tentukan kondisi filter untuk pencarian
+      const where = search
+        ? {
+            OR: [
+              {
+                name: {
+                  contains: search,
+                  mode: Prisma.QueryMode.insensitive, // Gunakan enum QueryMode
+                },
+              },
+              {
+                email: {
+                  contains: search,
+                  mode: Prisma.QueryMode.insensitive, // Gunakan enum QueryMode
+                },
+              },
+              {
+                phone: {
+                  contains: search,
+                  mode: Prisma.QueryMode.insensitive, // Gunakan enum QueryMode
+                },
+              },
+            ],
+          }
+        : {};
+
       const skip = (page - 1) * perPage;
       const [users, count] = await Promise.all([
         ctx.db.user.findMany({
+          where,
           orderBy: {
             name: "desc",
           },
           skip: skip,
           take: perPage,
         }),
-        ctx.db.user.count(),
+        ctx.db.user.count({
+          where, // Gunakan filter yang sama untuk mendapatkan jumlah total yang sesuai
+        }),
       ]);
+
       return {
         result: users ?? [],
         rowCount: count,
