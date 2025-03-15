@@ -1,0 +1,45 @@
+---
+title: "Sidebar"
+description: "Sidebar"
+published: true
+links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+slug: "sidebar"
+---
+
+## Installation
+
+<ComponentPreview name="sidebar" shouldExpand={true} />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add  https://std-ui.vercel.app/registry/sidebar
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { AppSidebar } from "@/components/block/sidebar/app-sidebar";
+```
+
+<br />
+```tsx
+<SidebarProvider>
+  <AppSidebar />
+  <main>{/* your page content goes here */}</main>
+</SidebarProvider>
+```

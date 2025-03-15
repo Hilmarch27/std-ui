@@ -1,0 +1,77 @@
+---
+title: "Input Currency"
+description: "Input Currency"
+published: true
+links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+slug: "input-currency"
+---
+
+## Installation
+
+<ComponentPreview name="input-currency" />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://std-ui.vercel.app/registry/input-currency
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {InputCurrency} from "@/components/ui/input-currency";
+```
+
+<br />
+```tsx
+const Preview = () => {
+  const [currency, setCurrency] = useState("");
+  return (
+    <div className="flex flex-row space-x-3 items-center">
+      <InputCurrency
+        placeholder="Currency"
+        className="mt-2"
+        value={currency}
+        onChange={(value) => setCurrency(value)}
+      />
+
+      <Button
+        variant={"outline"}
+        className="mt-2"
+        onClick={() => alert(currency)}
+      >
+        Submit
+      </Button>
+    </div>
+  );
+};
+```
+
+### Adjust Currency Code
+
+You can adjust the Currency code with props
+
+<br />
+```tsx
+<InputCurrency
+  placeholder="Phone"
+  currency="EUR"
+  locale="de-DE"
+  value={phone}
+  onChange={(value) => setPhone(value)}
+/>
+```

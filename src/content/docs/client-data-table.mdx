@@ -1,0 +1,46 @@
+---
+title: "Client Data Table"
+description: "Client Data Table"
+published: true
+links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+slug: "client-data-table"
+---
+
+## Installation
+
+<ComponentPreview name="client-data-table" shouldExpand={true} />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add  https://std-ui.vercel.app/registry/client-data-table
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { columns } from "@/components/block/client-data-table/columns";
+import { DataTable } from "@/components/block/client-data-table";
+import { UserData } from "./data/example";
+```
+
+<br />
+```tsx
+<>
+  <DataTable data={UserData} columns={columns} />
+</>
+```

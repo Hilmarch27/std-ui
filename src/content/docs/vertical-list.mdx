@@ -1,0 +1,77 @@
+---
+title: "Vertical List"
+description: "A ul li element with line."
+published: true
+links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+slug: "vertical-list"
+---
+
+## Installation
+
+<ComponentPreview name="vertical-list" />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://std-ui.vercel.app/registry/vertical-list
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { VerticalLineList } from "@/components/ui/vertical-list";
+```
+
+<br />
+```tsx
+<VerticalLineList
+  items={[
+    {
+      text: "Step 1",
+      subItems: ["Substep 1"],
+      icon: <User size={12} />,
+    },
+    {
+      text: "Step 2",
+      subItems: ["Substep 1", "Substep 2"],
+      icon: <CheckIcon size={12} />,
+    },
+  ]}
+/>
+```
+
+## Examples
+
+### Without Icon and Sub Items
+
+You can adding icons by passing the `Icon JSX` prop. By default it is optional.
+
+<br />
+```tsx
+<VerticalLineList
+  items={[
+    {
+      text: "Step 1",
+      subItems: ["Substep 1"],
+    },
+    {
+      text: "Step 2",
+      subItems: ["Substep 1", "Substep 2"],
+    },
+  ]}
+/>
+```

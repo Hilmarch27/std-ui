@@ -1,0 +1,76 @@
+---
+title: "Input Phone"
+description: "Input Phone number with country code"
+published: true
+links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+slug: "input-phone"
+---
+
+## Installation
+
+<ComponentPreview name="input-phone" />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://std-ui.vercel.app/registry/input-phone
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {InputPhone} from "@/components/ui/input-phone";
+```
+
+<br />
+```tsx
+const Preview = () => {
+  const [phone, setPhone] = useState("");
+  return (
+    <div className="flex flex-row space-x-3 items-center">
+      <InputPhone
+        placeholder="Phone"
+        className="mt-2"
+        value={phone}
+        onChange={(value) => setPhone(value)}
+      />
+
+      <Button
+        variant={"outline"}
+        className="mt-2"
+        onClick={() => alert(phone)}
+      >
+        Submit
+      </Button>
+    </div>
+  );
+};
+```
+
+### Adjust Country Code
+
+You can adjust the country code with props
+
+<br />
+```tsx
+<InputPhone
+  placeholder="Phone"
+  countryCode="65"
+  value={phone}
+  onChange={(value) => setPhone(value)}
+/>
+```
