@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hello-world",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "./src/registry/ui/hello-world.tsx",
+      "content": "export function HelloWorld() {\n  return <h1>Hello World</h1>\n}\n",
+      "type": "registry:ui"
+    }
+  ]
+}

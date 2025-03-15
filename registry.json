@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "acme",
+  "homepage": "https://acme.com",
+  "items": [
+    {
+      "name": "hello-world",
+      "type": "registry:ui",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "./src/registry/ui/hello-world.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
