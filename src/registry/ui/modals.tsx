@@ -51,7 +51,7 @@ export function Modals() {
 
   return (
     <Drawer open={isOpen} onOpenChange={closeModal}>
-      <DrawerContent>
+      <DrawerContent className="max-h-[min(640px,80vh)]">
         <DrawerHeader className="text-left">
           <DrawerTitle>{title}</DrawerTitle>
           <VisuallyHidden>
@@ -63,12 +63,12 @@ export function Modals() {
         </div>
         <DrawerFooter>
           <DrawerClose asChild>
-            <Button size={"sm"} variant="outline">
+            <Button size={'sm'} variant="outline">
               Cancel
             </Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  );
+  )
 }
