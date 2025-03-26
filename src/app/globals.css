@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
@@ -203,4 +203,51 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* css tooltips */
+[d-title] {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Arrow for light mode */
+[d-title]::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 6px 0 6px;
+  border-style: solid;
+  border-color: var(--color-gray-700) transparent transparent transparent;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Tooltip content for light mode */
+[d-title]::after {
+  content: attr(d-title);
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%) translateY(-100%);
+  background: var(--color-gray-700);
+  text-align: center;
+  color: var(--color-primary);
+  padding: 4px 4px;
+  font-size: 12px;
+  min-width: 80px;
+  border-radius: 5px;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Show tooltip on hover */
+[d-title]:hover::after,
+[d-title]:hover::before {
+  opacity: 1;
 }
