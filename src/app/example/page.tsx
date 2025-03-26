@@ -18,7 +18,7 @@ function page() {
     <div className="grid gap-3.5">
       <DateTimePicker locale="id" label="Event Date and Time" value={selectedDateTime} onChange={setSelectedDateTime} />
       <FloatingInput value={name} onChange={(e) => setName(e.target.value)} id="name" label="name" />
-      <CustomFileInput id="file-upload" name="file" accept="image/*" onChange={handleFileChange} />
+      <CustomFileInput  id="file-upload" name="file" accept="image/*" onChange={handleFileChange} />
     </div>
   )
 }

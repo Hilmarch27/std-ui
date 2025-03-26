@@ -32,13 +32,11 @@ export function CustomFileInput({
     const selectedFiles = e.target.files ? Array.from(e.target.files) : null
     setFiles(selectedFiles)
 
-    // Clear previous preview
     if (preview) {
       URL.revokeObjectURL(preview)
       setPreview(null)
     }
 
-    // Generate preview for the first file if it's an image
     if (selectedFiles && selectedFiles.length > 0 && selectedFiles[0]?.type.startsWith('image/')) {
       const url = URL.createObjectURL(selectedFiles[0])
       setPreview(url)
@@ -71,6 +69,15 @@ export function CustomFileInput({
     setShowPreview((prev) => !prev)
   }
 
+  const truncateFileName = (fileName: string, maxLength: number) => {
+    if (fileName.length > maxLength) {
+      const extensionIndex = fileName.lastIndexOf('.')
+      const extension = fileName.substring(extensionIndex)
+      return `${fileName.substring(0, maxLength)}...${extension}`
+    }
+    return fileName
+  }
+
   return (
     <div className={cn('space-y-2', className)}>
       <div className="flex items-center">
@@ -89,21 +96,21 @@ export function CustomFileInput({
           <div
             className={`${
               files ? 'rounded-l-md' : 'rounded-md'
-            } flex items-center gap-2 p-2 border  bg-background text-sm`}
+            } flex items-center gap-2 p-2 border bg-background text-sm`}
           >
             <Upload className="h-4 w-4 text-muted-foreground" />
             <span className="text-muted-foreground truncate">
               {files && files.length > 0
                 ? multiple
                   ? `${files.length} files selected`
-                  : files[0]?.name
+                  : truncateFileName(files[0]?.name || '', 20) // Adjust `20` as needed
                 : 'Choose file...'}
             </span>
           </div>
         </div>
 
         {files && files.length > 0 && (
-          <div className="border border-l-0">
+          <div className="border border-l-0 rounded-r-md flex">
             <Button
               className="border-none rounded-none"
               type="button"
@@ -111,9 +118,9 @@ export function CustomFileInput({
               size="icon"
               onClick={togglePreview}
               disabled={!preview}
-              d-title="View file"
+              d-title="view file"
             >
-              <Eye className="h-4 w-4" />
+              <Eye size={16} />
               <span className="sr-only">View file</span>
             </Button>
             <Button
@@ -122,20 +129,19 @@ export function CustomFileInput({
               variant="outline"
               size="icon"
               onClick={handleDelete}
-              d-title="Delete file"
+              d-title="remove file"
             >
-              <Trash2 className="h-4 w-4" />
+              <Trash2 size={16} />
               <span className="sr-only">Delete file</span>
             </Button>
             <Button
-              className="border-none rounded-none"
+              className="border-none rounded-l-none rounded-r-md"
               type="button"
               variant="outline"
               size="icon"
-              onClick={handleDelete}
-              d-title="Simple Tooltip"
+              d-title="save file"
             >
-              <SendIcon className="h-4 w-4" />
+              <SendIcon size={16} />
               <span className="sr-only">Save file</span>
             </Button>
           </div>
@@ -156,7 +162,7 @@ export function CustomFileInput({
         <div className="text-xs text-muted-foreground">
           {files.map((file, index) => (
             <div key={index} className="flex items-center gap-2">
-              <span className="truncate">{file.name}</span>
+              <span className="truncate">{truncateFileName(file.name, 30)}</span>
               <span>({(file.size / 1024).toFixed(2)} KB)</span>
             </div>
           ))}
