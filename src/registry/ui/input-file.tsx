@@ -4,6 +4,7 @@ import { useState, useRef, type ChangeEvent } from 'react'
 import { Button } from '@/components/ui/button'
 import { Eye, SendIcon, Trash2, Upload } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useModal } from '../hooks/use-modal'
 
 interface CustomFileInputProps {
   id: string
@@ -25,8 +26,8 @@ export function CustomFileInput({
 }: CustomFileInputProps) {
   const [files, setFiles] = useState<File[] | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
-  const [showPreview, setShowPreview] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const { openModal, closeModal } = useModal()
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = e.target.files ? Array.from(e.target.files) : null
@@ -58,7 +59,7 @@ export function CustomFileInput({
 
     setFiles(null)
     setPreview(null)
-    setShowPreview(false)
+    closeModal()
 
     if (onChange) {
       onChange(null)
@@ -66,7 +67,7 @@ export function CustomFileInput({
   }
 
   const togglePreview = () => {
-    setShowPreview((prev) => !prev)
+    openModal('Preview', previewFile())
   }
 
   const truncateFileName = (fileName: string, maxLength: number) => {
@@ -76,6 +77,24 @@ export function CustomFileInput({
       return `${fileName.substring(0, maxLength)}...${extension}`
     }
     return fileName
+  }
+
+  function previewFile() {
+    return (
+      <div className="p-1.5 rounded-md bg-muted/20 grid gap-1.5">
+        <img src={preview || '/placeholder.svg'} alt="File preview" className="max-w-full object-contain mx-auto" />
+        {files && files.length > 0 && (
+          <div className="text-xs text-muted-foreground">
+            {files.map((file, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <span className="truncate">{truncateFileName(file.name, 30)}</span>
+                <span>({(file.size / 1024).toFixed(2)} KB)</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    )
   }
 
   return (
@@ -147,27 +166,6 @@ export function CustomFileInput({
           </div>
         )}
       </div>
-
-      {showPreview && preview && (
-        <div className="mt-2 border rounded-md p-2 bg-muted/20">
-          <img
-            src={preview || '/placeholder.svg'}
-            alt="File preview"
-            className="max-h-48 max-w-full object-contain mx-auto"
-          />
-        </div>
-      )}
-
-      {files && files.length > 0 && (
-        <div className="text-xs text-muted-foreground">
-          {files.map((file, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <span className="truncate">{truncateFileName(file.name, 30)}</span>
-              <span>({(file.size / 1024).toFixed(2)} KB)</span>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   )
 }

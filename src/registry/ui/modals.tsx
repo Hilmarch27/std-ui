@@ -41,7 +41,7 @@ export function Modals() {
               <DialogDescription>@Hilmarch</DialogDescription>
             </VisuallyHidden>
             <div className="overflow-y-auto">
-              <div className="px-6 pb-3 text-base">{content}</div>
+              <div className="p-6 text-base">{content}</div>
             </div>
           </DialogHeader>
         </DialogContent>
