@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { DocsConfig } from "@/configs/Docs-Config";
-import { SidebarNavItem } from "@/types/nav";
+import { DocsConfig } from "@/lib/configs/docs-config";
+import { SidebarNavItem } from "@/lib/types/nav";
 
 export interface DocsSidebarNavProps {
   config: DocsConfig;

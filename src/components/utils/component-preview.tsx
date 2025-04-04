@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { components } from "@/__registry__";
+import { components } from "~/__registry__";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
@@ -31,7 +31,6 @@ export function ComponentPreview({
 
   const files = components[name].files;
 
-  console.log("files", files);
   const Preview = React.useMemo(() => {
     const Component = components[name].component;
 
@@ -83,14 +82,14 @@ export function ComponentPreview({
         <TabsContent
           value="preview"
           className={cn(
-            !isExpanded && "h-[400px] overflow-hidden",
-            "relative rounded-md border"
+            !isExpanded && "max-h-[400px] overflow-hidden",
+            "relative rounded-md border xl:w-5xl"
           )}
         >
           {shouldExpand && (
             <>
               {!isExpanded && (
-                <div className="absolute bottom-0 right-0 left-0 w-full h-[200px] bg-gradient-to-t from-background to-transparent z-[19]"></div>
+                <div className="absolute bottom-0 right-0 left-0 w-full h-[200px] bg-gradient-to-t from-background to-transparent z-[19] pointer-events-none"></div>
               )}
               <Button
                 variant="outline"
@@ -125,7 +124,7 @@ export function ComponentPreview({
           </div>
         </TabsContent>
         {files.map((file) => (
-          <TabsContent key={file.path} value={file.path}>
+          <TabsContent className="xl:w-5xl" key={file.path} value={file.path}>
             <div className="flex flex-col space-y-4">
               <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
                 <CodeBlock code={file.content} />

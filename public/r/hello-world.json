@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "./src/registry/ui/hello-world.tsx",
-      "content": "export function HelloWorld() {\n  return <h1>Hello World</h1>\n}\n",
+      "content": "export function HelloWorld() {\r\n  return <h1>Hello World</h1>\r\n}\r\n",
       "type": "registry:ui"
     }
   ]

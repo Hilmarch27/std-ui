@@ -180,7 +180,7 @@ export default function Home() {
 
         <div className="flex flex-col sm:flex-row gap-3 mt-4">
           <Link
-            href="/docs/hint"
+            href="/docs/sidebar"
             className="bg-accent flex gap-1 items-center px-4 py-2 rounded-full text-sm hover:bg-accent/70"
           >
             Browse Components <ArrowTopRightIcon />

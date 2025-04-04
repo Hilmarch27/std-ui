@@ -53,6 +53,7 @@ const headingOptions = {
 }
 
 export default defineConfig({
+  root: 'src/content',
   collections: {
     documents: {
       name: 'Documents',

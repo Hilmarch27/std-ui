@@ -1,6 +1,7 @@
 @import 'tailwindcss';
-
-@plugin "tailwindcss-animate";
+@import './custom.css';
+@import './mdx.css';
+@import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -115,6 +116,10 @@
   --color-sidebar: var(--sidebar);
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-ripple: ripple 0.6s ease-out;
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  --height-fullscreen: calc(100svh - 56px);
+
   /*
  ---break--- 
  */
@@ -137,6 +142,27 @@
       height: 0;
     }
   }
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  @keyframes spotlight {
+    0% {
+      opacity: '0';
+      transform: 'translate(-72%, -62%) scale(0.5)';
+    }
+    100% {
+      opacity: '1';
+      transform: 'translate(-50%,-40%) scale(1)';
+    }
+  }
 }
 
 @layer base {
@@ -146,108 +172,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/*
- * Style default code block 
- */
-[data-rehype-pretty-code-figure] pre {
-  @apply px-0 rounded-md;
-}
-
-[data-rehype-pretty-code-figure] code {
-  @apply text-sm !leading-loose md:text-base;
-}
-
-[data-rehype-pretty-code-figure] code[data-line-numbers] {
-  counter-reset: line;
-}
-
-[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-  @apply mr-4 inline-block w-4 text-right text-gray-500;
-}
-
-[data-rehype-pretty-code-figure] [data-line] {
-  @apply border-l-2 border-l-transparent px-3;
-}
-
-[data-rehype-pretty-code-figure] [data-highlighted-line] {
-  background: rgba(200, 200, 255, 0.1);
-  @apply border-l-blue-400;
-}
-
-[data-rehype-pretty-code-figure] [data-highlighted-chars] {
-  @apply rounded bg-zinc-600/50;
-  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
-}
-
-[data-rehype-pretty-code-figure] [data-chars-id] {
-  @apply border-b-2 p-1 shadow-none;
-}
-
-/*
- * Custom scrollbar styling. Thanks @hilmarch03.
- */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
-  border-radius: 5px;
-}
-* {
-  scrollbar-width: thin;
-  scrollbar-color: hsl(var(--border)) transparent;
-}
-
-/* css tooltips */
-[d-title] {
-  position: relative;
-  cursor: pointer;
-}
-
-/* Arrow for light mode */
-[d-title]::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 4px 6px 0 6px;
-  border-style: solid;
-  border-color: var(--color-gray-700) transparent transparent transparent;
-  z-index: 99;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-/* Tooltip content for light mode */
-[d-title]::after {
-  content: attr(d-title);
-  position: absolute;
-  left: 50%;
-  top: -6px;
-  transform: translateX(-50%) translateY(-100%);
-  background: var(--color-gray-700);
-  text-align: center;
-  color: var(--color-primary);
-  padding: 4px 4px;
-  font-size: 12px;
-  min-width: 80px;
-  border-radius: 5px;
-  pointer-events: none;
-  z-index: 99;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-/* Show tooltip on hover */
-[d-title]:hover::after,
-[d-title]:hover::before {
-  opacity: 1;
 }

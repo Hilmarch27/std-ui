@@ -3,7 +3,7 @@
 
 import * as React from "react"
 
-import { Documents } from "@/.velite"
+import { Documents } from "~/.velite"
 import { cn } from "@/lib/utils"
 
 

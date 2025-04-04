@@ -1,1 +1,548 @@
-[]
+[
+  {
+    "title": "Client Data Table",
+    "description": "Client Data Table",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "client-data-table",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 39
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const a={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:s,Tabs:t,TabsContent:c,TabsList:o,TabsTrigger:d}=a;return s||_missingMdxReference(\"ComponentPreview\",!0),t||_missingMdxReference(\"Tabs\",!0),c||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),d||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(a.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(s,{name:\"client-data-table\",shouldExpand:!0}),\"\\n\",n(t,{defaultValue:\"cli\",children:[l(o,{children:l(d,{value:\"cli\",children:\"CLI\"})}),l(c,{value:\"cli\",children:l(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(a.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(a.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(a.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(a.span,{style:{color:\"#CE9178\"},children:\"  https://std-ui.vercel.app/registry/client-data-table\"})]})})})})})]}),\"\\n\",l(a.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(a.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"columns\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(a.span,{style:{color:\"#CE9178\"},children:' \"@/components/block/client-data-table/columns\"'}),l(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]}),\"\\n\",n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"DataTable\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(a.span,{style:{color:\"#CE9178\"},children:' \"@/components/block/client-data-table\"'}),l(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]}),\"\\n\",n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"UserData\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(a.span,{style:{color:\"#CE9178\"},children:' \"./data/example\"'}),l(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})]})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(a.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(a.span,{\"data-line\":\"\",children:l(a.span,{style:{color:\"#808080\"},children:\"<>\"})}),\"\\n\",n(a.span,{\"data-line\":\"\",children:[l(a.span,{style:{color:\"#808080\"},children:\"  <\"}),l(a.span,{style:{color:\"#4EC9B0\"},children:\"DataTable\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\" data\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"UserData\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\" columns\"}),l(a.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(a.span,{style:{color:\"#9CDCFE\"},children:\"columns\"}),l(a.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(a.span,{style:{color:\"#808080\"},children:\" />\"})]}),\"\\n\",l(a.span,{\"data-line\":\"\",children:l(a.span,{style:{color:\"#808080\"},children:\"</>\"})})]})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/client-data-table"
+  },
+  {
+    "title": "Forbidden Error",
+    "description": "Forbidden Error Page.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "forbidden-error",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 23
+    },
+    "content": "const{Fragment:e,jsx:r,jsxs:n}=arguments[0];function _createMdxContent(a){const t={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:d,Tabs:l,TabsContent:o,TabsList:s,TabsTrigger:i}=t;return d||_missingMdxReference(\"ComponentPreview\",!0),l||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),s||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[r(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",r(d,{name:\"forbidden-error\"}),\"\\n\",n(l,{defaultValue:\"cli\",children:[r(s,{children:r(i,{value:\"cli\",children:\"CLI\"})}),r(o,{value:\"cli\",children:r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/forbidden-error\"})]})})})})})]}),\"\\n\",r(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),r(t.span,{style:{color:\"#9CDCFE\"},children:\" ForbiddenError\"}),r(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),r(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/forbidden-error\"'}),r(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",r(\"br\",{}),\"\\n\",r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#808080\"},children:\"<\"}),r(t.span,{style:{color:\"#4EC9B0\"},children:\"ForbiddenError\"}),r(t.span,{style:{color:\"#808080\"},children:\"/>\"})]})})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?r(n,{...e,children:r(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,r){throw new Error(\"Expected \"+(r?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/forbidden-error"
+  },
+  {
+    "title": "General Error",
+    "description": "General Error Page.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "general-error",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 23
+    },
+    "content": "const{Fragment:e,jsx:r,jsxs:n}=arguments[0];function _createMdxContent(a){const t={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:l,Tabs:d,TabsContent:s,TabsList:o,TabsTrigger:i}=t;return l||_missingMdxReference(\"ComponentPreview\",!0),d||_missingMdxReference(\"Tabs\",!0),s||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[r(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",r(l,{name:\"general-error\"}),\"\\n\",n(d,{defaultValue:\"cli\",children:[r(o,{children:r(i,{value:\"cli\",children:\"CLI\"})}),r(s,{value:\"cli\",children:r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/general-error\"})]})})})})})]}),\"\\n\",r(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),r(t.span,{style:{color:\"#9CDCFE\"},children:\" GeneralError\"}),r(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),r(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/general-error\"'}),r(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",r(\"br\",{}),\"\\n\",r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#808080\"},children:\"<\"}),r(t.span,{style:{color:\"#4EC9B0\"},children:\"GeneralError\"}),r(t.span,{style:{color:\"#808080\"},children:\"/>\"})]})})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?r(n,{...e,children:r(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,r){throw new Error(\"Expected \"+(r?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/general-error"
+  },
+  {
+    "title": "Hint",
+    "description": "A popup tooltip that appears when you hover over an element.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      },
+      {
+        "title": "Examples",
+        "url": "#examples",
+        "items": [
+          {
+            "title": "Without Animations",
+            "url": "#without-animations",
+            "items": []
+          },
+          {
+            "title": "Adjust Bounce Effect",
+            "url": "#adjust-bounce-effect",
+            "items": []
+          },
+          {
+            "title": "Animation Entrance Direction",
+            "url": "#animation-entrance-direction",
+            "items": []
+          },
+          {
+            "title": "Disable The ToolTip",
+            "url": "#disable-the-tooltip",
+            "items": []
+          },
+          {
+            "title": "Delay The Hint",
+            "url": "#delay-the-hint",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "slug": "hint",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 172
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:l}=arguments[0];function _createMdxContent(r){const t={code:\"code\",figure:\"figure\",h2:\"h2\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:a,Tabs:o,TabsContent:c,TabsList:s,TabsTrigger:i}=t;return a||_missingMdxReference(\"ComponentPreview\",!0),o||_missingMdxReference(\"Tabs\",!0),c||_missingMdxReference(\"TabsContent\",!0),s||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),l(e,{children:[n(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(a,{name:\"hint\"}),\"\\n\",l(o,{defaultValue:\"cli\",children:[n(s,{children:n(i,{value:\"cli\",children:\"CLI\"})}),n(c,{value:\"cli\",children:n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/hint\"})]})})})})})]}),\"\\n\",n(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" Hint\"}),n(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),n(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/hint\"'}),n(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h2,{id:\"examples\",children:\"Examples\"}),\"\\n\",n(t.h3,{id:\"without-animations\",children:\"Without Animations\"}),\"\\n\",l(t.p,{children:[\"You can enable or disable the bounce effect by passing the \",n(t.code,{children:\"isAnimating\"}),\" prop. By default, the bounce effect is enabled.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" isAnimating\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{false}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"adjust-bounce-effect\",children:\"Adjust Bounce Effect\"}),\"\\n\",l(t.p,{children:[\"You can adjust the stiffness of the bounce effect by passing the \",n(t.code,{children:\"animationStiffness\"}),\" prop. The higher the value the more bouncy the effect will be.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" animationStiffness\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(t.span,{style:{color:\"#B5CEA8\"},children:\"100\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"animation-entrance-direction\",children:\"Animation Entrance Direction\"}),\"\\n\",l(t.p,{children:[\"You can adjust the direction of the bounce effect by passing the \",n(t.code,{children:\"animationFrom\"}),\" prop. By default, the bounce effect is from the top. You can set it to \",n(t.code,{children:\"left\"}),\", \",n(t.code,{children:\"right\"}),\", \",n(t.code,{children:\"top\"}),\", or \",n(t.code,{children:\"bottom\"}),\".\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" animationFrom\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"left\"'}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"disable-the-tooltip\",children:\"Disable The ToolTip\"}),\"\\n\",l(t.p,{children:[\"You can disable the tooltip by passing the \",n(t.code,{children:\"enabled\"}),\" prop. By default, the tooltip is enabled.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" enabled\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{false}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})}),\"\\n\",n(t.h3,{id:\"delay-the-hint\",children:\"Delay The Hint\"}),\"\\n\",l(t.p,{children:[\"You can delay the hint by passing the \",n(t.code,{children:\"delay\"}),\" prop. By default, the delay is 0.\"]}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" content\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#CE9178\"},children:'\"This is a hint\"'}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" delay\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(t.span,{style:{color:\"#B5CEA8\"},children:\"1000\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"  <\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"}),n(t.span,{style:{color:\"#D4D4D4\"},children:\"Hover me\"}),n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#569CD6\"},children:\"button\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"</\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Hint\"}),n(t.span,{style:{color:\"#808080\"},children:\">\"})]})]})})})]})}return{default:function(e={}){const{wrapper:l}=e.components||{};return l?n(l,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/hint"
+  },
+  {
+    "title": "Input Currency",
+    "description": "Input Currency",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "input-currency",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 70
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const c={code:\"code\",figure:\"figure\",h2:\"h2\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:s,Tabs:a,TabsContent:o,TabsList:d,TabsTrigger:t}=c;return s||_missingMdxReference(\"ComponentPreview\",!0),a||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),d||_missingMdxReference(\"TabsList\",!0),t||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(c.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(s,{name:\"input-currency\"}),\"\\n\",n(a,{defaultValue:\"cli\",children:[l(d,{children:l(t,{value:\"cli\",children:\"CLI\"})}),l(o,{value:\"cli\",children:l(c.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(c.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(c.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(c.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(c.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(c.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/input-currency\"})]})})})})})]}),\"\\n\",l(c.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(c.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(c.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(c.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\" {\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"InputCurrency\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"} \"}),l(c.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(c.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/input-currency\"'}),l(c.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(c.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(c.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(c.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#569CD6\"},children:\"const\"}),l(c.span,{style:{color:\"#DCDCAA\"},children:\" Preview\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\" = () \"}),l(c.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\" {\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#569CD6\"},children:\"  const\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(c.span,{style:{color:\"#4FC1FF\"},children:\"currency\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\", \"}),l(c.span,{style:{color:\"#4FC1FF\"},children:\"setCurrency\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"] = \"}),l(c.span,{style:{color:\"#DCDCAA\"},children:\"useState\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"\"'}),l(c.span,{style:{color:\"#D4D4D4\"},children:\");\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#C586C0\"},children:\"  return\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\" (\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#808080\"},children:\"    <\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\" className\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"flex flex-row space-x-3 items-center\"'}),l(c.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#808080\"},children:\"      <\"}),l(c.span,{style:{color:\"#4EC9B0\"},children:\"InputCurrency\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        placeholder\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"Currency\"'})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        value\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"currency\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        onChange\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\") \"}),l(c.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(c.span,{style:{color:\"#DCDCAA\"},children:\" setCurrency\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(c.span,{\"data-line\":\"\",children:l(c.span,{style:{color:\"#808080\"},children:\"      />\"})}),\"\\n\",l(c.span,{\"data-line\":\"\",children:\" \"}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#808080\"},children:\"      <\"}),l(c.span,{style:{color:\"#4EC9B0\"},children:\"Button\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        variant\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"outline\"'}),l(c.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"        onClick\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"() \"}),l(c.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(c.span,{style:{color:\"#DCDCAA\"},children:\" alert\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"currency\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(c.span,{\"data-line\":\"\",children:l(c.span,{style:{color:\"#808080\"},children:\"      >\"})}),\"\\n\",l(c.span,{\"data-line\":\"\",children:l(c.span,{style:{color:\"#D4D4D4\"},children:\"        Submit\"})}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#808080\"},children:\"      </\"}),l(c.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),l(c.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#808080\"},children:\"    </\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(c.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(c.span,{\"data-line\":\"\",children:l(c.span,{style:{color:\"#D4D4D4\"},children:\"  );\"})}),\"\\n\",l(c.span,{\"data-line\":\"\",children:l(c.span,{style:{color:\"#D4D4D4\"},children:\"};\"})})]})})}),\"\\n\",l(c.h3,{id:\"adjust-currency-code\",children:\"Adjust Currency Code\"}),\"\\n\",l(c.p,{children:\"You can adjust the Currency code with props\"}),\"\\n\",l(\"br\",{}),\"\\n\",l(c.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(c.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(c.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#808080\"},children:\"<\"}),l(c.span,{style:{color:\"#4EC9B0\"},children:\"InputCurrency\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"  placeholder\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"Phone\"'})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"  currency\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"EUR\"'})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"  locale\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#CE9178\"},children:'\"de-DE\"'})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"  value\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"phone\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(c.span,{\"data-line\":\"\",children:[l(c.span,{style:{color:\"#9CDCFE\"},children:\"  onChange\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\") \"}),l(c.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(c.span,{style:{color:\"#DCDCAA\"},children:\" setPhone\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(c.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(c.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(c.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(c.span,{\"data-line\":\"\",children:l(c.span,{style:{color:\"#808080\"},children:\"/>\"})})]})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/input-currency"
+  },
+  {
+    "title": "Input Number",
+    "description": "Input Number",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "input-number",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 35
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const s={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:c,Tabs:a,TabsContent:o,TabsList:t,TabsTrigger:d}=s;return c||_missingMdxReference(\"ComponentPreview\",!0),a||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),t||_missingMdxReference(\"TabsList\",!0),d||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(s.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(c,{name:\"input-number\"}),\"\\n\",n(a,{defaultValue:\"cli\",children:[l(t,{children:l(d,{value:\"cli\",children:\"CLI\"})}),l(o,{value:\"cli\",children:l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/input-number\"})]})})})})})]}),\"\\n\",l(s.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" {\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"InputNumber\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"} \"}),l(s.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/input-number\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#569CD6\"},children:\"const\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" Preview\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" = () \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" {\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#569CD6\"},children:\"  const\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#4FC1FF\"},children:\"number\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),l(s.span,{style:{color:\"#4FC1FF\"},children:\"setNumber\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"] = \"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\"useState\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\");\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"  return\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" (\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"    <\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"flex flex-row space-x-3 items-center\"'}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"InputNumber\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        placeholder\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Number\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"number\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        onChange\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\") \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" setNumber\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"      />\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"Button\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        variant\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"outline\"'}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        onClick\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"() \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" alert\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"number\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"      >\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"        Submit\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      </\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"    </\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"  );\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"};\"})})]})})}),\"\\n\",l(s.pre,{children:l(s.code,{})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/input-number"
+  },
+  {
+    "title": "Input Password",
+    "description": "Input password with show or hide field",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "input-password",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 38
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const s={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:c,Tabs:o,TabsContent:a,TabsList:t,TabsTrigger:d}=s;return c||_missingMdxReference(\"ComponentPreview\",!0),o||_missingMdxReference(\"Tabs\",!0),a||_missingMdxReference(\"TabsContent\",!0),t||_missingMdxReference(\"TabsList\",!0),d||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(s.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(c,{name:\"input-password\"}),\"\\n\",n(o,{defaultValue:\"cli\",children:[l(t,{children:l(d,{value:\"cli\",children:\"CLI\"})}),l(a,{value:\"cli\",children:l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/input-password\"})]})})})})})]}),\"\\n\",l(s.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" InputPassword\"}),l(s.span,{style:{color:\"#C586C0\"},children:\" from\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/input-password\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#569CD6\"},children:\"const\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" Preview\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" = () \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" {\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#569CD6\"},children:\"  const\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#4FC1FF\"},children:\"password\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),l(s.span,{style:{color:\"#4FC1FF\"},children:\"setPassword\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"] = \"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"React\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\".\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\"useState\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\");\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"  return\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" (\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"    <\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"flex flex-row space-x-3 items-center\"'}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"InputPassword\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        placeholder\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Password\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"password\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        onChange\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"e\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\") \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" setPassword\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"e\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\".\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"target\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\".\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"      />\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" variant\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"outline\"'}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" onClick\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"() \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" alert\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"password\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"        Submit\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      </\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"    </\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"  );\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"};\"})})]})})}),\"\\n\",l(s.pre,{children:l(s.code,{})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/input-password"
+  },
+  {
+    "title": "Input Phone",
+    "description": "Input Phone number with country code",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "input-phone",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 66
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const s={code:\"code\",figure:\"figure\",h2:\"h2\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:c,Tabs:a,TabsContent:o,TabsList:t,TabsTrigger:d}=s;return c||_missingMdxReference(\"ComponentPreview\",!0),a||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),t||_missingMdxReference(\"TabsList\",!0),d||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(s.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(c,{name:\"input-phone\"}),\"\\n\",n(a,{defaultValue:\"cli\",children:[l(t,{children:l(d,{value:\"cli\",children:\"CLI\"})}),l(o,{value:\"cli\",children:l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/input-phone\"})]})})})})})]}),\"\\n\",l(s.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" {\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"InputPhone\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"} \"}),l(s.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/input-phone\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#569CD6\"},children:\"const\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" Preview\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" = () \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" {\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#569CD6\"},children:\"  const\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#4FC1FF\"},children:\"phone\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),l(s.span,{style:{color:\"#4FC1FF\"},children:\"setPhone\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"] = \"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\"useState\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\");\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"  return\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" (\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"    <\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"flex flex-row space-x-3 items-center\"'}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"InputPhone\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        placeholder\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Phone\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"phone\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        onChange\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\") \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" setPhone\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"      />\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:\" \"}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"Button\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        variant\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"outline\"'}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        className\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"mt-2\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"        onClick\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"() \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" alert\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"phone\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"      >\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"        Submit\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"      </\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"    </\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"div\"}),l(s.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"  );\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"};\"})})]})})}),\"\\n\",l(s.h3,{id:\"adjust-country-code\",children:\"Adjust Country Code\"}),\"\\n\",l(s.p,{children:\"You can adjust the country code with props\"}),\"\\n\",l(\"br\",{}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"<\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"InputPhone\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"  placeholder\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Phone\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"  countryCode\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"65\"'})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"  value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"phone\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"  onChange\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\") \"}),l(s.span,{style:{color:\"#569CD6\"},children:\"=>\"}),l(s.span,{style:{color:\"#DCDCAA\"},children:\" setPhone\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"(\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"value\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\")\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"/>\"})})]})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/input-phone"
+  },
+  {
+    "title": "Login",
+    "description": "simple page Login",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "login",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 21
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:r}=arguments[0];function _createMdxContent(a){const t={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:l,Tabs:d,TabsContent:s,TabsList:o,TabsTrigger:i}=t;return l||_missingMdxReference(\"ComponentPreview\",!0),d||_missingMdxReference(\"Tabs\",!0),s||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),r(e,{children:[n(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(l,{name:\"login\",shouldExpand:!0}),\"\\n\",r(d,{defaultValue:\"cli\",children:[n(o,{children:n(i,{value:\"cli\",children:\"CLI\"})}),n(s,{value:\"cli\",children:n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(t.span,{style:{color:\"#CE9178\"},children:\"  https://std-ui.vercel.app/registry/login\"})]})})})})})]}),\"\\n\",n(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" Login\"}),n(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),n(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/block/login\"'}),n(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"Login\"}),n(t.span,{style:{color:\"#808080\"},children:\"/>\"})]})})})})]})}return{default:function(e={}){const{wrapper:r}=e.components||{};return r?n(r,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/login"
+  },
+  {
+    "title": "Maintenance Error",
+    "description": "Maintenance Error Page.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "maintenance-error",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 23
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:r}=arguments[0];function _createMdxContent(a){const t={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:l,Tabs:d,TabsContent:s,TabsList:i,TabsTrigger:o}=t;return l||_missingMdxReference(\"ComponentPreview\",!0),d||_missingMdxReference(\"Tabs\",!0),s||_missingMdxReference(\"TabsContent\",!0),i||_missingMdxReference(\"TabsList\",!0),o||_missingMdxReference(\"TabsTrigger\",!0),r(e,{children:[n(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(l,{name:\"maintenance-error\"}),\"\\n\",r(d,{defaultValue:\"cli\",children:[n(i,{children:n(o,{value:\"cli\",children:\"CLI\"})}),n(s,{value:\"cli\",children:n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/maintenance-error\"})]})})})})})]}),\"\\n\",n(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" MaintenanceError\"}),n(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),n(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/maintenance-error\"'}),n(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"MaintenanceError\"}),n(t.span,{style:{color:\"#808080\"},children:\"/>\"})]})})})})]})}return{default:function(e={}){const{wrapper:r}=e.components||{};return r?n(r,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/maintenance-error"
+  },
+  {
+    "title": "Not Found Error",
+    "description": "Not Found Error Page.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "not-found-error",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 25
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:r}=arguments[0];function _createMdxContent(a){const t={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:d,Tabs:l,TabsContent:o,TabsList:s,TabsTrigger:i}=t;return d||_missingMdxReference(\"ComponentPreview\",!0),l||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),s||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),r(e,{children:[n(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(d,{name:\"not-found-error\"}),\"\\n\",r(l,{defaultValue:\"cli\",children:[n(s,{children:n(i,{value:\"cli\",children:\"CLI\"})}),n(o,{value:\"cli\",children:n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(t.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/not-found-error\"})]})})})})})]}),\"\\n\",n(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(t.span,{style:{color:\"#9CDCFE\"},children:\" NotFoundError\"}),n(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),n(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/not-found-error\"'}),n(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(t.span,{\"data-line\":\"\",children:[n(t.span,{style:{color:\"#808080\"},children:\"<\"}),n(t.span,{style:{color:\"#4EC9B0\"},children:\"NotFoundError\"}),n(t.span,{style:{color:\"#808080\"},children:\" />\"})]})})})})]})}return{default:function(e={}){const{wrapper:r}=e.components||{};return r?n(r,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/not-found-error"
+  },
+  {
+    "title": "Sidebar",
+    "description": "Sidebar",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "sidebar",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 28
+    },
+    "content": "const{Fragment:e,jsx:n,jsxs:r}=arguments[0];function _createMdxContent(l){const a={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...l.components},{ComponentPreview:s,Tabs:d,TabsContent:t,TabsList:o,TabsTrigger:c}=a;return s||_missingMdxReference(\"ComponentPreview\",!0),d||_missingMdxReference(\"Tabs\",!0),t||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),c||_missingMdxReference(\"TabsTrigger\",!0),r(e,{children:[n(a.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",n(s,{name:\"sidebar\",shouldExpand:!0}),\"\\n\",r(d,{defaultValue:\"cli\",children:[n(o,{children:n(c,{value:\"cli\",children:\"CLI\"})}),n(t,{value:\"cli\",children:n(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:n(a.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(a.span,{\"data-line\":\"\",children:[n(a.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),n(a.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),n(a.span,{style:{color:\"#CE9178\"},children:\" add\"}),n(a.span,{style:{color:\"#CE9178\"},children:\"  https://std-ui.vercel.app/r/sidebar\"})]})})})})})]}),\"\\n\",n(a.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",n(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(a.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:r(a.span,{\"data-line\":\"\",children:[n(a.span,{style:{color:\"#C586C0\"},children:\"import\"}),n(a.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),n(a.span,{style:{color:\"#9CDCFE\"},children:\"AppSidebar\"}),n(a.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),n(a.span,{style:{color:\"#C586C0\"},children:\"from\"}),n(a.span,{style:{color:\"#CE9178\"},children:' \"@/components/block/sidebar/app-sidebar\"'}),n(a.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",n(\"br\",{}),\"\\n\",n(a.figure,{\"data-rehype-pretty-code-figure\":\"\",children:n(a.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(a.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[r(a.span,{\"data-line\":\"\",children:[n(a.span,{style:{color:\"#808080\"},children:\"<\"}),n(a.span,{style:{color:\"#4EC9B0\"},children:\"SidebarProvider\"}),n(a.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",r(a.span,{\"data-line\":\"\",children:[n(a.span,{style:{color:\"#808080\"},children:\"  <\"}),n(a.span,{style:{color:\"#4EC9B0\"},children:\"AppSidebar\"}),n(a.span,{style:{color:\"#808080\"},children:\" />\"})]}),\"\\n\",r(a.span,{\"data-line\":\"\",children:[n(a.span,{style:{color:\"#808080\"},children:\"  <\"}),n(a.span,{style:{color:\"#569CD6\"},children:\"main\"}),n(a.span,{style:{color:\"#808080\"},children:\">\"}),n(a.span,{style:{color:\"#569CD6\"},children:\"{\"}),n(a.span,{style:{color:\"#6A9955\"},children:\"/* your page content goes here */\"}),n(a.span,{style:{color:\"#569CD6\"},children:\"}\"}),n(a.span,{style:{color:\"#808080\"},children:\"</\"}),n(a.span,{style:{color:\"#569CD6\"},children:\"main\"}),n(a.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",r(a.span,{\"data-line\":\"\",children:[n(a.span,{style:{color:\"#808080\"},children:\"</\"}),n(a.span,{style:{color:\"#4EC9B0\"},children:\"SidebarProvider\"}),n(a.span,{style:{color:\"#808080\"},children:\">\"})]})]})})})]})}return{default:function(e={}){const{wrapper:r}=e.components||{};return r?n(r,{...e,children:n(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/sidebar"
+  },
+  {
+    "title": "Unauthorized Error",
+    "description": "Unauthorized Error Page.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      }
+    ],
+    "slug": "unauthorized-error",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 23
+    },
+    "content": "const{Fragment:e,jsx:r,jsxs:n}=arguments[0];function _createMdxContent(a){const t={code:\"code\",figure:\"figure\",h2:\"h2\",pre:\"pre\",span:\"span\",...a.components},{ComponentPreview:d,Tabs:l,TabsContent:o,TabsList:s,TabsTrigger:i}=t;return d||_missingMdxReference(\"ComponentPreview\",!0),l||_missingMdxReference(\"Tabs\",!0),o||_missingMdxReference(\"TabsContent\",!0),s||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[r(t.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",r(d,{name:\"unauthorized-error\"}),\"\\n\",n(l,{defaultValue:\"cli\",children:[r(s,{children:r(i,{value:\"cli\",children:\"CLI\"})}),r(o,{value:\"cli\",children:r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" add\"}),r(t.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/unauthorized-error\"})]})})})})})]}),\"\\n\",r(t.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#C586C0\"},children:\"import\"}),r(t.span,{style:{color:\"#9CDCFE\"},children:\" UnauthorizedError\"}),r(t.span,{style:{color:\"#C586C0\"},children:\" from\"}),r(t.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/unauthorized-error\"'}),r(t.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",r(\"br\",{}),\"\\n\",r(t.figure,{\"data-rehype-pretty-code-figure\":\"\",children:r(t.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:r(t.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(t.span,{\"data-line\":\"\",children:[r(t.span,{style:{color:\"#808080\"},children:\"<\"}),r(t.span,{style:{color:\"#4EC9B0\"},children:\"UnauthorizedError\"}),r(t.span,{style:{color:\"#808080\"},children:\" />\"})]})})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?r(n,{...e,children:r(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,r){throw new Error(\"Expected \"+(r?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/unauthorized-error"
+  },
+  {
+    "title": "Vertical List",
+    "description": "A ul li element with line.",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Installation",
+        "url": "#installation",
+        "items": []
+      },
+      {
+        "title": "Usage",
+        "url": "#usage",
+        "items": []
+      },
+      {
+        "title": "Examples",
+        "url": "#examples",
+        "items": [
+          {
+            "title": "Without Icon and Sub Items",
+            "url": "#without-icon-and-sub-items",
+            "items": []
+          }
+        ]
+      }
+    ],
+    "slug": "vertical-list",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 51
+    },
+    "content": "const{Fragment:e,jsx:l,jsxs:n}=arguments[0];function _createMdxContent(r){const s={code:\"code\",figure:\"figure\",h2:\"h2\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...r.components},{ComponentPreview:a,Tabs:c,TabsContent:t,TabsList:o,TabsTrigger:i}=s;return a||_missingMdxReference(\"ComponentPreview\",!0),c||_missingMdxReference(\"Tabs\",!0),t||_missingMdxReference(\"TabsContent\",!0),o||_missingMdxReference(\"TabsList\",!0),i||_missingMdxReference(\"TabsTrigger\",!0),n(e,{children:[l(s.h2,{id:\"installation\",children:\"Installation\"}),\"\\n\",l(a,{name:\"vertical-list\"}),\"\\n\",n(c,{defaultValue:\"cli\",children:[l(o,{children:l(i,{value:\"cli\",children:\"CLI\"})}),l(t,{value:\"cli\",children:l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" add\"}),l(s.span,{style:{color:\"#CE9178\"},children:\" https://std-ui.vercel.app/registry/vertical-list\"})]})})})})})]}),\"\\n\",l(s.h2,{id:\"usage\",children:\"Usage\"}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:l(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#C586C0\"},children:\"import\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\"VerticalLineList\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),l(s.span,{style:{color:\"#C586C0\"},children:\"from\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/vertical-list\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\";\"})]})})})}),\"\\n\",l(\"br\",{}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"<\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"VerticalLineList\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"  items\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"[\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"Step 1\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      icon:\"}),l(s.span,{style:{color:\"#808080\"},children:\" <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"User\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" size\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#B5CEA8\"},children:\"12\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(s.span,{style:{color:\"#808080\"},children:\" />\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"Step 2\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 2\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      icon:\"}),l(s.span,{style:{color:\"#808080\"},children:\" <\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"CheckIcon\"}),l(s.span,{style:{color:\"#9CDCFE\"},children:\" size\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#B5CEA8\"},children:\"12\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"}),l(s.span,{style:{color:\"#808080\"},children:\" />\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#D4D4D4\"},children:\"  ]\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"/>\"})})]})})}),\"\\n\",l(s.h2,{id:\"examples\",children:\"Examples\"}),\"\\n\",l(s.h3,{id:\"without-icon-and-sub-items\",children:\"Without Icon and Sub Items\"}),\"\\n\",n(s.p,{children:[\"You can adding icons by passing the \",l(s.code,{children:\"Icon JSX\"}),\" prop. By default it is optional.\"]}),\"\\n\",l(\"br\",{}),\"\\n\",l(s.figure,{\"data-rehype-pretty-code-figure\":\"\",children:l(s.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(s.code,{\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:[n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#808080\"},children:\"<\"}),l(s.span,{style:{color:\"#4EC9B0\"},children:\"VerticalLineList\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"  items\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"=\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"{\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"[\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"Step 1\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    {\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      text:\"}),l(s.span,{style:{color:\"#CE9178\"},children:' \"Step 2\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\",\"})]}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#9CDCFE\"},children:\"      subItems:\"}),l(s.span,{style:{color:\"#D4D4D4\"},children:\" [\"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 1\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\", \"}),l(s.span,{style:{color:\"#CE9178\"},children:'\"Substep 2\"'}),l(s.span,{style:{color:\"#D4D4D4\"},children:\"],\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#D4D4D4\"},children:\"    },\"})}),\"\\n\",n(s.span,{\"data-line\":\"\",children:[l(s.span,{style:{color:\"#D4D4D4\"},children:\"  ]\"}),l(s.span,{style:{color:\"#569CD6\"},children:\"}\"})]}),\"\\n\",l(s.span,{\"data-line\":\"\",children:l(s.span,{style:{color:\"#808080\"},children:\"/>\"})})]})})})]})}return{default:function(e={}){const{wrapper:n}=e.components||{};return n?l(n,{...e,children:l(_createMdxContent,{...e})}):_createMdxContent(e)}};function _missingMdxReference(e,l){throw new Error(\"Expected \"+(l?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}",
+    "permalink": "/docs/vertical-list"
+  }
+]
