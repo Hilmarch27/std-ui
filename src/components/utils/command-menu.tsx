@@ -107,7 +107,7 @@ export function CommandMenu({ ...props }: DialogProps) {
             </CommandGroup>
           ))}
           <CommandSeparator />
-          <CommandGroup heading="Theme">
+          {/* <CommandGroup heading="Theme">
             <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
               <SunIcon className="mr-2 h-4 w-4" />
               Light
@@ -120,7 +120,7 @@ export function CommandMenu({ ...props }: DialogProps) {
               <LaptopIcon className="mr-2 h-4 w-4" />
               System
             </CommandItem>
-          </CommandGroup>
+          </CommandGroup> */}
         </CommandList>
       </CommandDialog>
     </>

@@ -6,7 +6,7 @@ import { Eye, SendIcon, Trash2, Upload } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useModal } from '../hooks/use-modal'
 
-interface CustomFileInputProps {
+interface InputFileProps {
   id: string
   name: string
   className?: string
@@ -15,7 +15,7 @@ interface CustomFileInputProps {
   onChange?: (files: File[] | null) => void
 }
 
-export function CustomFileInput({
+export function InputFile({
   id,
   name,
   className,
@@ -23,7 +23,7 @@ export function CustomFileInput({
   multiple = false,
   onChange,
   ...props
-}: CustomFileInputProps) {
+}: InputFileProps) {
   const [files, setFiles] = useState<File[] | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)

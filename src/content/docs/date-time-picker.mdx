@@ -1,0 +1,43 @@
+---
+title: 'Date Time Picker'
+description: 'Date and Time Picker.'
+published: true
+links:
+  - title: 'Home'
+    url: '/'
+  - title: 'About'
+    url: '/about'
+slug: 'date-time-picker'
+---
+
+## Installation
+
+<ComponentPreview name="date-time-picker" />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://std-ui.vercel.app/r/date-time-picker
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { DateTimePicker } from '@/registry/ui/date-time-picker'
+```
+
+<br />
+```tsx
+  const [selectedDateTime, setSelectedDateTime] = React.useState<Date>(new Date())
+  <DateTimePicker locale="id" label="Event Date and Time" value={selectedDateTime} onChange={setSelectedDateTime} />
+```

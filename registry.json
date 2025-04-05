@@ -51,6 +51,166 @@
           "target": "components/block/sidebar/team-switcher.tsx"
         }
       ]
+    },
+    {
+      "name": "server-table",
+      "type": "registry:block",
+      "registryDependencies": [
+        "table",
+        "button",
+        "dropdown-menu",
+        "checkbox",
+        "badge",
+        "command",
+        "popover",
+        "separator",
+        "select",
+        "alert-dialog",
+        "input",
+        "sonner"
+      ],
+      "dependencies": ["lucide-react", "@tanstack/react-table", "zod", "sonner", "@tanstack/react-query"],
+      "files": [
+        {
+          "path": "./src/registry/blocks/server-table/hooks/use-data-table.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/hooks/use-querry.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/lib/schema/table.ts",
+          "type": "registry:lib",
+          "target": "lib/schema/table.ts"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/lib/types/data-table.d.ts",
+          "type": "registry:lib",
+          "target": "lib/types/table.ts"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/lib/types/index.ts",
+          "type": "registry:lib",
+          "target": "lib/types/index.ts"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/columns.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/columns.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/data-table-column-header.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/data-table-column-header.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/data-table-faceted-filter.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/data-table-faceted-filter.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/data-table-pagination.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/data-table-pagination.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/data-table-toolbar.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/data-table-toolbar.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/data-table-view-options.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/data-table-view-options.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/data-table.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/data-table.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/edit-table-cell.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/edit-table-cell.tsx"
+        },
+        {
+          "path": "./src/registry/blocks/server-table/block/edit-table-row-action.tsx",
+          "type": "registry:component",
+          "target": "components/block/server-table/edit-table-row-action.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal",
+      "type": "registry:ui",
+      "registryDependencies": ["dialog", "drawer", "button"],
+      "dependencies": ["@radix-ui/react-visually-hidden"],
+      "files": [
+        {
+          "path": "./src/registry/hooks/use-media-query.tsx",
+          "type": "registry:hook"
+        },
+        {
+          "path": "./src/registry/hooks/use-modal.tsx",
+          "type": "registry:hook"
+        },
+        {
+          "path": "./src/registry/ui/modals.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "date-time-picker",
+      "type": "registry:ui",
+      "registryDependencies": ["label", "input", "button", "popover", "select", "https://std-ui.vercel.app/r/calendar"],
+      "dependencies": ["lucide-react", "date-fns", "react-day-picker"],
+      "files": [
+        {
+          "path": "./src/registry/ui/date-time-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react", "react-day-picker"],
+      "files": [
+        {
+          "path": "./src/registry/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "floating-input",
+      "type": "registry:ui",
+      "registryDependencies": ["input", "label"],
+      "files": [
+        {
+          "path": "./src/registry/ui/floating-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-file",
+      "type": "registry:ui",
+      "registryDependencies": ["button"],
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "./src/registry/ui/input-file.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "./src/registry/hooks/use-modal.tsx",
+          "type": "registry:hook"
+        }
+      ]
     }
   ]
 }

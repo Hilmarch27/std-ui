@@ -14,19 +14,39 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
-      title: 'Blocks',
+      title: 'Blocks Components',
       items: [
         {
           title: 'Sidebar',
           href: '/docs/sidebar',
           items: []
-        },
-        // {
-        //   title: "Client Data Table",
-        //   href: "/docs/client-data-table",
-        //   items: [],
-        // },
+        }
       ]
     },
+    {
+      title: 'UI Components',
+      items: [
+        {
+          title: 'Date Time Picker',
+          href: '/docs/date-time-picker',
+          items: []
+        },
+        {
+          title: 'Floating Input',
+          href: '/docs/floating-input',
+          items: []
+        },
+        {
+          title: 'Input File',
+          href: '/docs/input-file',
+          items: []
+        },
+        {
+          title: 'Modal',
+          href: '/docs/modal',
+          items: []
+        }
+      ]
+    }
   ]
 }

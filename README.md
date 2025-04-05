@@ -1,29 +1,70 @@
-# Create T3 App
+# Std-UI
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Overview
 
-## What's next? How do I make an app with this?
+This project is a React-based application featuring a sidebar component that includes navigation groups, user information, and team switching capabilities. It utilizes modern UI components such as dropdown menus and avatars, and integrates with various libraries for enhanced functionality.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- **Sidebar Navigation**: Collapsible sidebar with navigation groups and items.
+- **User Profile**: Displays user information, including name, email, and avatar.
+- **Team Switcher**: Allows switching between different teams.
+- **Responsive Design**: Adapts to various screen sizes, supporting both mobile and desktop views.
+- **Vertical List**: Ul Li with line vertical
+- **Hint**: its for infomation if you hovvered the element
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Installation
 
-## Learn More
+To set up this project locally, follow these steps:
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. Initial the project:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+   ```bash
+   npx shadcn@latest init
+   # or
+   pnpm dlx shadcn@latest init
+   # or
+   yarn shadcn@latest init
+   # or
+   bunx --bun shadcn@latest init
+   # or
+   denox shadcn@latest init
+   # or
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+2. Add component:
 
-## How do I deploy this?
+   ```bash
+   npx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
+   # or
+   pnpm dlx shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
+   # or
+   yarn shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
+   # or
+   bunx --bun shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
+   # or
+   denox shadcn@latest add https://std-ui.vercel.app/registry/<NAME COMPONENTS>
+   # or
+   ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+3. Import the components:
+
+   ```bash
+   import components from "block/ui"
+   ```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any bugs or feature requests.
+
+## Contact
+
+For questions or support, please contact [Hilman](mailto:hilmarch03@gmail.com).
+
+## Author
+
+Crafted with 🤍 by [@hilmarch03](https://github.com/hilmarch03)

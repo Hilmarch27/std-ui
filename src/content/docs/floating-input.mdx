@@ -1,0 +1,44 @@
+---
+title: 'Floating Input'
+description: 'input with floating animation.'
+published: true
+links:
+  - title: 'Home'
+    url: '/'
+  - title: 'About'
+    url: '/about'
+slug: 'floating-input'
+---
+
+## Installation
+
+<ComponentPreview name="floating-input" />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://std-ui.vercel.app/r/floating-input
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { FloatingInput } from '@/components/ui/floating-input'
+```
+
+<br />
+```tsx
+  const [name, setName] = React.useState<string>('')
+
+  <FloatingInput value={name} onChange={(e) => setName(e.target.value)} id="name" label="name" />
+```

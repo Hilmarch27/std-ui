@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-input",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "input",
+    "label"
+  ],
+  "files": [
+    {
+      "path": "./src/registry/ui/floating-input.tsx",
+      "content": "import * as React from 'react'\r\nimport { cn } from '@/lib/utils'\r\nimport { Input } from '@/components/ui/input'\r\nimport { Label } from '@/components/ui/label'\r\n\r\ninterface FloatingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {\r\n  label: string\r\n}\r\n\r\nconst FloatingInput: React.FC<FloatingInputProps> = ({ label, id, className, ...props }) => {\r\n  const inputId = id || React.useId()\r\n\r\n  return (\r\n    <div className=\"relative\">\r\n      <Input id={inputId} placeholder=\"\" className={cn('dark:bg-background peer', className)} {...props} />\r\n      <Label\r\n        htmlFor={inputId}\r\n        className={cn(\r\n          'rounded-t-[2px] absolute start-2 top-2 z-10 origin-[0] -translate-y-4 scale-75 transform bg-background px-2 text-sm text-primary duration-300',\r\n          'peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100',\r\n          'peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2',\r\n          'dark:bg-background rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4 cursor-text'\r\n        )}\r\n      >\r\n        {label}\r\n      </Label>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport { FloatingInput }\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

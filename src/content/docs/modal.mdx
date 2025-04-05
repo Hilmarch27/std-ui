@@ -1,0 +1,57 @@
+---
+title: 'Modal'
+description: 'responsive dialog and drawer for mobile.'
+published: true
+links:
+  - title: 'Home'
+    url: '/'
+  - title: 'About'
+    url: '/about'
+slug: 'modal'
+---
+
+## Installation
+
+<ComponentPreview name="modal" />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://std-ui.vercel.app/r/modal
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Button } from '@/components/ui/button'
+import { useModal } from '@/hooks/use-modal'
+```
+
+<br />
+```tsx
+const ModalDemo = () => {
+  const { openModal } = useModal();
+
+const handleClick = () => {
+openModal("Modal title", <p>Modal content</p>);
+};
+
+return (
+
+<>
+  <Button onClick={handleClick}>Open</Button>
+</>
+); };
+
+export default ModalDemo;
+```

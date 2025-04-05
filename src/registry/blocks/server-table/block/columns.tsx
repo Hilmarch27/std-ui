@@ -1,11 +1,11 @@
 import { ColumnDef } from '@tanstack/react-table'
 import { DataTableColumnHeader } from '@/registry/blocks/server-table/block/data-table-column-header'
+import { EditedCell } from './edit-table-row-action'
 import { EditTableCell } from '@/registry/blocks/server-table/block/edit-table-cell'
 import { Checkbox } from '@/components/ui/checkbox'
-import { User } from '@prisma/client'
-import { EditedCell } from '@/registry/blocks/server-table/block/edit-table-row-action'
+import { Student } from '@/registry/blocks/server-table/hooks/use-querry'
 
-export const COLUMNS_USERS: ColumnDef<User>[] = [
+export const columns: ColumnDef<Student>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -47,37 +47,33 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     }
   },
   {
-    accessorKey: 'email',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Email" />,
+    accessorKey: 'dateOfBirth',
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Date Of Birth" />,
     cell: ({ column, getValue, row, table }) => (
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text',
+      type: 'date',
       required: true,
-      validationMessage: 'Email is required'
+      validationMessage: 'Invalid date format (YYYY-MM-DD)'
     }
   },
   {
-    accessorKey: 'phone',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Phone" />,
+    accessorKey: 'major',
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Major" />,
     cell: ({ column, getValue, row, table }) => (
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text',
+      type: 'select',
+      options: [
+        { value: 'Computer Science', label: 'Computer Science' },
+        { value: 'Communications', label: 'Communications' },
+        { value: 'Business', label: 'Business' },
+        { value: 'Psychology', label: 'Psychology' }
+      ],
       required: true,
-      validationMessage: 'Phone is required'
-    }
-  },
-  {
-    accessorKey: 'image',
-    header: ({ column }) => <DataTableColumnHeader column={column} title="Avatar" />,
-    cell: ({ column, getValue, row, table }) => (
-      <EditTableCell column={column} getValue={getValue} row={row} table={table} />
-    ),
-    meta: {
-      type: 'text'
+      validationMessage: 'Major is required'
     }
   },
   {

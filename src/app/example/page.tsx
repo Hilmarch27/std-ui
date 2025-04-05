@@ -2,7 +2,7 @@
 import React from 'react'
 import { DateTimePicker } from '@/registry/ui/date-time-picker'
 import { FloatingInput } from '@/registry/ui/floating-input'
-import { CustomFileInput } from '@/registry/ui/input-file'
+import { InputFile } from '@/registry/ui/input-file'
 
 function page() {
   const [selectedDateTime, setSelectedDateTime] = React.useState<Date>(new Date())
@@ -13,12 +13,11 @@ function page() {
     setFiles(selectedFiles)
   }
 
-
   return (
     <div className="grid gap-3.5">
       <DateTimePicker locale="id" label="Event Date and Time" value={selectedDateTime} onChange={setSelectedDateTime} />
       <FloatingInput value={name} onChange={(e) => setName(e.target.value)} id="name" label="name" />
-      <CustomFileInput  id="file-upload" name="file" accept="image/*" onChange={handleFileChange} />
+      <InputFile id="file-upload" name="file" accept="image/*" onChange={handleFileChange} />
     </div>
   )
 }
