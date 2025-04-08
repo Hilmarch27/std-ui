@@ -16,7 +16,6 @@ function getDocumentBySlug(slug: string) {
 
 export default async function Home({ params }: PageProps) {
   const { slug } = await params;
-  console.log("slug", slug);
   const doc = getDocumentBySlug(slug);
   if (!doc) return notFound();
 

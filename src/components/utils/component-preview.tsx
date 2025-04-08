@@ -83,7 +83,7 @@ export function ComponentPreview({
           value="preview"
           className={cn(
             !isExpanded && "max-h-[400px] overflow-hidden",
-            "relative rounded-md border xl:w-5xl"
+            "relative rounded-md border 2xl:w-5xl"
           )}
         >
           {shouldExpand && (
@@ -124,7 +124,7 @@ export function ComponentPreview({
           </div>
         </TabsContent>
         {files.map((file) => (
-          <TabsContent className="xl:w-5xl" key={file.path} value={file.path}>
+          <TabsContent className="2xl:w-5xl" key={file.path} value={file.path}>
             <div className="flex flex-col space-y-4">
               <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
                 <CodeBlock code={file.content} />
