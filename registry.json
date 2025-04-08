@@ -6,6 +6,8 @@
     {
       "name": "hello-world",
       "type": "registry:ui",
+      "title": "Hello World",
+      "description": "A simple Hello World",
       "registryDependencies": ["button"],
       "files": [
         {
@@ -17,6 +19,8 @@
     {
       "name": "sidebar",
       "type": "registry:block",
+      "title": "Sidebar",
+      "description": "A simple sidebar",
       "registryDependencies": ["sidebar", "button", "collapsible", "badge", "input", "dropdown-menu", "avatar"],
       "dependencies": ["lucide-react"],
       "files": [
@@ -55,6 +59,8 @@
     {
       "name": "server-table",
       "type": "registry:block",
+      "title": "Server Side Table",
+      "description": "A simple Server Side Table",
       "registryDependencies": [
         "table",
         "button",
@@ -144,6 +150,8 @@
     {
       "name": "modal",
       "type": "registry:ui",
+      "title": "Modal",
+      "description": "A simple Responsive Modal",
       "registryDependencies": ["dialog", "drawer", "button"],
       "dependencies": ["@radix-ui/react-visually-hidden"],
       "files": [
@@ -164,6 +172,8 @@
     {
       "name": "date-time-picker",
       "type": "registry:ui",
+      "title": "Date Time Picker",
+      "description": "A simple Date Time Picker",
       "registryDependencies": ["label", "input", "button", "popover", "select", "https://std-ui.vercel.app/r/calendar"],
       "dependencies": ["lucide-react", "date-fns", "react-day-picker"],
       "files": [
@@ -176,6 +186,8 @@
     {
       "name": "calendar",
       "type": "registry:ui",
+      "title": "Calendar",
+      "description": "A simple Calendar",
       "registryDependencies": ["button"],
       "dependencies": ["lucide-react", "react-day-picker"],
       "files": [
@@ -188,6 +200,8 @@
     {
       "name": "floating-input",
       "type": "registry:ui",
+      "title": "Floating Input",
+      "description": "A simple Floating Input",
       "registryDependencies": ["input", "label"],
       "files": [
         {
@@ -199,6 +213,8 @@
     {
       "name": "input-file",
       "type": "registry:ui",
+      "title": "Input File",
+      "description": "A simple Input File",
       "registryDependencies": ["button"],
       "dependencies": ["lucide-react"],
       "files": [
