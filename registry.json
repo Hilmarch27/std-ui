@@ -23,6 +23,9 @@
       "description": "A simple sidebar",
       "registryDependencies": ["sidebar", "button", "collapsible", "badge", "input", "dropdown-menu", "avatar"],
       "dependencies": ["lucide-react"],
+      "meta": {
+        "component" : "~/__registry__/preview/block/sidebar.tsx"
+      },
       "files": [
         {
           "path": "./src/registry/blocks/sidebar/block/app-sidebar.tsx",

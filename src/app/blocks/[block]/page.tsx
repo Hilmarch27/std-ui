@@ -8,7 +8,6 @@ import { BlockProvider } from '@/lib/configs/block-provider'
 import { notFound } from 'next/navigation'
 import registry from '~/registry.json'
 
-
 const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
   const params = await props.params
   const { block } = params
@@ -26,7 +25,7 @@ const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
   return (
     <BlockProvider>
       <Navbar />
-      <div className="max-w-screen-2xl mx-auto py-8 px-4">
+      <div className="max-w-screen-2xl w-full mx-auto py-8 px-4">
         <MainHeading>{title}</MainHeading>
         {description && <DescriptionText className="mt-1">{description}</DescriptionText>}
 
@@ -40,7 +39,7 @@ const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
           </div>
 
           <TabsContent value="preview">
-            {/* <BlockPreview block={block} /> */}
+            <BlockPreview block={block} />
           </TabsContent>
           <TabsContent value="code">
             <FileExplorer files={files} />

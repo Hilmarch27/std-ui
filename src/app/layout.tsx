@@ -27,7 +27,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Providers>
           <TRPCReactProvider>
             <div className="relative flex min-h-screen flex-col">
-              <LayoutHome />
+              {/* todo */}
+              {/* <LayoutHome /> */}
               {children}
             </div>
           </TRPCReactProvider>

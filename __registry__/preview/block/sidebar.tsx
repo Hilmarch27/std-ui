@@ -1,52 +1,39 @@
 'use client'
-import React from 'react'
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarProvider,
-  SidebarRail
-} from '@/components/ui/sidebar'
-import { NavGroup } from '@/registry/blocks/sidebar/block/nav-group'
-import { NavUser } from '@/registry/blocks/sidebar/block/nav-user'
-import { TeamSwitcher } from '@/registry/blocks/sidebar/block/team-switcher'
-import { sidebarData } from '@/registry/blocks/sidebar/lib/data/sidebar'
-
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  return (
-    <Sidebar
-      collapsible="icon"
-      className="h-[700px] absolute top-1/2  2xl:top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-      variant="floating"
-      {...props}
-    >
-      <SidebarHeader>
-        <TeamSwitcher teams={sidebarData.teams} />
-      </SidebarHeader>
-      <SidebarContent>
-        {sidebarData.navGroups.map((props) => (
-          <NavGroup key={props.title} {...props} />
-        ))}
-      </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={sidebarData.user} />
-      </SidebarFooter>
-      <SidebarRail />
-    </Sidebar>
-  )
-}
+import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
+import { AppSidebar } from '@/registry/blocks/sidebar/block/app-sidebar'
+import { Separator } from '@/components/ui/separator'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
 
 function PreviewAppSidebar() {
   return (
-    <>
-      <SidebarProvider>
-        <div className="relative flex">
-          <AppSidebar />
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset className='border border-r-2'>
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator orientation="vertical" className="mr-2 h-4" />
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbLink href="#">Building Your Application</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </header>
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+            <div className="aspect-video rounded-xl bg-muted/50" />
+            <div className="aspect-video rounded-xl bg-muted/50" />
+            <div className="aspect-video rounded-xl bg-muted/50" />
+          </div>
+          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
         </div>
-        <div className="flex justify-center items-center border h-[700px] rounded-md w-full">Content Area</div>
-      </SidebarProvider>
-    </>
+      </SidebarInset>
+    </SidebarProvider>
   )
 }
 
