@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "date-time-picker",
   "type": "registry:ui",
+  "title": "Date Time Picker",
+  "description": "A simple Date Time Picker",
   "dependencies": [
     "lucide-react",
     "date-fns",

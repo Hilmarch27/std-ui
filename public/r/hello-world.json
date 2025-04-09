@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "hello-world",
   "type": "registry:ui",
+  "title": "Hello World",
+  "description": "A simple Hello World",
   "registryDependencies": [
     "button"
   ],

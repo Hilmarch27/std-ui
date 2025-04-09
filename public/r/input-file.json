@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-file",
   "type": "registry:ui",
+  "title": "Input File",
+  "description": "A simple Input File",
   "dependencies": [
     "lucide-react"
   ],

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "floating-input",
   "type": "registry:ui",
+  "title": "Floating Input",
+  "description": "A simple Floating Input",
   "registryDependencies": [
     "input",
     "label"

@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "modal",
   "type": "registry:ui",
+  "title": "Modal",
+  "description": "A simple Responsive Modal",
   "dependencies": [
     "@radix-ui/react-visually-hidden"
   ],

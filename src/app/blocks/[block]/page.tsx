@@ -22,6 +22,8 @@ const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
     path: file.path.replace(`src/registry/blocks/${block}/`, '')
   }))
 
+  console.log('block page:', files)
+
   return (
     <BlockProvider>
       <Navbar />

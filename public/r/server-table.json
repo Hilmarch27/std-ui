@@ -2,6 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "server-table",
   "type": "registry:block",
+  "title": "Server Side Table",
+  "description": "A simple Server Side Table",
   "dependencies": [
     "lucide-react",
     "@tanstack/react-table",
