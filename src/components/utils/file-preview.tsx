@@ -17,7 +17,7 @@ export function FilePreview() {
   useEffect(() => {
     const filePath = activeFile.path.startsWith("src/")
       ? activeFile.path
-      : `src/blocks/${block}/${activeFile.path}`;
+      : `src/registry/blocks/${block}/${activeFile.path}`;
     getFileContent(filePath).then((code) => setCode(code));
   }, [activeFile, block]);
 

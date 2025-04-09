@@ -20,7 +20,7 @@ const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
   const { title, description } = blockDetails
   const files = blockDetails.files.map((file) => ({
     ...file,
-    path: file.path.replace(`src/blocks/${block}/`, '')
+    path: file.path.replace(`src/registry/blocks/${block}/`, '')
   }))
 
   return (
@@ -40,7 +40,7 @@ const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
           </div>
 
           <TabsContent value="preview">
-            <BlockPreview block={block} />
+            {/* <BlockPreview block={block} /> */}
           </TabsContent>
           <TabsContent value="code">
             <FileExplorer files={files} />

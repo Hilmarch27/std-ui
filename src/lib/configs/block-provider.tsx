@@ -28,7 +28,7 @@ export const BlockProvider = ({ children }: { children: ReactNode }) => {
   const { files } = blockDetails as { files: BlockFile[] }
   
   const [activeFile, setActiveFile] = useState<BlockFile>({
-    path: files[0]?.path.replace(`src/blocks/${block}/`, '') || '',
+    path: files[0]?.path.replace(`src/registry/blocks/${block}/`, '') || '',
     target: files[0]?.target
   })
   const [screenSize, setScreenSize] = useState<BlockScreenSizeUnion>('desktop')
