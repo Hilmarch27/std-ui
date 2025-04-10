@@ -10,6 +10,7 @@ const config = {
     ignoreDuringBuilds: true
   },
   outputFileTracingIncludes: {
+    '/blocks/*': ['./src/**/*'],
     registry: ['./src/registry/**/*']
   },
   /* config options here */
