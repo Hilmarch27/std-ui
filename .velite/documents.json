@@ -427,6 +427,42 @@
     "permalink": "/docs/input-phone"
   },
   {
+    "title": "Installation",
+    "description": "How to init?",
+    "published": true,
+    "links": [
+      {
+        "title": "Home",
+        "url": "/"
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      }
+    ],
+    "featured": false,
+    "component": false,
+    "toc": [
+      {
+        "title": "Create project",
+        "url": "#create-project",
+        "items": []
+      },
+      {
+        "title": "Add Components",
+        "url": "#add-components",
+        "items": []
+      }
+    ],
+    "slug": "installation",
+    "metadata": {
+      "readingTime": 1,
+      "wordCount": 83
+    },
+    "content": "const{jsx:e,jsxs:n}=arguments[0];function _createMdxContent(l){const r={code:\"code\",figure:\"figure\",h3:\"h3\",p:\"p\",pre:\"pre\",span:\"span\",...l.components},{Steps:t}=r;return t||function(e,n){throw new Error(\"Expected \"+(n?\"component\":\"object\")+\" `\"+e+\"` to be defined: you likely forgot to import, pass, or provide it.\")}(\"Steps\",!0),n(t,{children:[e(r.h3,{id:\"create-project\",children:\"Create project\"}),n(r.p,{children:[\"Run the \",e(r.code,{children:\"init\"}),\" command to create a new Next.js project or to setup an existing one:\"]}),e(r.figure,{\"data-rehype-pretty-code-figure\":\"\",children:e(r.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:e(r.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(r.span,{\"data-line\":\"\",children:[e(r.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),e(r.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),e(r.span,{style:{color:\"#CE9178\"},children:\" init\"})]})})})}),e(r.p,{children:\"Choose between a Next.js project or a Monorepo.\"}),e(r.h3,{id:\"add-components\",children:\"Add Components\"}),e(r.p,{children:\"You can now start adding components to your project.\"}),e(r.figure,{\"data-rehype-pretty-code-figure\":\"\",children:e(r.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",children:e(r.code,{\"data-language\":\"bash\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},children:n(r.span,{\"data-line\":\"\",children:[e(r.span,{style:{color:\"#DCDCAA\"},children:\"npx\"}),e(r.span,{style:{color:\"#CE9178\"},children:\" shadcn@latest\"}),e(r.span,{style:{color:\"#CE9178\"},children:\" add\"}),e(r.span,{style:{color:\"#CE9178\"},children:\" button\"})]})})})}),n(r.p,{children:[\"The command above will add the \",e(r.code,{children:\"Button\"}),\" component to your project. You can then import it like this:\"]}),e(r.figure,{\"data-rehype-pretty-code-figure\":\"\",children:e(r.pre,{style:{backgroundColor:\"#1E1E1E\",color:\"#D4D4D4\"},tabIndex:\"0\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",children:n(r.code,{\"data-line-numbers\":\"\",\"data-language\":\"tsx\",\"data-theme\":\"dark-plus\",style:{display:\"grid\"},\"data-line-numbers-max-digits\":\"1\",children:[n(r.span,{\"data-line\":\"\",\"data-highlighted-line\":\"\",children:[e(r.span,{style:{color:\"#C586C0\"},children:\"import\"}),e(r.span,{style:{color:\"#D4D4D4\"},children:\" { \"}),e(r.span,{style:{color:\"#9CDCFE\"},children:\"Button\"}),e(r.span,{style:{color:\"#D4D4D4\"},children:\" } \"}),e(r.span,{style:{color:\"#C586C0\"},children:\"from\"}),e(r.span,{style:{color:\"#CE9178\"},children:' \"@/components/ui/button\"'})]}),\"\\n\",e(r.span,{\"data-line\":\"\",children:\" \"}),\"\\n\",n(r.span,{\"data-line\":\"\",children:[e(r.span,{style:{color:\"#C586C0\"},children:\"export\"}),e(r.span,{style:{color:\"#C586C0\"},children:\" default\"}),e(r.span,{style:{color:\"#569CD6\"},children:\" function\"}),e(r.span,{style:{color:\"#DCDCAA\"},children:\" Home\"}),e(r.span,{style:{color:\"#D4D4D4\"},children:\"() {\"})]}),\"\\n\",n(r.span,{\"data-line\":\"\",children:[e(r.span,{style:{color:\"#C586C0\"},children:\"  return\"}),e(r.span,{style:{color:\"#D4D4D4\"},children:\" (\"})]}),\"\\n\",n(r.span,{\"data-line\":\"\",children:[e(r.span,{style:{color:\"#808080\"},children:\"    <\"}),e(r.span,{style:{color:\"#569CD6\"},children:\"div\"}),e(r.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(r.span,{\"data-line\":\"\",\"data-highlighted-line\":\"\",children:[e(r.span,{style:{color:\"#808080\"},children:\"      <\"}),e(r.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),e(r.span,{style:{color:\"#808080\"},children:\">\"}),e(r.span,{style:{color:\"#D4D4D4\"},children:\"Click me\"}),e(r.span,{style:{color:\"#808080\"},children:\"</\"}),e(r.span,{style:{color:\"#4EC9B0\"},children:\"Button\"}),e(r.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",n(r.span,{\"data-line\":\"\",children:[e(r.span,{style:{color:\"#808080\"},children:\"    </\"}),e(r.span,{style:{color:\"#569CD6\"},children:\"div\"}),e(r.span,{style:{color:\"#808080\"},children:\">\"})]}),\"\\n\",e(r.span,{\"data-line\":\"\",children:e(r.span,{style:{color:\"#D4D4D4\"},children:\"  )\"})}),\"\\n\",e(r.span,{\"data-line\":\"\",children:e(r.span,{style:{color:\"#D4D4D4\"},children:\"}\"})})]})})})]})}return{default:function(n={}){const{wrapper:l}=n.components||{};return l?e(l,{...n,children:e(_createMdxContent,{...n})}):_createMdxContent(n)}};",
+    "permalink": "/docs/installation"
+  },
+  {
     "title": "Login",
     "description": "simple page Login",
     "published": true,

@@ -145,17 +145,17 @@ const sharedComponents = {
   //     <CodeBlockWrapper className="rounded-md border" {...props} />
   //   ),
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
-    <h3
-      className={cn(
-        "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
+  <h3
+    className={cn(
+      "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight relative pl-9 before:absolute before:left-0 before:top-1 before:flex before:h-7 before:w-7 before:items-center before:justify-center before:rounded-full before:border before:border-border before:bg-background before:text-center before:text-sm before:font-medium before:text-foreground before:content-[counter(step)] before:[counter-increment:step]",
+      className
+    )}
+    {...props}
+  />
+),
   Steps: ({ ...props }) => (
     <div
-      className="[&>h3]:step steps mb-12 ml-4 border-l pl-8 [counter-reset:step]"
+      className="[&>h3]:step steps mb-12 [counter-reset:step] md:ml-4 md:border-l md:pl-8"
       {...props}
     />
   ),
@@ -261,6 +261,8 @@ interface MDXProps {
 export const MDXContent = ({ code, components, ...props }: MDXProps) => {
   const Component = useMDXComponent(code);
   return (
-    <Component components={{ ...sharedComponents, ...components }} {...props} />
+    <div className="mdx">
+      <Component components={{ ...sharedComponents, ...components }} {...props} />
+    </div>
   );
 };

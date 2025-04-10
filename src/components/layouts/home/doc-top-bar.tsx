@@ -7,11 +7,11 @@ import React from "react";
 import { Navbar } from "./nav";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
-export default function LayoutHome() {
+export default function DocTopBar() {
   return (
     <>
       <header className="fixed top-0 z-50 h-14 w-full border-border/40 bg-background/20 backdrop-blur-xl">
-        <div className="px-7 flex h-14 max-w-screen-2xl items-center mx-auto">
+        <div className="px-4 flex h-14 max-w-screen-2xl items-center mx-auto">
           <Navbar />
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <div className="w-full flex-1 md:w-auto md:flex-none">

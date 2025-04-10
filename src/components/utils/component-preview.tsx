@@ -7,7 +7,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { components } from "~/__registry__";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { CodeBlock } from "./code-block";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -58,32 +57,31 @@ export function ComponentPreview({
         <div className="flex items-center justify-between pb-3">
           {!hideCode && (
             <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
-              <ScrollArea className="max-w-5xl whitespace-nowrap rounded-md border">
-                <TabsTrigger
-                  value="preview"
-                  className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-                >
-                  Preview
-                </TabsTrigger>
-                {files.map((file) => (
+                  <TabsTrigger
+                value="preview"
+                className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              >
+                Preview
+              </TabsTrigger>
+              {files.map((file) => {
+                return (
                   <TabsTrigger
                     key={file.path}
                     value={file.path}
-                    className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+                    className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
                   >
                     {file.path.split("/").pop()}
                   </TabsTrigger>
-                ))}
-                <ScrollBar orientation="horizontal" className="h-1" />
-              </ScrollArea>
+                );
+              })}
             </TabsList>
           )}
         </div>
         <TabsContent
           value="preview"
           className={cn(
-            !isExpanded && "max-h-[400px] overflow-hidden",
-            "relative rounded-md border 2xl:w-5xl"
+            !isExpanded && "h-[400px] overflow-hidden",
+            "relative rounded-md border "
           )}
         >
           {shouldExpand && (
@@ -124,7 +122,7 @@ export function ComponentPreview({
           </div>
         </TabsContent>
         {files.map((file) => (
-          <TabsContent className="2xl:w-5xl" key={file.path} value={file.path}>
+          <TabsContent key={file.path} value={file.path}>
             <div className="flex flex-col space-y-4">
               <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
                 <CodeBlock code={file.content} />

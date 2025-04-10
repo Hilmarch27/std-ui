@@ -3,7 +3,6 @@ import { type Metadata } from 'next'
 import { TRPCReactProvider } from '@/trpc/react'
 import '@/app/styles/globals.css'
 import Providers from '@/components/layouts/theme'
-import LayoutHome from '@/components/layouts/home/layout'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -16,8 +15,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Std-UI @Hilmarch03',
-  description: 'Std-UI is A collection of UI components Built on top of Shadcn UI'
+  title: 'Std-UI',
+  description: 'Std-UI is A collection of UI components Built on top of Shadcn UI',
+  icons: {
+    icon: { url: '/squirrel.svg' }
+  }
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -26,11 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
           <TRPCReactProvider>
-            <div className="relative flex min-h-screen flex-col">
-              {/* todo */}
-              {/* <LayoutHome /> */}
-              {children}
-            </div>
+            <div className="relative flex min-h-screen flex-col">{children}</div>
           </TRPCReactProvider>
         </Providers>
       </body>

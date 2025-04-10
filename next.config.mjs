@@ -10,6 +10,7 @@ const config = {
     ignoreDuringBuilds: true
   },
   outputFileTracingIncludes: {
+    // Include all files in the blocks directory for serverless builds
     '/blocks/*': ['./src/**/*'],
     registry: ['./src/registry/**/*']
   },

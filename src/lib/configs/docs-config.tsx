@@ -14,11 +14,16 @@ export const docsConfig: DocsConfig = {
   ],
   sidebarNav: [
     {
-      title: 'Blocks Components',
+      title: 'Overview',
       items: [
         {
-          title: 'Sidebar',
-          href: '/docs/sidebar',
+          title: 'Installation',
+          href: '/docs/installation',
+          items: []
+        },
+        {
+          title: 'Blocks',
+          href: '/blocks/sidebar',
           items: []
         }
       ]

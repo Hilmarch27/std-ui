@@ -10,10 +10,8 @@ import { useCopyToClipboard } from "@/hooks/use-clipboard";
 
 export function FilePreview() {
   const [code, setCode] = useState<string>("");
-  // console.log('FilePreview:', code);
 
   const { activeFile } = useBlockContext();
-  console.log('activeFile:', activeFile);
   const { block } = useParams();
   const { copyToClipboard, isCopied } = useCopyToClipboard();
 
@@ -22,7 +20,6 @@ export function FilePreview() {
       ? activeFile.path
       : `src/registry/blocks/${block}/${activeFile.path}`;
       // todo error path example filePath: src/registry/blocks/sidebar/./block/nav-group.tsx
-  console.log('filePath:', filePath);
     getFileContent(filePath).then((code) => setCode(code));
   }, [activeFile, block]);
 

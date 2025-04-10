@@ -38,12 +38,10 @@ export function DashboardTableOfContents({ toc }: TocProps) {
 
 function useActiveItem(itemIds: string[]) {
   const [activeId, setActiveId] = React.useState<string | undefined>()
-   console.log(itemIds)
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-            console.log(entry.target.id)
           if (entry.isIntersecting) {
             setActiveId(entry.target.id)
           }
@@ -54,7 +52,6 @@ function useActiveItem(itemIds: string[]) {
 
     itemIds?.forEach((id) => {
       const element = document.getElementById(id.replace("#", ""))
-      console.log(id)
       if (element) {
         observer.observe(element)
       }

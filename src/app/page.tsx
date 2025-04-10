@@ -180,10 +180,16 @@ export default function Home() {
 
         <div className="flex flex-col sm:flex-row gap-3 mt-4">
           <Link
-            href="/docs/sidebar"
+            href="/docs/date-time-picker"
             className="bg-accent flex gap-1 items-center px-4 py-2 rounded-full text-sm hover:bg-accent/70"
           >
             Browse Components <ArrowTopRightIcon />
+          </Link>
+          <Link
+            href="/blocks/sidebar"
+            className="bg-accent flex gap-1 items-center px-4 py-2 rounded-full text-sm hover:bg-accent/70"
+          >
+            Browse Blocks <ArrowTopRightIcon />
           </Link>
           <Link
             href="https://github.com/Hilmarch27/std-ui"
