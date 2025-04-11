@@ -52,10 +52,7 @@ export function DataTable<TData>({
   ...props
 }: DataTableProps<TData>) {
   return (
-    <div
-      className={cn("w-full space-y-2.5 overflow-auto", className)}
-      {...props}
-    >
+    <div className={cn('w-full space-y-2.5 overflow-auto', className)} {...props}>
       {children}
       <div className="rounded-md border">
         <Table>
@@ -64,12 +61,7 @@ export function DataTable<TData>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <TableHead key={header.id} colSpan={header.colSpan}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
               </TableRow>
@@ -80,34 +72,24 @@ export function DataTable<TData>({
               table.getRowModel().rows.map((row) => (
                 <React.Fragment key={`fragment-${row.id}`}>
                   <TableRow
-                    className={onRowClick ? "cursor-pointer" : ""}
+                    className={onRowClick ? 'cursor-pointer' : ''}
                     onClick={() => onRowClick && onRowClick(row.original)}
-                    data-state={row.getIsSelected() && "selected"}
+                    data-state={row.getIsSelected() && 'selected'}
                   >
                     {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
+                      <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
                     ))}
                   </TableRow>
                   {row.getIsExpanded() && renderSubComponent && (
                     <TableRow>
-                      <TableCell colSpan={row.getVisibleCells().length}>
-                        {renderSubComponent({ row })}
-                      </TableCell>
+                      <TableCell colSpan={row.getVisibleCells().length}>{renderSubComponent({ row })}</TableCell>
                     </TableRow>
                   )}
                 </React.Fragment>
               ))
             ) : (
               <TableRow>
-                <TableCell
-                  colSpan={table.getAllColumns().length}
-                  className="h-24 text-center"
-                >
+                <TableCell colSpan={table.getAllColumns().length} className="h-24 text-center">
                   No results.
                 </TableCell>
               </TableRow>
@@ -117,5 +99,5 @@ export function DataTable<TData>({
       </div>
       {showPagination && <DataTablePagination table={table} />}
     </div>
-  );
+  )
 }

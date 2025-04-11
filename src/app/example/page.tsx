@@ -1,25 +1,18 @@
-'use client'
-import React from 'react'
-import { DateTimePicker } from '@/registry/ui/date-time-picker'
-import { FloatingInput } from '@/registry/ui/floating-input'
-import { InputFile } from '@/registry/ui/input-file'
+import { SearchParams } from 'nuqs'
+import { searchParamsCache } from '@/registry/blocks/server-table/lib/schema/table'
+import TABLE_USER from '../_comp/table-users'
+import { api } from '@/trpc/server'
 
-function page() {
-  const [selectedDateTime, setSelectedDateTime] = React.useState<Date>(new Date())
-  const [name, setName] = React.useState<string>('')
-  const [files, setFiles] = React.useState<File[] | null>(null)
+type TSearchParams = Promise<SearchParams>
 
-  const handleFileChange = (selectedFiles: File[] | null) => {
-    setFiles(selectedFiles)
-  }
-
+export default async function Example(props: { searchParams: TSearchParams }) {
+  const search = await props.searchParams
+  const query = searchParamsCache.parse(search)
+  console.log('searchParams incik boss', query)
+  await api.users.getManyUsers(query)
   return (
-    <div className="grid gap-3.5">
-      <DateTimePicker locale="id" label="Event Date and Time" value={selectedDateTime} onChange={setSelectedDateTime} />
-      <FloatingInput value={name} onChange={(e) => setName(e.target.value)} id="name" label="name" />
-      <InputFile id="file-upload" name="file" accept="image/*" onChange={handleFileChange} />
-    </div>
+    <main className="px-8  flex min-h-screen flex-col items-center justify-center bg-background">
+      <TABLE_USER query={query} />
+    </main>
   )
 }
-
-export default page

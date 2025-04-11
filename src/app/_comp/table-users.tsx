@@ -78,9 +78,8 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
   })
 
   return (
-    <>
-      TABLE_USER
-      <DataTable table={table}>
+    <div className='w-full'>
+      <DataTable className='min-h-[570px]' table={table}>
         <DataTableToolbar table={table}>
           <Button
             disabled={!!table.options.meta?.pendingCreate}
@@ -94,7 +93,7 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
           </Button>
         </DataTableToolbar>
       </DataTable>
-    </>
+    </div>
   )
 }
 
