@@ -1,5 +1,5 @@
 import { DocsSidebarNav } from '@/components/layouts/DocsSidebarNav'
-import DocTopBar from '@/components/layouts/home/doc-top-bar'
+import DocTopBar from '@/components/layouts/doc-top-bar'
 import { docsConfig } from '@/lib/configs/docs-config'
 
 interface DocsLayoutProps {

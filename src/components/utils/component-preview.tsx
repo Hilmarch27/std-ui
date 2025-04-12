@@ -1,20 +1,21 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { cn } from "@/lib/utils"
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { components } from "~/__registry__";
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { CodeBlock } from "./code-block";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { components } from "~/__registry__"
+import { Button } from "@/components/ui/button"
+import { Loader2 } from "lucide-react"
+import { CodeBlock } from "./code-block"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: keyof typeof components;
+  name: keyof typeof components
   // description?: string;
-  hideCode?: boolean;
-  align?: "start" | "center" | "end";
-  shouldExpand?: boolean;
+  hideCode?: boolean
+  align?: "start" | "center" | "end"
+  shouldExpand?: boolean
 }
 
 export function ComponentPreview({
@@ -26,63 +27,59 @@ export function ComponentPreview({
   hideCode = false,
   ...props
 }: ComponentPreviewProps) {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(false)
 
-  const files = components[name].files;
+  const files = components[name].files
 
   const Preview = React.useMemo(() => {
-    const Component = components[name].component;
+    const Component = components[name].component
 
     if (!Component) {
       return (
         <p className="text-sm text-muted-foreground">
-          Component{" "}
-          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-            {name}
-          </code>{" "}
+          Component <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">{name}</code>{" "}
           not found in registry.
         </p>
-      );
+      )
     }
 
-    return <Component />;
-  }, [name]);
+    return <Component />
+  }, [name])
 
   return (
-    <div
-      className={cn("group relative my-4 flex flex-col space-y-2", className)}
-      {...props}
-    >
+    <div className={cn("group relative my-4 flex flex-col space-y-2", className)} {...props}>
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
         <div className="flex items-center justify-between pb-3">
           {!hideCode && (
             <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
+              <ScrollArea className="w-full max-w-[600px] lg:max-w-none">
+                <div className="flex">
                   <TabsTrigger
-                value="preview"
-                className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
-              >
-                Preview
-              </TabsTrigger>
-              {files.map((file) => {
-                return (
-                  <TabsTrigger
-                    key={file.path}
-                    value={file.path}
+                    value="preview"
                     className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
                   >
-                    {file.path.split("/").pop()}
+                    Preview
                   </TabsTrigger>
-                );
-              })}
+                  {files.map((file) => {
+                    return (
+                      <TabsTrigger
+                        key={file.path}
+                        value={file.path}
+                        className="data-[state=active]:after:bg-primary relative rounded-none py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+                      >
+                        {file.path.split("/").pop()}
+                      </TabsTrigger>
+                    )
+                  })}
+                </div>
+                <ScrollBar orientation="horizontal" className="invisible" />
+              </ScrollArea>
             </TabsList>
           )}
         </div>
         <TabsContent
           value="preview"
-          className={cn(
-            !isExpanded && "h-[400px] overflow-hidden",
-            "relative rounded-md border "
-          )}
+          className={cn(!isExpanded && "h-[400px] overflow-hidden", "relative rounded-md border ")}
         >
           {shouldExpand && (
             <>
@@ -100,14 +97,11 @@ export function ComponentPreview({
           )}
 
           <div
-            className={cn(
-              "preview flex min-h-[350px] w-full justify-center p-10",
-              {
-                "items-center": align === "center",
-                "items-start": align === "start",
-                "items-end": align === "end",
-              }
-            )}
+            className={cn("preview flex min-h-[350px] w-full justify-center p-10", {
+              "items-center": align === "center",
+              "items-start": align === "start",
+              "items-end": align === "end",
+            })}
           >
             <React.Suspense
               fallback={
@@ -132,5 +126,5 @@ export function ComponentPreview({
         ))}
       </Tabs>
     </div>
-  );
+  )
 }

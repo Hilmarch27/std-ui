@@ -43,7 +43,7 @@ export function DataTableToolbar<TData>({
     <div className={cn('flex w-full items-center justify-between gap-2 overflow-auto p-1', className)} {...props}>
       <div className="flex flex-1 items-center space-x-2">
         <DebouncedInput
-          className="h-8 w-[150px] lg:w-[250px]"
+          className="-ms-1 h-8 w-[150px] lg:w-[250px]"
           value={global}
           placeholder="Search..."
           onChange={(value) => table.setGlobalFilter(String(value).trim())}

@@ -1,13 +1,8 @@
-import { Button } from '@/components/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
 import { Input } from '@/components/ui/input'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 import { Column, Row, Table } from '@tanstack/react-table'
-import { Check, CircleAlert, X } from 'lucide-react'
 import { useState, useEffect, ChangeEvent } from 'react'
-import { toast } from 'sonner'
 import { Option } from '@/registry/blocks/server-table/lib/types'
 
 type EditTableCellProps<TData> = {
@@ -29,36 +24,6 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
       validateInput(initialValue)
     }
   }, [tableMeta?.editedRows![row.id]])
-
-  useEffect(() => {
-    if (validationMessage) {
-      toast.custom((t) => (
-        <div className="w-[var(--width)] rounded-lg border border-destructive bg-background px-4 py-3">
-          <div className="flex gap-2">
-            <div className="flex grow gap-3">
-              <CircleAlert className="mt-0.5 shrink-0 text-red-500" size={16} strokeWidth={2} aria-hidden="true" />
-              <div className="flex grow justify-between gap-12">
-                <p className="text-sm">{validationMessage}</p>
-              </div>
-            </div>
-            <Button
-              variant="ghost"
-              className="group -my-1.5 -me-2 size-8 shrink-0 p-0 hover:bg-transparent"
-              onClick={() => toast.dismiss(t)}
-              aria-label="Close banner"
-            >
-              <X
-                size={16}
-                strokeWidth={2}
-                className="opacity-60 transition-opacity group-hover:opacity-100"
-                aria-hidden="true"
-              />
-            </Button>
-          </div>
-        </div>
-      ))
-    }
-  }, [validationMessage])
 
   useEffect(() => {
     setValue(initialValue)
@@ -111,7 +76,11 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
         return (
           <div className="w-full">
             <Select onValueChange={handleSelectChange} defaultValue={initialValue}>
-              <SelectTrigger disabled={isDisabled} className={cn('w-full', validationMessage && 'border-destructive')}>
+              <SelectTrigger
+                title={validationMessage}
+                disabled={isDisabled}
+                className={cn('w-full', validationMessage && 'border-destructive')}
+              >
                 <SelectValue placeholder="Select an option" />
               </SelectTrigger>
               <SelectContent>
@@ -127,26 +96,13 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
           </div>
         )
 
-      case 'combobox':
-        return (
-          <ComboboxField
-            value={value}
-            options={columnMeta.options!}
-            onChange={(newValue) => {
-              setValue(newValue)
-              validateInput(newValue)
-            }}
-            hasError={validationMessage !== ''}
-            placeholder="Select option..."
-          />
-        )
-
       default:
         return (
           <div className="w-full">
             <Input
               className={cn('h-9', validationMessage && 'border-destructive')}
               value={value}
+              title={validationMessage}
               disabled={isDisabled}
               onChange={handleChange}
               type={columnMeta?.type || 'text'}
@@ -163,64 +119,4 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
   }
 
   return renderInputField()
-}
-
-const ComboboxField = ({
-  value,
-  options,
-  onChange,
-  hasError,
-  placeholder = 'Select option...'
-}: {
-  value: string
-  options: Option[]
-  onChange: (value: string) => void
-  hasError?: boolean
-  placeholder?: string
-}) => {
-  // Function untuk mendapatkan label berdasarkan value
-  const getLabel = (value: string) => {
-    const option = options.find((opt) => opt.value === value)
-    return option ? option.label : placeholder
-  }
-
-  return (
-    <div className="w-full">
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button
-            variant="outline"
-            role="combobox"
-            className={cn('w-full justify-between', hasError && 'border-destructive')}
-          >
-            {getLabel(value)}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-full p-0">
-          <Command>
-            <CommandInput placeholder="Search option..." />
-            <CommandList>
-              <CommandEmpty>No option found.</CommandEmpty>
-              <CommandGroup>
-                {options.map((option) => (
-                  <CommandItem
-                    key={option.value}
-                    value={option.label} // Search by label
-                    onSelect={(currentValue) => {
-                      // Find the option with the matching label and save its value
-                      const selectedOption = options.find((opt) => opt.label === currentValue)
-                      onChange(selectedOption ? selectedOption.value : '')
-                    }}
-                  >
-                    {option.label}
-                    <Check className={cn('ml-auto h-4 w-4', value === option.value ? 'opacity-100' : 'opacity-0')} />
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-            </CommandList>
-          </Command>
-        </PopoverContent>
-      </Popover>
-    </div>
-  )
 }

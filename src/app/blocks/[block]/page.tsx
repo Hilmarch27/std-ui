@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { BlockProvider } from '@/lib/configs/block-provider'
 import { notFound } from 'next/navigation'
 import registry from '~/registry.json'
-import DocTopBar from '@/components/layouts/home/doc-top-bar'
+import DocTopBar from '@/components/layouts/doc-top-bar'
 import { Badge } from '@/components/ui/badge'
 
 const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
@@ -36,10 +36,14 @@ const BlockPage = async (props: { params: Promise<{ block: string }> }) => {
           <div className="mb-4 flex items-center gap-2 justify-between pr-1.5">
             <div className="flex space-x-1.5">
               <TabsList>
-                <TabsTrigger value="preview">Preview</TabsTrigger>
-                <TabsTrigger value="code">Code</TabsTrigger>
+                <TabsTrigger className="dark:data-[state=active]:border-primary" value="preview">
+                  Preview
+                </TabsTrigger>
+                <TabsTrigger className="dark:data-[state=active]:border-primary" value="code">
+                  Code
+                </TabsTrigger>
               </TabsList>
-              <Badge variant={'outline'} className="flex font-mono text-xs ">
+              <Badge variant={'outline'} className="flex font-mono text-xs border-primary">
                 <p>{title},</p>
                 <p>{description}</p>
               </Badge>

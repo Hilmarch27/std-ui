@@ -25,6 +25,11 @@ export const docsConfig: DocsConfig = {
           title: 'Blocks',
           href: '/blocks/sidebar',
           items: []
+        },
+        {
+          title: 'Examples',
+          href: '/example/data-table',
+          items: []
         }
       ]
     },

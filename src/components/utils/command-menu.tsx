@@ -1,62 +1,67 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import { useRouter } from "next/navigation";
-import { type DialogProps } from "@radix-ui/react-dialog";
-import { CircleIcon, FileIcon, LaptopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import * as React from 'react'
+import { useRouter } from 'next/navigation'
+import { type DialogProps } from '@radix-ui/react-dialog'
+import { CircleIcon, FileIcon, LaptopIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
 
-import { docsConfig } from "@/lib/configs/docs-config";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { docsConfig } from '@/lib/configs/docs-config'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 import {
+  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-} from "@/components/ui/command";
-import { DialogTitle } from "@/components/ui/dialog";
-import { useTheme } from "next-themes";
+  CommandSeparator
+} from '@/components/ui/command'
+import { DialogTitle } from '@/components/ui/dialog'
+import { useMediaQuery } from '@/registry/hooks/use-media-query'
+import { Drawer, DrawerContent } from '../ui/drawer'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
+// import { useTheme } from "next-themes";
 
 export function CommandMenu({ ...props }: DialogProps) {
-  const router = useRouter();
-  const [open, setOpen] = React.useState(false);
-  const { setTheme } = useTheme()
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const router = useRouter()
+  const [open, setOpen] = React.useState(false)
+  // const { setTheme } = useTheme()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || e.key === '/') {
         if (
           (e.target instanceof HTMLElement && e.target.isContentEditable) ||
           e.target instanceof HTMLInputElement ||
           e.target instanceof HTMLTextAreaElement ||
           e.target instanceof HTMLSelectElement
         ) {
-          return;
+          return
         }
 
-        e.preventDefault();
-        setOpen((open) => !open);
+        e.preventDefault()
+        setOpen((open) => !open)
       }
-    };
+    }
 
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
-  }, []);
+    document.addEventListener('keydown', down)
+    return () => document.removeEventListener('keydown', down)
+  }, [])
 
   const runCommand = React.useCallback((command: () => unknown) => {
-    setOpen(false);
-    command();
-  }, []);
+    setOpen(false)
+    command()
+  }, [])
 
   return (
     <>
       <Button
         variant="outline"
         className={cn(
-          "relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+          'relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64'
         )}
         onClick={() => setOpen(true)}
         {...props}
@@ -67,47 +72,50 @@ export function CommandMenu({ ...props }: DialogProps) {
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <DialogTitle></DialogTitle>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Links">
-            {docsConfig.mainNav
-              .filter((navitem) => !navitem.external)
-              .map((navItem) => (
-                <CommandItem
-                  key={navItem.href}
-                  value={navItem.title}
-                  onSelect={() => {
-                    runCommand(() => router.push(navItem.href as string));
-                  }}
-                >
-                  <FileIcon className="mr-2 h-4 w-4" />
-                  {navItem.title}
-                </CommandItem>
-              ))}
-          </CommandGroup>
-          {docsConfig.sidebarNav.map((group) => (
-            <CommandGroup key={group.title} heading={group.title}>
-              {group.items.map((navItem) => (
-                <CommandItem
-                  key={navItem.href}
-                  value={navItem.title}
-                  onSelect={() => {
-                    runCommand(() => router.push(navItem.href as string));
-                  }}
-                >
-                  <div className="mr-2 flex h-4 w-4 items-center justify-center">
-                    <CircleIcon className="h-3 w-3" />
-                  </div>
-                  {navItem.title}
-                </CommandItem>
-              ))}
+      {isDesktop ? (
+        <CommandDialog open={open} onOpenChange={setOpen}>
+          <VisuallyHidden>
+            <DialogTitle>@Hilmarch</DialogTitle>
+          </VisuallyHidden>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Links">
+              {docsConfig.mainNav
+                .filter((navitem) => !navitem.external)
+                .map((navItem) => (
+                  <CommandItem
+                    key={navItem.href}
+                    value={navItem.title}
+                    onSelect={() => {
+                      runCommand(() => router.push(navItem.href as string))
+                    }}
+                  >
+                    <FileIcon className="mr-2 h-4 w-4" />
+                    {navItem.title}
+                  </CommandItem>
+                ))}
             </CommandGroup>
-          ))}
-          <CommandSeparator />
-          {/* <CommandGroup heading="Theme">
+            {docsConfig.sidebarNav.map((group) => (
+              <CommandGroup key={group.title} heading={group.title}>
+                {group.items.map((navItem) => (
+                  <CommandItem
+                    key={navItem.href}
+                    value={navItem.title}
+                    onSelect={() => {
+                      runCommand(() => router.push(navItem.href as string))
+                    }}
+                  >
+                    <div className="mr-2 flex h-4 w-4 items-center justify-center">
+                      <CircleIcon className="h-3 w-3" />
+                    </div>
+                    {navItem.title}
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            ))}
+            <CommandSeparator />
+            {/* <CommandGroup heading="Theme">
             <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
               <SunIcon className="mr-2 h-4 w-4" />
               Light
@@ -121,8 +129,58 @@ export function CommandMenu({ ...props }: DialogProps) {
               System
             </CommandItem>
           </CommandGroup> */}
-        </CommandList>
-      </CommandDialog>
+          </CommandList>
+        </CommandDialog>
+      ) : (
+        <Drawer open={open} onOpenChange={setOpen}>
+          <DrawerContent>
+            <VisuallyHidden>
+              <DialogTitle>@Hilmarch</DialogTitle>
+            </VisuallyHidden>
+            <Command className="mt-4 rounded-none">
+              <CommandInput placeholder="Type a command or search..." />
+              <CommandList>
+                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandGroup heading="Links">
+                  {docsConfig.mainNav
+                    .filter((navitem) => !navitem.external)
+                    .map((navItem) => (
+                      <CommandItem
+                        key={navItem.href}
+                        value={navItem.title}
+                        onSelect={() => {
+                          runCommand(() => router.push(navItem.href as string))
+                        }}
+                      >
+                        <FileIcon className="mr-2 h-4 w-4" />
+                        {navItem.title}
+                      </CommandItem>
+                    ))}
+                </CommandGroup>
+                {docsConfig.sidebarNav.map((group) => (
+                  <CommandGroup key={group.title} heading={group.title}>
+                    {group.items.map((navItem) => (
+                      <CommandItem
+                        key={navItem.href}
+                        value={navItem.title}
+                        onSelect={() => {
+                          runCommand(() => router.push(navItem.href as string))
+                        }}
+                      >
+                        <div className="mr-2 flex h-4 w-4 items-center justify-center">
+                          <CircleIcon className="h-3 w-3" />
+                        </div>
+                        {navItem.title}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                ))}
+                <CommandSeparator />
+              </CommandList>
+            </Command>
+          </DrawerContent>
+        </Drawer>
+      )}
     </>
-  );
+  )
 }

@@ -27,6 +27,7 @@ export function EditedCell<TData>({ row, table, title }: EditedCellProps<TData>)
     meta?.removeRow!(row.index)
   }
 
+
   const disableSubmit = validRow ? Object.values(validRow)?.some((item) => !item) : false
 
   const handleAction = useCallback(
