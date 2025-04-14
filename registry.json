@@ -230,6 +230,41 @@
           "type": "registry:hook"
         }
       ]
+    },
+    {
+      "name": "layout",
+      "type": "registry:component",
+      "title": "Layout Component",
+      "description": "A simple layouts",
+      "registryDependencies": ["separator", "sidebar", "dropdown-menu", "button", "avatar"],
+      "dependencies": ["lucide-react", "next-themes"],
+      "files": [
+        {
+          "path": "src/registry/components/layouts/header.tsx",
+          "type": "registry:component",
+          "target": "components/layouts/header.tsx"
+        },
+        {
+          "path": "src/registry/components/layouts/main.tsx",
+          "type": "registry:component",
+          "target": "components/layouts/main.tsx"
+        },
+        {
+          "path": "src/registry/components/profile-dropdown.tsx",
+          "type": "registry:component",
+          "target": "components/profile-dropdown.tsx"
+        },
+        {
+          "path": "src/registry/components/theme-switch.tsx",
+          "type": "registry:component",
+          "target": "components/theme-switch.tsx"
+        },
+        {
+          "path": "src/registry/components/top-nav.tsx",
+          "type": "registry:component",
+          "target": "components/top-nav.tsx"
+        }
+      ]
     }
   ]
 }

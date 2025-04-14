@@ -129,5 +129,51 @@ export const components = {
       }
     ],
     component: React.lazy(() => import('./preview/ui/modal'))
+  },
+  layout: {
+    name: 'layout',
+    type: 'registry:component',
+    title: 'Layout Component',
+    description: 'A simple layouts',
+    dependencies: ['lucide-react', 'next-themes'],
+    registryDependencies: ['separator', 'sidebar', 'dropdown-menu', 'button', 'avatar'],
+    files: [
+      {
+        path: 'src/registry/components/layouts/header.tsx',
+        content:
+          "import React from 'react'\r\nimport { cn } from '@/lib/utils'\r\nimport { Separator } from '@/components/ui/separator'\r\nimport { SidebarTrigger } from '@/components/ui/sidebar'\r\n\r\ntype HeaderProps = {\r\n    fixed?: boolean\r\n}\r\n\r\nexport const Header = ({ className, fixed, children, ...props }: HeaderProps & React.HTMLAttributes<HTMLElement>) => {\r\n    const [offset, setOffset] = React.useState(0)\r\n\r\n    React.useEffect(() => {\r\n        const onScroll = () => {\r\n            setOffset(document.body.scrollTop || document.documentElement.scrollTop)\r\n        }\r\n\r\n        // Add scroll listener to the body\r\n        document.addEventListener('scroll', onScroll, { passive: true })\r\n\r\n        // Clean up the event listener on unmount\r\n        return () => document.removeEventListener('scroll', onScroll)\r\n    }, [])\r\n\r\n    return (\r\n        <header\r\n            className={cn(\r\n                'flex h-16 items-center gap-3 bg-background p-4 sm:gap-4',\r\n                fixed && 'header-fixed peer/header fixed z-50 w-[inherit] rounded-md',\r\n                offset > 10 && fixed ? 'shadow' : 'shadow-none',\r\n                className\r\n            )}\r\n            {...props}\r\n        >\r\n            <SidebarTrigger variant=\"outline\" className=\"scale-125 sm:scale-100\" />\r\n            <Separator orientation=\"vertical\" className=\"h-6\" />\r\n            {children}\r\n        </header>\r\n    )\r\n}",
+        type: 'registry:component',
+        target: 'components/layouts/header.tsx'
+      },
+      {
+        path: 'src/registry/components/layouts/main.tsx',
+        content:
+          "import React from 'react'\r\nimport { cn } from '@/lib/utils'\r\n\r\ntype MainProps = {\r\n  fixed?: boolean\r\n}\r\n\r\nexport const Main = ({ fixed, ...props }: MainProps & React.HTMLAttributes<HTMLElement>) => {\r\n  return (\r\n    <main\r\n      className={cn(\r\n        'peer-[.header-fixed]/header:mt-16',\r\n        'px-4 py-6',\r\n        fixed && 'fixed-main flex flex-grow flex-col overflow-hidden'\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n",
+        type: 'registry:component',
+        target: 'components/layouts/main.tsx'
+      },
+      {
+        path: 'src/registry/components/profile-dropdown.tsx',
+        content:
+          'import { Avatar, AvatarFallback, AvatarImage } from \'@/components/ui/avatar\'\r\nimport { Button } from \'@/components/ui/button\'\r\nimport {\r\n  DropdownMenu,\r\n  DropdownMenuContent,\r\n  DropdownMenuGroup,\r\n  DropdownMenuItem,\r\n  DropdownMenuLabel,\r\n  DropdownMenuSeparator,\r\n  DropdownMenuShortcut,\r\n  DropdownMenuTrigger\r\n} from \'@/components/ui/dropdown-menu\'\r\nimport Link from \'next/link\'\r\n\r\nexport function ProfileDropdown() {\r\n  return (\r\n    <DropdownMenu modal={false}>\r\n      <DropdownMenuTrigger asChild>\r\n        <Button variant="ghost" className="relative h-8 w-8 rounded-full">\r\n          <Avatar className="h-8 w-8">\r\n            <AvatarImage src="/avatars/01.png" alt="@shadcn" />\r\n            <AvatarFallback>SN</AvatarFallback>\r\n          </Avatar>\r\n        </Button>\r\n      </DropdownMenuTrigger>\r\n      <DropdownMenuContent className="w-56" align="end" forceMount>\r\n        <DropdownMenuLabel className="font-normal">\r\n          <div className="flex flex-col space-y-1">\r\n            <p className="text-sm font-medium leading-none">satnaing</p>\r\n            <p className="text-xs leading-none text-muted-foreground">satnaingdev@gmail.com</p>\r\n          </div>\r\n        </DropdownMenuLabel>\r\n        <DropdownMenuSeparator />\r\n        <DropdownMenuGroup>\r\n          <DropdownMenuItem asChild>\r\n            <Link href="/settings">\r\n              Profile\r\n              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>\r\n            </Link>\r\n          </DropdownMenuItem>\r\n          <DropdownMenuItem asChild>\r\n            <Link href="/settings">\r\n              Billing\r\n              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>\r\n            </Link>\r\n          </DropdownMenuItem>\r\n          <DropdownMenuItem asChild>\r\n            <Link href="/settings">\r\n              Settings\r\n              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>\r\n            </Link>\r\n          </DropdownMenuItem>\r\n          <DropdownMenuItem>New Team</DropdownMenuItem>\r\n        </DropdownMenuGroup>\r\n        <DropdownMenuSeparator />\r\n        <DropdownMenuItem>\r\n          Log out\r\n          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>\r\n        </DropdownMenuItem>\r\n      </DropdownMenuContent>\r\n    </DropdownMenu>\r\n  )\r\n}\r\n',
+        type: 'registry:component',
+        target: 'components/profile-dropdown.tsx'
+      },
+      {
+        path: 'src/registry/components/theme-switch.tsx',
+        content:
+          "import { useEffect } from 'react'\r\nimport { cn } from '@/lib/utils'\r\nimport { Button } from '@/components/ui/button'\r\nimport { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'\r\nimport { useTheme } from 'next-themes'\r\nimport { Check, Moon, Sun } from 'lucide-react'\r\n\r\nexport function ThemeSwitch() {\r\n  const { theme, setTheme } = useTheme()\r\n\r\n  /* Update theme-color meta tag\r\n   * when theme is updated */\r\n  useEffect(() => {\r\n    const themeColor = theme === 'dark' ? '#020817' : '#fff'\r\n    const metaThemeColor = document.querySelector(\"meta[name='theme-color']\")\r\n    if (metaThemeColor) metaThemeColor.setAttribute('content', themeColor)\r\n  }, [theme])\r\n\r\n  return (\r\n    <DropdownMenu modal={false}>\r\n      <DropdownMenuTrigger asChild>\r\n        <Button variant=\"ghost\" size=\"icon\" className=\"scale-95 rounded-full\">\r\n          <Sun className=\"size-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0\" />\r\n          <Moon className=\"absolute size-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100\" />\r\n          <span className=\"sr-only\">Toggle theme</span>\r\n        </Button>\r\n      </DropdownMenuTrigger>\r\n      <DropdownMenuContent align=\"end\">\r\n        <DropdownMenuItem onClick={() => setTheme('light')}>\r\n          Light <Check size={14} className={cn('ml-auto', theme !== 'light' && 'hidden')} />\r\n        </DropdownMenuItem>\r\n        <DropdownMenuItem onClick={() => setTheme('dark')}>\r\n          Dark\r\n          <Check size={14} className={cn('ml-auto', theme !== 'dark' && 'hidden')} />\r\n        </DropdownMenuItem>\r\n        <DropdownMenuItem onClick={() => setTheme('system')}>\r\n          System\r\n          <Check size={14} className={cn('ml-auto', theme !== 'system' && 'hidden')} />\r\n        </DropdownMenuItem>\r\n      </DropdownMenuContent>\r\n    </DropdownMenu>\r\n  )\r\n}\r\n",
+        type: 'registry:component',
+        target: 'components/theme-switch.tsx'
+      },
+      {
+        path: 'src/registry/components/top-nav.tsx',
+        content:
+          "import { cn } from '@/lib/utils'\r\nimport { Button } from '@/components/ui/button'\r\nimport { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'\r\nimport { Menu } from 'lucide-react'\r\nimport Link from 'next/link'\r\n\r\ntype TopNavProps = {\r\n  links: {\r\n    title: string\r\n    href: string\r\n    isActive: boolean\r\n  }[]\r\n}\r\n\r\nexport function TopNav({ className, links, ...props }: TopNavProps & React.HTMLAttributes<HTMLElement>) {\r\n  return (\r\n    <>\r\n      <div className=\"md:hidden\">\r\n        <DropdownMenu modal={false}>\r\n          <DropdownMenuTrigger asChild>\r\n            <Button size=\"icon\" variant=\"outline\">\r\n              <Menu />\r\n            </Button>\r\n          </DropdownMenuTrigger>\r\n          <DropdownMenuContent side=\"bottom\" align=\"start\">\r\n            {links.map(({ title, href, isActive }) => (\r\n              <DropdownMenuItem key={`${title}-${href}`} asChild>\r\n                <Link href={href} className={!isActive ? 'text-muted-foreground' : ''}>\r\n                  {title}\r\n                </Link>\r\n              </DropdownMenuItem>\r\n            ))}\r\n          </DropdownMenuContent>\r\n        </DropdownMenu>\r\n      </div>\r\n\r\n      <nav className={cn('hidden items-center space-x-4 md:flex lg:space-x-6', className)} {...props}>\r\n        {links.map(({ title, href, isActive }) => (\r\n          <Link\r\n            key={`${title}-${href}`}\r\n            href={href}\r\n            className={`text-sm font-medium transition-colors hover:text-primary ${\r\n              isActive ? '' : 'text-muted-foreground'\r\n            }`}\r\n          >\r\n            {title}\r\n          </Link>\r\n        ))}\r\n      </nav>\r\n    </>\r\n  )\r\n}\r\n",
+        type: 'registry:component',
+        target: 'components/top-nav.tsx'
+      }
+    ],
+    component: React.lazy(() => import('./preview/components/layout'))
   }
 } as const

@@ -34,7 +34,7 @@ export const docsConfig: DocsConfig = {
       ]
     },
     {
-      title: 'UI Components',
+      title: 'UI',
       items: [
         {
           title: 'Date Time Picker',
@@ -54,6 +54,16 @@ export const docsConfig: DocsConfig = {
         {
           title: 'Modal',
           href: '/docs/modal',
+          items: []
+        }
+      ]
+    },
+    {
+      title: 'Components',
+      items: [
+        {
+          title: 'layout',
+          href: '/docs/layout',
           items: []
         }
       ]
