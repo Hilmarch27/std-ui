@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { Column, Row, Table } from '@tanstack/react-table'
 import { useState, useEffect, ChangeEvent } from 'react'
 import { Option } from '@/registry/blocks/server-table/lib/types'
+import { ZodError } from 'zod'
 
 type EditTableCellProps<TData> = {
   getValue: () => any
@@ -13,48 +14,48 @@ type EditTableCellProps<TData> = {
 }
 
 export function EditTableCell<TData>({ getValue, row, column, table }: EditTableCellProps<TData>) {
-  const initialValue = getValue()
+  const initValue = getValue()
   const columnMeta = column.columnDef.meta
   const tableMeta = table.options.meta
-  const [value, setValue] = useState(initialValue)
-  const [validationMessage, setValidationMessage] = useState('')
+  const [value, setValue] = useState(initValue)
+  const [valMsg, setvalMsg] = useState('')
+
+  if (!tableMeta || !columnMeta || !tableMeta.editedRows) {
+    throw new Error('Table meta or column meta is not defined')
+  }
 
   useEffect(() => {
-    if (tableMeta?.editedRows![row.id]) {
-      validateInput(initialValue)
+    if (tableMeta.editedRows && tableMeta.editedRows[row.id]) {
+      validateInput(initValue)
     }
-  }, [tableMeta?.editedRows![row.id]])
+  }, [tableMeta.editedRows[row.id]])
 
   useEffect(() => {
-    setValue(initialValue)
-    if (tableMeta?.editedRows![row.id]) {
-      validateInput(initialValue)
+    setValue(initValue)
+    if (tableMeta.editedRows && tableMeta.editedRows[row.id]) {
+      validateInput(initValue)
     }
-  }, [initialValue])
+  }, [initValue])
 
   const validateInput = (inputValue: any) => {
     let message = ''
-    if (columnMeta?.required && (!inputValue || !inputValue.trim())) {
-      message = columnMeta.validationMessage || 'This field is required'
-    } else if (inputValue && inputValue.trim()) {
-      if (columnMeta?.pattern) {
-        const regex = new RegExp(columnMeta.pattern)
-        if (!regex.test(inputValue)) {
-          message = columnMeta.validationMessage || 'Invalid format'
-        }
-      }
+    let isValid = true
 
-      if (columnMeta?.validate) {
-        const isValid = columnMeta.validate(inputValue)
-        if (!isValid) {
-          message = columnMeta.validationMessage || 'Validation failed'
+    // Zod validation
+    if (columnMeta.schema) {
+      try {
+        columnMeta.schema.parse(inputValue)
+      } catch (error) {
+        if (error instanceof ZodError) {
+          message = error.errors[0]?.message ?? 'Invalid input'
+          isValid = false
         }
       }
     }
 
-    setValidationMessage(message)
-    tableMeta?.updateData!(row.index, column.id, inputValue, message === '')
-    return message === ''
+    setvalMsg(message)
+    tableMeta.updateData!(row.index, column.id, inputValue, isValid)
+    return isValid
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -68,24 +69,27 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
     validateInput(newValue)
   }
 
-  const isDisabled = typeof columnMeta?.disabled === 'function' ? columnMeta.disabled(row) : columnMeta?.disabled
+  const isDisabled = typeof columnMeta.disabled === 'function' ? columnMeta.disabled(row) : columnMeta.disabled
 
   const renderInputField = () => {
-    switch (columnMeta?.type) {
+    switch (columnMeta.type) {
       case 'select':
         return (
           <div className="w-full">
-            <Select onValueChange={handleSelectChange} defaultValue={initialValue}>
+            <Select onValueChange={handleSelectChange} defaultValue={initValue}>
               <SelectTrigger
-                title={validationMessage}
+                data-error={!!valMsg}
+                title={valMsg}
                 disabled={isDisabled}
-                className={cn('w-full', validationMessage && 'border-destructive')}
+                className={cn(
+                  'w-full data-[error=true]:text-destructive data-[error=true]:ring-destructive data-[error=true]:border-none',
+                )}
               >
                 <SelectValue placeholder="Select an option" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  {columnMeta?.options?.map((option: Option) => (
+                  {columnMeta.options!.map((option: Option) => (
                     <SelectItem key={option.value} value={option.value}>
                       {option.label}
                     </SelectItem>
@@ -93,6 +97,7 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
                 </SelectGroup>
               </SelectContent>
             </Select>
+            {valMsg && <p className="text-[10px] mt-0.5 text-destructive">{valMsg}</p>}
           </div>
         )
 
@@ -100,21 +105,25 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
         return (
           <div className="w-full">
             <Input
-              className={cn('h-9', validationMessage && 'border-destructive')}
+              className={cn(
+                'h-9 data-[error=true]:text-destructive data-[error=true]:ring-destructive data-[error=true]:border-none',
+              )}
               value={value}
-              title={validationMessage}
+              data-error={!!valMsg}
+              title={valMsg}
               disabled={isDisabled}
               onChange={handleChange}
-              type={columnMeta?.type || 'text'}
-              required={columnMeta?.required}
-              pattern={columnMeta?.pattern}
+              type={columnMeta.type || 'text'}
+              required={columnMeta.required}
+              pattern={columnMeta.pattern}
             />
+    
           </div>
         )
     }
   }
 
-  if (!tableMeta?.editedRows![row.id]) {
+  if (!tableMeta.editedRows[row.id]) {
     return <span className="w-auto">{value}</span>
   }
 

@@ -4,6 +4,7 @@ import { EditedCell } from './edit-table-row-action'
 import { EditTableCell } from '@/registry/blocks/server-table/block/edit-table-cell'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Student } from '@/registry/blocks/server-table/hooks/use-querry'
+import { z } from 'zod'
 
 export const columns: ColumnDef<Student>[] = [
   {
@@ -42,8 +43,7 @@ export const columns: ColumnDef<Student>[] = [
     ),
     meta: {
       type: 'text',
-      required: true,
-      validationMessage: 'Name is required'
+      zod: z.string().min(1, { message: 'Name is required boss' })
     }
   },
   {

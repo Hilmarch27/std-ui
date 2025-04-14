@@ -88,7 +88,7 @@ export function useDataTable<TData extends { id: string }>({
   const initializeValidationState = () => {
     const validationState: Record<string, boolean> = {};
     columns.forEach((column: any) => {
-      if (column.meta?.required) {
+      if (column.meta?.zod) {
         validationState[column.accessorKey as string] = false;
       }
     });

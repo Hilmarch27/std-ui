@@ -4,6 +4,7 @@ import { EditTableCell } from '@/registry/blocks/server-table/block/edit-table-c
 import { Checkbox } from '@/components/ui/checkbox'
 import { User } from '@prisma/client'
 import { EditedCell } from '@/registry/blocks/server-table/block/edit-table-row-action'
+import { z } from 'zod'
 
 export const COLUMNS_USERS: ColumnDef<User>[] = [
   {
@@ -42,8 +43,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     ),
     meta: {
       type: 'text',
-      required: true,
-      validationMessage: 'Name is required'
+      schema: z.string().min(1, 'minumum 1').regex(/^[^0-9]*$/, 'Name must not contain numbers'),
     }
   },
   {
@@ -54,8 +54,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     ),
     meta: {
       type: 'text',
-      required: true,
-      validationMessage: 'Email is required'
+      schema: z.string().email('Invalid email address'),
     }
   },
   {
