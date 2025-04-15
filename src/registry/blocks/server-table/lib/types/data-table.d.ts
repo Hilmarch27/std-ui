@@ -18,14 +18,10 @@ export interface RowValidationState {
 
 declare module "@tanstack/react-table" {
   interface ColumnMeta<TData extends RowData, TValue> {
-    required?: boolean
     disabled?: boolean | ((row: Row<TData>) => boolean)
     type?: 'text' | 'number' | 'date' | 'select' | 'combobox' | 'password'
-    pattern?: string
     schema?: ZodType<any, ZodTypeDef, any>,
-    validationMessage?: string
     options?: { label: string; value: string }[]
-    validate?: (value: TData) => boolean
   }
 
   interface TableMeta<TData extends RowData> {

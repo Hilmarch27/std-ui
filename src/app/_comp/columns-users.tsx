@@ -14,7 +14,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
         checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && 'indeterminate')}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
-        className="translate-y-[2px]"
+        className="translate-y-[2px] mb-2"
       />
     ),
     cell: ({ row }) => (
@@ -22,7 +22,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
-        className="translate-y-[2px]"
+        className="translate-y-[2px] mb-2"
       />
     ),
     enableSorting: false,
@@ -43,7 +43,10 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     ),
     meta: {
       type: 'text',
-      schema: z.string().min(1, 'minumum 1').regex(/^[^0-9]*$/, 'Name must not contain numbers'),
+      schema: z
+        .string()
+        .min(1, 'minumum 1')
+        .regex(/^[^0-9]*$/, 'Name must not contain numbers')
     }
   },
   {
@@ -54,7 +57,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     ),
     meta: {
       type: 'text',
-      schema: z.string().email('Invalid email address'),
+      schema: z.string().email('Invalid email address')
     }
   },
   {
@@ -64,9 +67,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text',
-      required: true,
-      validationMessage: 'Phone is required'
+      type: 'text'
     }
   },
   {

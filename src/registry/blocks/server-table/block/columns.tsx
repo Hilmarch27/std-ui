@@ -43,7 +43,7 @@ export const columns: ColumnDef<Student>[] = [
     ),
     meta: {
       type: 'text',
-      zod: z.string().min(1, { message: 'Name is required boss' })
+      schema: z.string().min(1, { message: 'Name is required boss' })
     }
   },
   {
@@ -54,8 +54,6 @@ export const columns: ColumnDef<Student>[] = [
     ),
     meta: {
       type: 'date',
-      required: true,
-      validationMessage: 'Invalid date format (YYYY-MM-DD)'
     }
   },
   {
@@ -72,8 +70,6 @@ export const columns: ColumnDef<Student>[] = [
         { value: 'Business', label: 'Business' },
         { value: 'Psychology', label: 'Psychology' }
       ],
-      required: true,
-      validationMessage: 'Major is required'
     }
   },
   {

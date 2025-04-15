@@ -114,8 +114,6 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
               disabled={isDisabled}
               onChange={handleChange}
               type={columnMeta.type || 'text'}
-              required={columnMeta.required}
-              pattern={columnMeta.pattern}
             />
     
           </div>

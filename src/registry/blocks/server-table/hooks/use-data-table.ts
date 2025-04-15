@@ -267,7 +267,6 @@ export function useDataTable<TData extends { id: string }>({
     },
     manualPagination: true,
     manualFiltering: true,
-    debugTable: true,
   });
 
   return { table };
