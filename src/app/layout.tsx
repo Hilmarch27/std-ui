@@ -15,8 +15,32 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Std-UI',
+  title: 'Std-UI Customized Shadcn UI Blocks & Components | Preview & Copy',
   description: 'Std-UI is A collection of UI components Built on top of Shadcn UI',
+  keywords: [
+    'Shadcn UI blocks',
+    'Shadcn UI components',
+    'Shadcn UI previews',
+    'UI blocks for developers',
+    'Shadcn UI code snippets',
+    'Shadcn UI examples',
+    'Shadcn UI customization',
+    'Free Shadcn UI blocks',
+    'Preview Shadcn UI components',
+    'Shadcn UI examples for websites',
+    'Copy Shadcn UI code snippets',
+    'UI design components',
+    'UI design blocks',
+    'Customized Shadcn UI blocks',
+    'Custom Shadcn UI components',
+    'STD UI',
+    'Std ui components'
+  ],
+  openGraph: {
+    title: 'Std-UI Customized Shadcn UI Blocks & Components | Preview & Copy',
+    description: 'Std-UI is A collection of UI components Built on top of Shadcn UI',
+    type: 'website'
+  },
   icons: {
     icon: { url: '/squirrel.svg' }
   }

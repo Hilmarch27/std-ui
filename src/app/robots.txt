@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private-data/
+Allow: /public/
+
+Sitemap: https://std-ui.vercel.app/sitemap.xml
