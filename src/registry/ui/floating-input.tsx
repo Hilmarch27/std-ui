@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { cn } from '@/lib/utils'
-import { Input } from '@/components/ui/input'
+import { Input } from '@/registry/ui/input'
 import { Label } from '@/components/ui/label'
 
 interface FloatingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {

@@ -4,6 +4,7 @@ import { Form } from '@/registry/form/ui/form'
 import { useAppForm } from '@/registry/form/hooks/use-form'
 import React from 'react'
 import { z } from 'zod'
+import { toast } from 'sonner'
 
 const OptLastName = [
   {
@@ -19,6 +20,8 @@ const OptLastName = [
 const SchemaForm = z.object({
   firstName: z.string().min(3, 'First name must be at least 3 characters'),
   lastName: z.string().min(1, 'Last name must be at least 1 characters'),
+  address: z.string().min(1, 'Address must be at least 1 characters'),
+  numberCard: z.string().min(1, 'Number Card must be at least 1 characters'),
   money: z.number().min(1, 'Money must be at least 1')
 })
 
@@ -27,13 +30,19 @@ function USER_FORM() {
     defaultValues: {
       firstName: '',
       lastName: '',
+      address: '',
+      numberCard: '',
       money: 0
     },
     validators: {
       onChange: SchemaForm
     },
     onSubmit: async ({ value }) => {
-      console.log(value)
+      toast.message(
+        <pre className="w-full rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(value, null, 2)}</code>
+        </pre>
+      )
     }
   })
 
@@ -45,6 +54,8 @@ function USER_FORM() {
         children={(field) => <field.ComboboxField label="last Name" options={OptLastName} />}
       />
       <form.AppField name="money" children={(field) => <field.IDRField label="Money" />} />
+      <form.AppField name="address" children={(field) => <field.TextFloatingField label="Address" />} />
+      <form.AppField name="numberCard" children={(field) => <field.TextNumberField label="Number Card" />} />
       <form.AppForm>
         <form.SubscribeButton label="Submit" />
       </form.AppForm>

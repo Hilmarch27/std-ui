@@ -2,7 +2,7 @@
 
 import type React from 'react'
 import { useState, useEffect, type ChangeEvent } from 'react'
-import { Input } from '@/components/ui/input'
+import { Input } from '@/registry/ui/input'
 import { cn } from '@/lib/utils'
 
 type InputIDRProps = Omit<React.ComponentProps<'input'>, 'onChange'> & {

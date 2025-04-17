@@ -5,13 +5,14 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useFieldContext, useFormContext } from '@/registry/form/hooks/use-form'
 import { FormEvent } from 'react'
-import { Input } from '@/components/ui/input'
+import { Input, InputNumber } from '@/registry/ui/input'
 import { Label } from '@/components/ui/label'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Check, ChevronsUpDown } from 'lucide-react'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
 import { AnyFieldApi } from '@tanstack/react-form'
 import { InputIDR } from '@/registry/ui/input-idr'
+import { FloatingInput } from '@/registry/ui/floating-input'
 
 type FormProps = Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onSubmit'> & {
   onSubmit?: () => Promise<void>
@@ -110,6 +111,76 @@ function IDRField({ className, label, ...props }: IDRFieldProps) {
   )
 }
 
+type TextFloatingProps = React.ComponentProps<'input'> & {
+  label: string
+}
+
+function TextFloatingField({ label, className, ...props }: TextFloatingProps) {
+  const field = useFieldContext<string>()
+
+  return (
+    <div className={cn('grid w-full max-w-sm items-center gap-1.5', className)}>
+      <FloatingInput
+        label={label}
+        {...props}
+        value={field.state.value}
+        onChange={(e) => field.handleChange(e.target.value)}
+      />
+      <FieldInfo field={field} />
+    </div>
+  )
+}
+
+type TextNumberFieldProps = React.ComponentProps<'input'> & {
+  label: string
+}
+
+function TextNumberField({ label, className, ...props }: TextNumberFieldProps) {
+  const field = useFieldContext<string>()
+
+  return (
+    <div className={cn('grid w-full max-w-sm items-center gap-1.5', className)}>
+      <Label htmlFor={label}>{label}</Label>
+      <InputNumber
+        {...props}
+        type="text"
+        id={label}
+        value={field.state.value}
+        onChange={(e) => field.handleChange(e.target.value)}
+      />
+      <FieldInfo field={field} />
+    </div>
+  )
+}
+
+type SelectFieldProps = React.ComponentProps<'select'> & {
+  label: string
+  options: { label: string; value: string }[]
+}
+
+function SelectField({ options, className, label, ...props }: SelectFieldProps) {
+  const field = useFieldContext<string>()
+  return (
+    <div className={cn('grid w-full max-w-sm items-center gap-1.5', className)}>
+      <Label htmlFor={label}>{label}</Label>
+      <select
+        {...props}
+        defaultValue={field.state.value}
+        onChange={(e) => field.handleChange(e.target.value)}
+        id={label}
+      >
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+      <FieldInfo field={field} />
+    </div>
+  )
+}
+
+
 type ComboboxFieldProps = React.ComponentProps<'button'> & {
   label: string
   options: { label: string; value: string }[]
@@ -161,4 +232,4 @@ function ComboboxField({ options, className, label, ...props }: ComboboxFieldPro
   )
 }
 
-export { Form, FieldInfo, SubscribeButton, TextField, IDRField, ComboboxField }
+export { Form, FieldInfo, SubscribeButton, TextField, IDRField, TextFloatingField, ComboboxField, TextNumberField }

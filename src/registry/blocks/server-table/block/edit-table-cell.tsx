@@ -1,4 +1,4 @@
-import { Input } from '@/components/ui/input'
+import { Input } from '@/registry/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 import { Column, Row, Table } from '@tanstack/react-table'
@@ -82,7 +82,7 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
                 title={valMsg}
                 disabled={isDisabled}
                 className={cn(
-                  'w-full data-[error=true]:text-destructive data-[error=true]:ring-destructive data-[error=true]:border-none',
+                  'w-full data-[error=true]:text-destructive data-[error=true]:ring-destructive data-[error=true]:border-none'
                 )}
               >
                 <SelectValue placeholder="Select an option" />
@@ -106,7 +106,7 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
           <div className="w-full">
             <Input
               className={cn(
-                'h-9 data-[error=true]:text-destructive data-[error=true]:ring-destructive data-[error=true]:border-none',
+                'h-9 data-[error=true]:text-destructive data-[error=true]:ring-destructive data-[error=true]:border-none'
               )}
               value={value}
               data-error={!!valMsg}
@@ -115,7 +115,6 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
               onChange={handleChange}
               type={columnMeta.type || 'text'}
             />
-    
           </div>
         )
     }
