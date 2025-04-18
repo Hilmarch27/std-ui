@@ -33,7 +33,7 @@ const examples = [
   },
   {
     name: 'Forms',
-    href: '/examples/forms',
+    href: '/example/form',
     code: 'https://github.com/shadcn/ui/tree/main/apps/www/app/(app)/examples/forms',
     hidden: false
   },

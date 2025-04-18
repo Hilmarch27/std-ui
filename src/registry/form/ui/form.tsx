@@ -13,6 +13,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { AnyFieldApi } from '@tanstack/react-form'
 import { InputIDR } from '@/registry/ui/input-idr'
 import { FloatingInput } from '@/registry/ui/floating-input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 type FormProps = Omit<React.FormHTMLAttributes<HTMLFormElement>, 'onSubmit'> & {
   onSubmit?: () => Promise<void>
@@ -153,7 +154,7 @@ function TextNumberField({ label, className, ...props }: TextNumberFieldProps) {
   )
 }
 
-type SelectFieldProps = React.ComponentProps<'select'> & {
+type SelectFieldProps = React.ComponentProps<'button'> & {
   label: string
   options: { label: string; value: string }[]
 }
@@ -161,25 +162,24 @@ type SelectFieldProps = React.ComponentProps<'select'> & {
 function SelectField({ options, className, label, ...props }: SelectFieldProps) {
   const field = useFieldContext<string>()
   return (
-    <div className={cn('grid w-full max-w-sm items-center gap-1.5', className)}>
+    <div className="grid w-full max-w-sm items-center gap-1.5">
       <Label htmlFor={label}>{label}</Label>
-      <select
-        {...props}
-        defaultValue={field.state.value}
-        onChange={(e) => field.handleChange(e.target.value)}
-        id={label}
-      >
-        {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
+      <Select defaultValue={field.state.value} onValueChange={(v) => field.handleChange(v)}>
+        <SelectTrigger className={cn('w-full', className)} {...props}>
+          <SelectValue placeholder="Select a verified email to display" />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((opt) => (
+            <SelectItem key={opt.value} value={opt.value}>
+              {opt.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
       <FieldInfo field={field} />
     </div>
   )
 }
-
 
 type ComboboxFieldProps = React.ComponentProps<'button'> & {
   label: string
@@ -232,4 +232,4 @@ function ComboboxField({ options, className, label, ...props }: ComboboxFieldPro
   )
 }
 
-export { Form, FieldInfo, SubscribeButton, TextField, IDRField, TextFloatingField, ComboboxField, TextNumberField }
+export { Form, FieldInfo, SubscribeButton, TextField, IDRField, TextFloatingField, TextNumberField, ComboboxField, SelectField }

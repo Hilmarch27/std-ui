@@ -17,6 +17,50 @@
       ]
     },
     {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Enhanced Input",
+      "description": "A simple Enhanced Input",
+      "registryDependencies": ["label"],
+      "files": [
+        {
+          "path": "src/registry/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-idr",
+      "type": "registry:ui",
+      "title": "Input IDR",
+      "description": "A simple Enhanced Input IDR",
+      "registryDependencies": ["input"],
+      "files": [
+        {
+          "path": "src/registry/ui/input-idr.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "title": "Form with tanstack form",
+      "description": "A simple Enhanced Form and tanstack form",
+      "registryDependencies": ["button", "input", "select", "label", "command", "popover", "https://std-ui.vercel.app/r/input", "https://std-ui.vercel.app/r/input-idr", "https://std-ui.vercel.app/r/floating-input"],
+      "dependencies": ["lucide-react", "@tanstack/react-form", "zod"],
+      "files": [
+        {
+          "path": "src/registry/form/ui/form.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/registry/form/hooks/use-form.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
       "name": "sidebar",
       "type": "registry:block",
       "title": "Sidebar",
@@ -24,7 +68,7 @@
       "registryDependencies": ["sidebar", "button", "collapsible", "badge", "input", "dropdown-menu", "avatar"],
       "dependencies": ["lucide-react"],
       "meta": {
-        "component" : "~/__registry__/preview/block/sidebar.tsx"
+        "component": "~/__registry__/preview/block/sidebar.tsx"
       },
       "files": [
         {
@@ -196,19 +240,6 @@
       "files": [
         {
           "path": "./src/registry/ui/calendar.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "floating-input",
-      "type": "registry:ui",
-      "title": "Floating Input",
-      "description": "A simple Floating Input",
-      "registryDependencies": ["input", "label"],
-      "files": [
-        {
-          "path": "./src/registry/ui/floating-input.tsx",
           "type": "registry:ui"
         }
       ]
