@@ -223,6 +223,11 @@ export function useDataTable<TData extends { id: string }>({
     data,
     columns,
     pageCount,
+    initialState: {
+      columnPinning: {
+        right: ['actions'],
+      }
+    },
     state: {
       pagination,
       sorting,
@@ -230,9 +235,10 @@ export function useDataTable<TData extends { id: string }>({
       rowSelection,
       columnFilters,
       expanded,
-      globalFilter,
+      globalFilter
     },
-    globalFilterFn: "includesString",
+    columnResizeMode: 'onChange',
+    globalFilterFn: 'includesString',
     enableRowSelection: true,
     onPaginationChange,
     onRowSelectionChange: setRowSelection,
@@ -263,11 +269,11 @@ export function useDataTable<TData extends { id: string }>({
       updateData: handleUpdateData,
       createRow: handleCreateRow,
       removeRow: handleRemoveRow,
-      removeSelectedRows: handleRemoveSelectedRows,
+      removeSelectedRows: handleRemoveSelectedRows
     },
     manualPagination: true,
-    manualFiltering: true,
-  });
+    manualFiltering: true
+  })
 
   return { table };
 }

@@ -60,7 +60,10 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
     <div className="relative">
       <ScrollArea className="max-w-[600px] lg:max-w-none">
         <div className={cn('flex items-center', className)} {...props}>
-          <ExampleLink example={{ name: 'Data Table', href: '/', code: '', hidden: false }} isActive={pathname === '/'} />
+          <ExampleLink
+            example={{ name: 'Data Table', href: '/example/data-table', code: '', hidden: false }}
+            isActive={pathname?.startsWith('/example/data-table') ?? false}
+          />
           {examples.map((example) => (
             <ExampleLink key={example.href} example={example} isActive={pathname?.startsWith(example.href) ?? false} />
           ))}

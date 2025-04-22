@@ -80,12 +80,12 @@ export function EditedCell<TData>({ row, table, title }: EditedCellProps<TData>)
 
   return meta.editedRows[row.id] ? (
     <div className="flex items-center gap-2">
-      <Button title="Cancel" size={'icon'} onClick={setEditedRows} name="cancel">
+      <Button title="Cancel" size={'sm'} onClick={setEditedRows} name="cancel">
         <X size={16} />
       </Button>
 
       <Button
-        size={'icon'}
+        size={'sm'}
         onClick={setEditedRows}
         name="done"
         title="Done"
@@ -97,13 +97,13 @@ export function EditedCell<TData>({ row, table, title }: EditedCellProps<TData>)
     </div>
   ) : (
     <div className="flex items-center gap-2">
-      <Button title="Edit" size={'icon'} onClick={setEditedRows} name="edit">
+      <Button title="Edit" size={'sm'} onClick={setEditedRows} name="edit">
         <Pencil size={16} />
       </Button>
 
       <AlertDialog>
         <AlertDialogTrigger title="Delete" asChild>
-          <Button size={'icon'} variant={'destructive'} name="delete">
+          <Button size={'sm'} variant={'destructive'} name="delete">
             <Trash size={16} />
           </Button>
         </AlertDialogTrigger>
