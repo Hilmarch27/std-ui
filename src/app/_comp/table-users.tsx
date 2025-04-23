@@ -50,8 +50,14 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
 
   // ? useDataTable
   const { table } = useDataTable({
+    initialState: {
+      columnPinning: {
+        right: ['actions']
+      },
+      // sorting: [{ id: 'name', desc: true }]
+    },
     data: data ?? [],
-    pageCount: originalData?.rowCount ?? -1,
+    pageCount: originalData?.pageCount ?? -1,
     columns,
     originalData: originalData?.result ?? [],
     setData,
@@ -78,8 +84,8 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
   })
 
   return (
-    <div className='w-full'>
-      <DataTable className='min-h-[570px]' table={table}>
+    <div className="w-full">
+      <DataTable className="min-h-[570px] py-3" table={table}>
         <DataTableToolbar table={table}>
           <Button
             disabled={!!table.options.meta?.pendingCreate}

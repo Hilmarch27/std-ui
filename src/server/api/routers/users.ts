@@ -5,7 +5,7 @@ import { Prisma } from '@prisma/client'
 
 export const userRouter = createTRPCRouter({
   getManyUsers: publicProcedure.input(searchParams).query(async ({ ctx, input }) => {
-    const { page, perPage, search } = input
+    const { page, perPage, sort, search } = input
 
     // Tentukan kondisi filter untuk pencarian
     const where = search
@@ -33,13 +33,27 @@ export const userRouter = createTRPCRouter({
         }
       : {}
 
+    console.info('orderBy', sort)
+    let orderBy = {}
+
+    if (sort) {
+      const [field, direction] = sort.split('.')
+      if (!field || !direction) return
+      // Pastikan field valid untuk menghindari SQL injection
+      const validFields = ['name', 'email', 'phone', 'createdAt', 'updatedAt'] // sesuaikan dengan model Anda
+
+      if (validFields.includes(field) && ['asc', 'desc'].includes(direction)) {
+        orderBy = {
+          [field]: direction
+        }
+      }
+    }
+
     const skip = (page - 1) * perPage
     const [users, count] = await Promise.all([
       ctx.db.user.findMany({
         where,
-        orderBy: {
-          name: 'desc'
-        },
+        orderBy,
         skip: skip,
         take: perPage
       }),
@@ -50,7 +64,7 @@ export const userRouter = createTRPCRouter({
 
     return {
       result: users ?? [],
-      rowCount: count
+      pageCount: Math.ceil(count / perPage)
     }
   }),
 

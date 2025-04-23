@@ -87,9 +87,14 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     }
   },
   {
+    accessorKey: 'createdAt',
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Created At" />,
+    cell: ({ row }) => <span>{String(row.getValue('createdAt'))}</span>
+  },
+  {
     id: 'actions',
     cell: ({ row, table }) => <EditedCell title={row.getValue('name')} row={row} table={table} />,
-    size: 45,
+    size: 40,
     enableResizing: false,
     enableHiding: false
   }

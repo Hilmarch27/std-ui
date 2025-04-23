@@ -12,13 +12,13 @@ const ThemeProvider = dynamic(() => import("./provider"), {
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ModalProvider>
-    <NuqsAdapter>
-      <ThemeProvider attribute="class" defaultTheme="dark">
-        {children}
-        <Toaster richColors position="bottom-right" />
-        <Modals />
-      </ThemeProvider>
-    </NuqsAdapter>
+      <NuqsAdapter>
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+          <Toaster richColors position="bottom-right" />
+          <Modals />
+        </ThemeProvider>
+      </NuqsAdapter>
     </ModalProvider>
-  );
+  )
 }

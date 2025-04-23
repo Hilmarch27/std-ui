@@ -79,32 +79,33 @@ export function EditedCell<TData>({ row, table, title }: EditedCellProps<TData>)
   }, [handleAction, row.id, meta.editedRows, disableSubmit])
 
   return meta.editedRows[row.id] ? (
-    <div className="flex items-center gap-2">
-      <Button title="Cancel" size={'sm'} onClick={setEditedRows} name="cancel">
-        <X size={16} />
+    <div className="flex items-center space-x-0.5">
+      <Button title="Cancel" variant={'ghost'} size={'sm'} onClick={setEditedRows} name="cancel">
+        <X className='text-red-600' size={16} />
       </Button>
 
       <Button
         size={'sm'}
+        variant={'ghost'}
         onClick={setEditedRows}
         name="done"
         title="Done"
         disabled={disableSubmit}
         className={disableSubmit ? 'cursor-not-allowed' : ''}
       >
-        <Check size={16} />
+        <Check className='text-green-600' size={16} />
       </Button>
     </div>
   ) : (
-    <div className="flex items-center gap-2">
-      <Button title="Edit" size={'sm'} onClick={setEditedRows} name="edit">
+    <div className="flex items-center space-x-0.5">
+      <Button title="Edit" variant={'ghost'} size={'sm'} onClick={setEditedRows} name="edit">
         <Pencil size={16} />
       </Button>
 
       <AlertDialog>
         <AlertDialogTrigger title="Delete" asChild>
-          <Button size={'sm'} variant={'destructive'} name="delete">
-            <Trash size={16} />
+          <Button size={'sm'} variant={'ghost'} name="delete">
+            <Trash className="text-red-600" size={16} />
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>

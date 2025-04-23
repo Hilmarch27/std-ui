@@ -2,20 +2,6 @@ import "@tanstack/react-table";
 import { ColumnDef, Row, RowData } from "@tanstack/react-table";
 import { ZodType, ZodTypeDef } from "zod";
 
-export interface BaseData {
-  id: string;
-}
-
-export interface PendingCreate<TData> {
-  data: TData;
-  index: number;
-}
-
-export interface RowValidationState {
-  isValid: boolean;
-  fields: Record<string, boolean>;
-}
-
 declare module "@tanstack/react-table" {
   interface ColumnMeta<TData extends RowData, TValue> {
     disabled?: boolean | ((row: Row<TData>) => boolean)
