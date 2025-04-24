@@ -38,7 +38,7 @@ type TSearchParams = Promise<SearchParams>
 export default async function ExampleDataTable(props: { searchParams: TSearchParams }) {
   const search = await props.searchParams
   const query = searchParamsCache.parse(search)
-  console.log('searchParams incik boss', query)
+  console.info('searchParams incik boss', query)
   await api.users.getManyUsers(query)
   return <TABLE_USER query={query} />
 }

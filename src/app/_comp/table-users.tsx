@@ -54,7 +54,7 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
       columnPinning: {
         right: ['actions']
       },
-      // sorting: [{ id: 'name', desc: true }]
+      sorting: [{ id: 'name', desc: true }]
     },
     data: data ?? [],
     pageCount: originalData?.pageCount ?? -1,

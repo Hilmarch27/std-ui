@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { type Table as TanstackTable, Column, flexRender, Row } from '@tanstack/react-table'
+import { type Table as TanstackTable, Column, flexRender, Header, Row } from '@tanstack/react-table'
 import React, { CSSProperties } from 'react'
 import { DataTablePagination } from './data-table-pagination'
 import { cn } from '@/lib/utils'
@@ -43,13 +43,13 @@ export function DataTable<TData>({
   ...props
 }: DataTableProps<TData>) {
   // Helper function to compute pinning styles for columns
-  const getPinningStyles = (column: Column<TData>): CSSProperties => {
+  const getPinningStyles = (column: Column<TData>, header?: Header<TData, unknown>): CSSProperties => {
     const isPinned = column.getIsPinned()
     return {
       left: isPinned === 'left' ? `${column.getStart('left')}px` : undefined,
       right: isPinned === 'right' ? `${column.getAfter('right')}px` : undefined,
       position: isPinned ? 'sticky' : 'relative',
-      width: column.getSize(),
+      width: header?.getSize() !== 150 ? header?.getSize() : undefined,
       zIndex: isPinned ? 1 : 0
     }
   }
@@ -75,7 +75,7 @@ export function DataTable<TData>({
                       key={header.id}
                       colSpan={header.colSpan}
                       className="[&[data-pinned][data-last-col]]:border-border data-pinned:bg-muted/90 relative h-10 truncate  data-pinned:backdrop-blur-xs [&:not([data-pinned]):has(+[data-pinned])_div.cursor-col-resize:last-child]:opacity-0 [&[data-last-col=left]_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=left][data-last-col=left]]:border-r [&[data-pinned=right]:last-child_div.cursor-col-resize:last-child]:opacity-0 [&[data-pinned=right][data-last-col=right]]:border-l"
-                      style={{ ...getPinningStyles(column) }}
+                      style={{ ...getPinningStyles(column, header) }}
                       data-pinned={isPinned || undefined}
                       data-last-col={isLastLeftPinned ? 'left' : isFirstRightPinned ? 'right' : undefined}
                     >

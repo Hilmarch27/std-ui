@@ -6,6 +6,12 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Student } from '@/registry/blocks/server-table/hooks/use-querry'
 import { z } from 'zod'
 
+/**
+ * Mengatur ukuran kolom tabel dengan TanStack Table.
+ *
+ * @see https://tanstack.com/table/latest/docs/guide/column-sizing
+ */
+
 export const columns: ColumnDef<Student>[] = [
   {
     id: 'select',

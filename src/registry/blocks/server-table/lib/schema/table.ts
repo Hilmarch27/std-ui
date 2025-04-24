@@ -1,11 +1,12 @@
 import { createSearchParamsCache, parseAsInteger, parseAsString } from 'nuqs/server'
 import { z, ZodType } from 'zod'
+import { stateToSortBy } from '../table-utils'
 
 export const searchParamsCache = createSearchParamsCache({
   page: parseAsInteger.withDefault(1),
   perPage: parseAsInteger.withDefault(10),
   search: parseAsString.withDefault(''),
-  sort: parseAsString.withDefault('')
+  sort: parseAsString.withDefault(stateToSortBy([{ id: 'name', desc: true }])!)
 })
 
 export type QuerySchema = Awaited<ReturnType<typeof searchParamsCache.parse>>

@@ -25,7 +25,8 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
         className="translate-y-[2px] mb-2"
       />
     ),
-    size: 0,
+    minSize: 30,
+    maxSize: 30,
     enableResizing: false,
     enablePinning: false,
     enableSorting: false,
@@ -34,9 +35,9 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
   {
     accessorKey: 'no',
     header: ({ column }) => <DataTableColumnHeader column={column} title="No" />,
-    cell: ({ row }) => <div className="w-[80px]">{row.index + 1}</div>,
-    size: 0,
-    enableResizing: false,
+    cell: ({ row }) => <div>{row.index + 1}</div>,
+    minSize: 40,
+    maxSize: 40,
     enableSorting: false,
     enablePinning: false,
     enableHiding: false
@@ -94,7 +95,9 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
   {
     id: 'actions',
     cell: ({ row, table }) => <EditedCell title={row.getValue('name')} row={row} table={table} />,
-    size: 40,
+    minSize: 90,
+    maxSize: 90,
+
     enableResizing: false,
     enableHiding: false
   }
