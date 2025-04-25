@@ -3,8 +3,8 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 import { cn } from '@/lib/utils'
 import { Column, Row, Table } from '@tanstack/react-table'
 import { useState, useEffect, ChangeEvent } from 'react'
-import { Option } from '@/registry/blocks/server-table/lib/types'
 import { ZodError } from 'zod'
+import { Option } from '../lib/types/data-table'
 
 type EditTableCellProps<TData> = {
   getValue: () => any
@@ -72,7 +72,7 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
   const isDisabled = typeof columnMeta.disabled === 'function' ? columnMeta.disabled(row) : columnMeta.disabled
 
   const renderInputField = () => {
-    switch (columnMeta.type) {
+    switch (columnMeta.variant) {
       case 'select':
         return (
           <div className="w-full">
@@ -113,7 +113,7 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
               title={valMsg}
               disabled={isDisabled}
               onChange={handleChange}
-              type={columnMeta.type || 'text'}
+              type={columnMeta.variant || 'text'}
             />
           </div>
         )

@@ -1,6 +1,6 @@
 'use client'
 
-import { Table } from '@tanstack/react-table'
+import { Column, Table } from '@tanstack/react-table'
 import { X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -8,29 +8,23 @@ import { DataTableViewOptions } from './data-table-view-options'
 import { DataTableFacetedFilter } from '@/registry/blocks/server-table/block/data-table-faceted-filter'
 import { cn } from '@/lib/utils'
 import { DebouncedInput } from '@/registry/ui/debounce-input'
+import React from 'react'
+import { DataTableDateFilter } from './data-table-date-filter'
 
 interface DataTableToolbarProps<TData> extends React.HTMLAttributes<HTMLDivElement> {
   table: Table<TData>
-  facetedFilters?: {
-    column: string
-    title: string
-    options: {
-      label: string
-      value: string
-      icon?: React.ComponentType<{ className?: string }>
-    }[]
-  }[]
 }
-export function DataTableToolbar<TData>({
-  table,
-  facetedFilters,
-  children,
-  className,
-  ...props
-}: DataTableToolbarProps<TData>) {
+export function DataTableToolbar<TData>({ table, children, className, ...props }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
+
   const meta = table.options.meta
   const selectedRows = table.getSelectedRowModel().rows
+
+  const columns = React.useMemo(() => table.getAllColumns().filter((column) => column.getCanFilter()), [table])
+
+  const onReset = React.useCallback(() => {
+    table.resetColumnFilters()
+  }, [table])
 
   const removeRows = () => {
     meta?.removeSelectedRows!(table.getSelectedRowModel().rows.map((row) => row.index))
@@ -47,20 +41,18 @@ export function DataTableToolbar<TData>({
           placeholder="Search..."
           onChange={(value) => table.setGlobalFilter(String(value).trim())}
         />
-        {facetedFilters?.map((filter) => (
-          <DataTableFacetedFilter
-            key={filter.column}
-            column={table.getColumn(filter.column)}
-            title={filter.title}
-            options={filter.options}
-          />
-        ))}
-        {isFiltered && (
-          <Button variant="ghost" onClick={() => table.resetColumnFilters()} className="h-8 px-2 lg:px-3">
-            Reset
-            <X />
-          </Button>
-        )}
+
+        <div className="flex flex-1 flex-wrap items-center gap-2">
+          {columns.map((column) => (
+            <DataTableToolbarFilter key={column.id} column={column} />
+          ))}
+          {isFiltered && (
+            <Button aria-label="Reset filters" variant="outline" size="sm" className="border-dashed" onClick={onReset}>
+              <X />
+              Reset
+            </Button>
+          )}
+        </div>
         {selectedRows.length > 0 && (
           <Button variant="destructive" size={'sm'} onClick={removeRows}>
             {`Delete ${selectedRows.length} Selected`}
@@ -73,4 +65,46 @@ export function DataTableToolbar<TData>({
       </div>
     </div>
   )
+}
+
+interface DataTableToolbarFilterProps<TData> {
+  column: Column<TData>
+}
+
+function DataTableToolbarFilter<TData>({ column }: DataTableToolbarFilterProps<TData>) {
+  {
+    const columnMeta = column.columnDef.meta
+
+    const onFilterRender = React.useCallback(() => {
+      if (!columnMeta?.variant) return null
+
+      switch (columnMeta.variant) {
+        case 'date':
+        case 'dateRange':
+          return (
+            <DataTableDateFilter
+              column={column}
+              title={columnMeta.label ?? column.id}
+              multiple={columnMeta.variant === 'dateRange'}
+            />
+          )
+
+        case 'select':
+        case 'multiSelect':
+          return (
+            <DataTableFacetedFilter
+              column={column}
+              title={columnMeta.label ?? column.id}
+              options={columnMeta.options ?? []}
+              multiple={columnMeta.variant === 'multiSelect'}
+            />
+          )
+
+        default:
+          return null
+      }
+    }, [column, columnMeta])
+
+    return onFilterRender()
+  }
 }

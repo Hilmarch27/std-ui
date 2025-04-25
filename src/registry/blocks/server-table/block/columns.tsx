@@ -48,7 +48,7 @@ export const columns: ColumnDef<Student>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text',
+      variant: 'text',
       schema: z.string().min(1, { message: 'Name is required boss' })
     }
   },
@@ -59,7 +59,7 @@ export const columns: ColumnDef<Student>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'date',
+      variant: 'date'
     }
   },
   {
@@ -69,13 +69,13 @@ export const columns: ColumnDef<Student>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'select',
+      variant: 'select',
       options: [
         { value: 'Computer Science', label: 'Computer Science' },
         { value: 'Communications', label: 'Communications' },
         { value: 'Business', label: 'Business' },
         { value: 'Psychology', label: 'Psychology' }
-      ],
+      ]
     }
   },
   {

@@ -20,8 +20,9 @@ import {
   RowSelectionState
 } from '@tanstack/react-table'
 import React from 'react'
-import { parseAsInteger, parseAsString, useQueryState } from 'nuqs'
+import { parseAsArrayOf, parseAsInteger, parseAsString, Parser, useQueryState, useQueryStates } from 'nuqs'
 import { sortByToState, stateToSortBy } from '../lib/table-utils'
+import { useDebouncedCallback } from '@/registry/hooks/use-debounced-callback'
 
 interface UseDataTableProps<TData extends { id: string }>
   extends Omit<
@@ -64,7 +65,6 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
   // * states
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(initialState?.rowSelection ?? {})
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(initialState?.columnVisibility ?? {})
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
 
   const [editedRows, setEditedRows] = React.useState<Record<string, boolean>>({})
   const [validRows, setValidRows] = React.useState<Record<string, Record<string, boolean>>>({})
@@ -125,6 +125,7 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
     }
   }
 
+  // * sorting
   const [sorting, setSorting] = useQueryState(
     'sort',
     parseAsString.withDefault(stateToSortBy(initialState?.sorting) ?? '').withOptions({ shallow: false })
@@ -140,6 +141,75 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
       return setSorting(newSortValue)
     },
     [sorting, setSorting]
+  )
+
+  // * filtering
+  const filterableColumns = React.useMemo(() => {
+    return columns.filter((column) => column.enableColumnFilter)
+  }, [columns])
+
+  const filterParsers = React.useMemo(() => {
+    return filterableColumns.reduce<Record<string, Parser<string> | Parser<string[]>>>((acc, column) => {
+      if (column.meta?.options) {
+        acc[column.id ?? ''] = parseAsArrayOf(parseAsString, ',').withOptions({ shallow: false })
+      } else {
+        acc[column.id ?? ''] = parseAsString.withOptions({ shallow: false })
+      }
+      return acc
+    }, {})
+  }, [filterableColumns])
+
+  const [filterValues, setFilterValues] = useQueryStates(filterParsers)
+
+  const debouncedSetFilterValues = useDebouncedCallback((values: typeof filterValues) => {
+    void setPage(1)
+    void setFilterValues(values)
+  }, 300)
+
+  const initialColumnFilters: ColumnFiltersState = React.useMemo(() => {
+    return Object.entries(filterValues).reduce<ColumnFiltersState>((filters, [key, value]) => {
+      if (value !== null) {
+        const processedValue = Array.isArray(value)
+          ? value
+          : typeof value === 'string' && /[^a-zA-Z0-9]/.test(value)
+          ? value.split(/[^a-zA-Z0-9]+/).filter(Boolean)
+          : [value]
+
+        filters.push({
+          id: key,
+          value: processedValue
+        })
+      }
+      return filters
+    }, [])
+  }, [filterValues])
+
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(initialColumnFilters)
+
+  const onColumnFiltersChange = React.useCallback(
+    (updaterOrValue: Updater<ColumnFiltersState>) => {
+
+      setColumnFilters((prev) => {
+        const next = typeof updaterOrValue === 'function' ? updaterOrValue(prev) : updaterOrValue
+
+        const filterUpdates = next.reduce<Record<string, string | string[] | null>>((acc, filter) => {
+          if (filterableColumns.find((column) => column.id === filter.id)) {
+            acc[filter.id] = filter.value as string | string[]
+          }
+          return acc
+        }, {})
+
+        for (const prevFilter of prev) {
+          if (!next.some((filter) => filter.id === prevFilter.id)) {
+            filterUpdates[prevFilter.id] = null
+          }
+        }
+
+        debouncedSetFilterValues(filterUpdates)
+        return next
+      })
+    },
+    [debouncedSetFilterValues, filterableColumns]
   )
 
   // * editable functions
@@ -245,6 +315,10 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
       expanded,
       globalFilter
     },
+    defaultColumn: {
+      ...tableProps.defaultColumn,
+      enableColumnFilter: false
+    },
     columnResizeMode: 'onChange',
     globalFilterFn: 'includesString',
     enableRowSelection: true,
@@ -252,7 +326,7 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
     onRowSelectionChange: setRowSelection,
     onSortingChange,
     onGlobalFilterChange: setGlobalFilter,
-    onColumnFiltersChange: setColumnFilters,
+    onColumnFiltersChange,
     onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -281,7 +355,7 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
     },
     manualPagination: true,
     manualFiltering: true,
-    manualSorting: true
+    manualSorting: true,
   })
 
   return { table }

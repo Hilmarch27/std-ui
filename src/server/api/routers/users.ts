@@ -5,35 +5,46 @@ import { Prisma } from '@prisma/client'
 
 export const userRouter = createTRPCRouter({
   getManyUsers: publicProcedure.input(searchParams).query(async ({ ctx, input }) => {
-    const { page, perPage, sort, search } = input
+    const { page, perPage, sort, search, createdAt } = input
+
+    console.log('createdAt', createdAt)
 
     // Tentukan kondisi filter untuk pencarian
-    const where = search
-      ? {
-          OR: [
-            {
-              name: {
-                contains: search,
-                mode: Prisma.QueryMode.insensitive // Gunakan enum QueryMode
-              }
-            },
-            {
-              email: {
-                contains: search,
-                mode: Prisma.QueryMode.insensitive // Gunakan enum QueryMode
-              }
-            },
-            {
-              phone: {
-                contains: search,
-                mode: Prisma.QueryMode.insensitive // Gunakan enum QueryMode
-              }
-            }
-          ]
-        }
-      : {}
+    const where: Prisma.UserWhereInput = {
+      ...(search && {
+        OR: [
+          {
+            name: { contains: search, mode: Prisma.QueryMode.insensitive }
+          },
+          {
+            email: { contains: search, mode: Prisma.QueryMode.insensitive }
+          },
+          {
+            phone: { contains: search, mode: Prisma.QueryMode.insensitive }
+          }
+        ]
+      }),
 
-    console.info('orderBy', sort)
+      ...(input.createdAt?.length === 2 && {
+        createdAt: {
+          ...(input.createdAt[0] && {
+            gte: (() => {
+              const from = new Date(input.createdAt[0])
+              from.setHours(0, 0, 0, 0)
+              return from
+            })()
+          }),
+          ...(input.createdAt[1] && {
+            lte: (() => {
+              const to = new Date(input.createdAt[1])
+              to.setHours(23, 59, 59, 999)
+              return to
+            })()
+          })
+        }
+      })
+    }
+
     let orderBy = {}
 
     if (sort) {

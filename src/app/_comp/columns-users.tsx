@@ -5,6 +5,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { User } from '@prisma/client'
 import { EditedCell } from '@/registry/blocks/server-table/block/edit-table-row-action'
 import { z } from 'zod'
+import { CalendarIcon } from 'lucide-react'
 
 export const COLUMNS_USERS: ColumnDef<User>[] = [
   {
@@ -49,7 +50,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text',
+      variant: 'text',
       schema: z
         .string()
         .min(1, 'minumum 1')
@@ -63,7 +64,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text',
+      variant: 'text',
       schema: z.string().email('Invalid email address')
     }
   },
@@ -74,7 +75,7 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text'
+      variant: 'text'
     }
   },
   {
@@ -84,13 +85,20 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
-      type: 'text'
+      variant: 'text'
     }
   },
   {
+    id: 'createdAt',
     accessorKey: 'createdAt',
     header: ({ column }) => <DataTableColumnHeader column={column} title="Created At" />,
-    cell: ({ row }) => <span>{String(row.getValue('createdAt'))}</span>
+    cell: ({ row }) => <span>{String(row.getValue('createdAt'))}</span>,
+    meta: {
+      label: 'Created At',
+      variant: 'dateRange',
+      icon: CalendarIcon
+    },
+    enableColumnFilter: true
   },
   {
     id: 'actions',
