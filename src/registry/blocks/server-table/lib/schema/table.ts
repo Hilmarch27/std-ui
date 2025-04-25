@@ -5,8 +5,8 @@ import { stateToSortBy } from '../table-utils'
 export const searchParamsCache = createSearchParamsCache({
   page: parseAsInteger.withDefault(1),
   perPage: parseAsInteger.withDefault(10),
-  search: parseAsString.withDefault(''),
   sort: parseAsString.withDefault(stateToSortBy([{ id: 'name', desc: true }])!),
+  name: parseAsString.withDefault(""),
   createdAt: parseAsArrayOf(z.coerce.number()).withDefault([]),
 })
 
@@ -32,7 +32,7 @@ export class UserSchema {
 export const searchParams = z.object({
   page: z.number().default(1),
   perPage: z.number().max(50).default(10),
-  search: z.string().optional(),
   sort: z.string().optional(),
+  name: z.string().optional(),
   createdAt: z.array(z.coerce.number()).default([])
 })

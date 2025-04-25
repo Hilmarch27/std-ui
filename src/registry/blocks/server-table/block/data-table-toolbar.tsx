@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button'
 import { DataTableViewOptions } from './data-table-view-options'
 import { DataTableFacetedFilter } from '@/registry/blocks/server-table/block/data-table-faceted-filter'
 import { cn } from '@/lib/utils'
-import { DebouncedInput } from '@/registry/ui/debounce-input'
 import React from 'react'
 import { DataTableDateFilter } from './data-table-date-filter'
+import { Input } from '@/registry/ui/input'
 
 interface DataTableToolbarProps<TData> extends React.HTMLAttributes<HTMLDivElement> {
   table: Table<TData>
@@ -30,18 +30,10 @@ export function DataTableToolbar<TData>({ table, children, className, ...props }
     meta?.removeSelectedRows!(table.getSelectedRowModel().rows.map((row) => row.index))
     table.resetRowSelection()
   }
-  const global = table.getState().globalFilter
 
   return (
     <div className={cn('flex w-full items-center justify-between gap-2 overflow-auto p-1', className)} {...props}>
       <div className="flex flex-1 items-center space-x-2">
-        <DebouncedInput
-          className="-ms-1 h-8 w-[150px] lg:w-[250px]"
-          value={global}
-          placeholder="Search..."
-          onChange={(value) => table.setGlobalFilter(String(value).trim())}
-        />
-
         <div className="flex flex-1 flex-wrap items-center gap-2">
           {columns.map((column) => (
             <DataTableToolbarFilter key={column.id} column={column} />
@@ -79,6 +71,16 @@ function DataTableToolbarFilter<TData>({ column }: DataTableToolbarFilterProps<T
       if (!columnMeta?.variant) return null
 
       switch (columnMeta.variant) {
+        case 'text':
+          return (
+            <Input
+              placeholder={columnMeta.placeholder ?? columnMeta.label}
+              value={(column.getFilterValue() as string) ?? ''}
+              onChange={(event) => column.setFilterValue(event.target.value)}
+              className="h-8 w-40 lg:w-56"
+            />
+          )
+
         case 'date':
         case 'dateRange':
           return (

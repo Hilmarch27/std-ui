@@ -5,7 +5,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { User } from '@prisma/client'
 import { EditedCell } from '@/registry/blocks/server-table/block/edit-table-row-action'
 import { z } from 'zod'
-import { CalendarIcon } from 'lucide-react'
+import { CalendarIcon, Text } from 'lucide-react'
 
 export const COLUMNS_USERS: ColumnDef<User>[] = [
   {
@@ -44,18 +44,23 @@ export const COLUMNS_USERS: ColumnDef<User>[] = [
     enableHiding: false
   },
   {
+    id: 'name',
     accessorKey: 'name',
     header: ({ column }) => <DataTableColumnHeader column={column} title="Full Name" />,
     cell: ({ column, getValue, row, table }) => (
       <EditTableCell column={column} getValue={getValue} row={row} table={table} />
     ),
     meta: {
+      label: 'Name',
+      placeholder: 'Search Name...',
       variant: 'text',
+      icon: Text,
       schema: z
         .string()
         .min(1, 'minumum 1')
         .regex(/^[^0-9]*$/, 'Name must not contain numbers')
-    }
+    },
+    enableColumnFilter: true
   },
   {
     accessorKey: 'email',

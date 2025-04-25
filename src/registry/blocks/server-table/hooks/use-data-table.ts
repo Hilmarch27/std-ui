@@ -83,10 +83,6 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
       .withDefault(initialState?.pagination?.pageSize ?? 10)
   )
 
-  const [globalFilter, setGlobalFilter] = useQueryState(
-    'search',
-    parseAsString.withDefault('').withOptions({ shallow: false })
-  )
 
   // * helper functions
   const initializeValidationState = () => {
@@ -313,19 +309,16 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
       rowSelection,
       columnFilters,
       expanded,
-      globalFilter
     },
     defaultColumn: {
       ...tableProps.defaultColumn,
       enableColumnFilter: false
     },
     columnResizeMode: 'onChange',
-    globalFilterFn: 'includesString',
     enableRowSelection: true,
     onPaginationChange,
     onRowSelectionChange: setRowSelection,
     onSortingChange,
-    onGlobalFilterChange: setGlobalFilter,
     onColumnFiltersChange,
     onColumnVisibilityChange: setColumnVisibility,
     getCoreRowModel: getCoreRowModel(),
