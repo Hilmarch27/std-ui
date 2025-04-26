@@ -27,8 +27,11 @@ export function DataTableToolbar<TData>({ table, children, className, ...props }
   }, [table])
 
   const removeRows = () => {
-    meta?.removeSelectedRows!(table.getSelectedRowModel().rows.map((row) => row.index))
-    table.resetRowSelection()
+    if (meta?.removeSelectedRows) {
+      const rowIds = table.getSelectedRowModel().rows.map((row) => row.id)
+      meta?.removeSelectedRows(rowIds)
+      table.resetRowSelection()
+    }
   }
 
   return (
@@ -66,7 +69,7 @@ interface DataTableToolbarFilterProps<TData> {
 function DataTableToolbarFilter<TData>({ column }: DataTableToolbarFilterProps<TData>) {
   {
     const columnMeta = column.columnDef.meta
-    console.log("ColumnMeta", columnMeta?.options)
+    console.log('ColumnMeta', columnMeta?.options)
     const onFilterRender = React.useCallback(() => {
       if (!columnMeta?.variant) return null
 

@@ -29,7 +29,7 @@ export function EditedCell<TData>({ row, table, title }: EditedCellProps<TData>)
 
   const validRow = meta.validRows[row.id]
   const removeRow = () => {
-    meta.removeRow!(row.index)
+    if (meta.removeRow) meta.removeRow(row.index, row.id)
   }
 
 
@@ -43,10 +43,10 @@ export function EditedCell<TData>({ row, table, title }: EditedCellProps<TData>)
       }))
 
       if (action !== 'edit') {
-        if (action === 'cancel') {
-          meta.revertData!(row.index)
-        } else {
-          meta.updateRow!(row.index)
+        if (action === 'cancel' && meta.revertData) {
+          meta.revertData(row.index)
+        } else if (meta.updateRow) {
+          meta.updateRow(row.index, row.id)
         }
       }
     },

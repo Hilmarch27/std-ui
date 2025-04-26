@@ -1,7 +1,12 @@
 import '@tanstack/react-table'
-import { ColumnDef, Row, RowData } from '@tanstack/react-table'
+import {  Row, RowData } from '@tanstack/react-table'
 import { ZodType, ZodTypeDef } from 'zod'
 import { DataTableConfig } from '../config/table'
+
+export interface PendingCreate<TData> {
+  data: TData
+  index: number
+}
 
 declare module '@tanstack/react-table' {
   interface ColumnMeta<TData extends RowData, TValue> {
@@ -22,11 +27,11 @@ declare module '@tanstack/react-table' {
     rowOriginal?: TData | undefined
     setRowOriginal?: React.Dispatch<React.SetStateAction<TData | undefined>>
     revertData?: (rowIndex: number) => void
-    updateRow?: (rowIndex: number) => void
+    updateRow?: (rowIndex: number, rowId: string) => void
     updateData?: (rowIndex: number, columnId: string, value: TData, isValid: boolean) => void
     createRow?: () => void
-    removeRow?: (rowIndex: number) => void
-    removeSelectedRows?: (selectedRows: number[]) => void
+    removeRow?: (rowIndex: number, rowId: string) => void
+    removeSelectedRows?: (rowIds: string[]) => void
     onRemove?: (id: string) => void
     onUpdate?: (payload: TData) => void
     pendingCreate?: PendingCreate<TData> | null

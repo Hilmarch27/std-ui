@@ -68,6 +68,7 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
     pageCount: originalData?.pageCount ?? -1,
     columns,
     originalData: originalData?.result ?? [],
+    getRowId: (originalRow) => originalRow.id,  // this is required for overide id
     setData,
     createEmptyRow() {
       return {

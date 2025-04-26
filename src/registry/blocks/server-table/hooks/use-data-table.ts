@@ -24,7 +24,7 @@ import { parseAsArrayOf, parseAsInteger, parseAsString, Parser, useQueryState, u
 import { sortByToState, stateToSortBy } from '../lib/table-utils'
 import { useDebouncedCallback } from '@/registry/hooks/use-debounced-callback'
 
-interface UseDataTableProps<TData extends { id: string }>
+interface UseDataTableProps<TData>
   extends Omit<
       TableOptions<TData>,
       'state' | 'pageCount' | 'getCoreRowModel' | 'manualFiltering' | 'manualPagination' | 'manualSorting'
@@ -44,7 +44,7 @@ interface UseDataTableProps<TData extends { id: string }>
   initialState?: Partial<TableState>
 }
 
-export function useDataTable<TData extends { id: string }>(props: UseDataTableProps<TData>) {
+export function useDataTable<TData>(props: UseDataTableProps<TData>) {
   const {
     columns,
     data,
@@ -82,7 +82,6 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
       .withOptions({ shallow: false })
       .withDefault(initialState?.pagination?.pageSize ?? 10)
   )
-
 
   // * helper functions
   const initializeValidationState = () => {
@@ -184,7 +183,6 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
 
   const onColumnFiltersChange = React.useCallback(
     (updaterOrValue: Updater<ColumnFiltersState>) => {
-
       setColumnFilters((prev) => {
         const next = typeof updaterOrValue === 'function' ? updaterOrValue(prev) : updaterOrValue
 
@@ -223,12 +221,12 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
     }
   }
 
-  const handleUpdateRow = (rowIndex: number) => {
-    if (pendingCreate?.index === rowIndex) {
-      createRow!(data[rowIndex]!)
+  const handleUpdateRow = (rowIndex: number, rowId: string) => {
+    if (pendingCreate?.index === rowIndex && createRow && data[rowIndex]) {
+      createRow(data[rowIndex])
       setPendingCreate(null)
-    } else {
-      updateRow!(data[rowIndex]!.id, data[rowIndex]!)
+    } else if (updateRow && data[rowIndex]) {
+      updateRow(rowId, data[rowIndex])
     }
   }
 
@@ -271,7 +269,7 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
     }))
   }
 
-  const handleRemoveRow = (rowIndex: number) => {
+  const handleRemoveRow = (rowIndex: number, rowId: string) => {
     if (pendingCreate?.index === rowIndex) {
       setData!((old) => old.filter((_, index) => index !== rowIndex))
       setPendingCreate(null)
@@ -280,15 +278,15 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
         delete newValidRows[rowIndex]
         return newValidRows
       })
-    } else {
-      removeRow!(data[rowIndex]!.id)
+    } else if (removeRow) {
+      removeRow(rowId)
     }
   }
 
-  const handleRemoveSelectedRows = (selectedRows: number[]) => {
-    selectedRows.forEach((rowIndex) => {
-      if (pendingCreate?.index !== rowIndex) {
-        removeRow!(data[rowIndex]!.id)
+  const handleRemoveSelectedRows = (rowIds: string[]) => {
+    rowIds.forEach((rowid, rowIndex) => {
+      if (pendingCreate?.index !== rowIndex && removeRow) {
+        removeRow(rowid)
       }
     })
   }
@@ -308,7 +306,7 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
       columnVisibility,
       rowSelection,
       columnFilters,
-      expanded,
+      expanded
     },
     defaultColumn: {
       ...tableProps.defaultColumn,
@@ -348,7 +346,7 @@ export function useDataTable<TData extends { id: string }>(props: UseDataTablePr
     },
     manualPagination: true,
     manualFiltering: true,
-    manualSorting: true,
+    manualSorting: true
   })
 
   return { table }
