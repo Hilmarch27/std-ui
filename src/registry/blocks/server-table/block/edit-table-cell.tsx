@@ -2,18 +2,20 @@ import { Input } from '@/registry/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { cn } from '@/lib/utils'
 import { Column, Row, Table } from '@tanstack/react-table'
-import { useState, useEffect, ChangeEvent } from 'react'
+import { useState, useEffect, ChangeEvent, createElement } from 'react'
 import { ZodError } from 'zod'
 import { Option } from '../lib/types/data-table'
+import { Badge } from '@/components/ui/badge'
 
 type EditTableCellProps<TData> = {
   getValue: () => any
   row: Row<TData>
   column: Column<TData>
   table: Table<TData>
+  icon?: React.FC<React.SVGProps<SVGSVGElement>>
 }
 
-export function EditTableCell<TData>({ getValue, row, column, table }: EditTableCellProps<TData>) {
+export function EditTableCell<TData>({ getValue, row, column, table, icon }: EditTableCellProps<TData>) {
   const initValue = getValue()
   const columnMeta = column.columnDef.meta
   const tableMeta = table.options.meta
@@ -73,6 +75,7 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
 
   const renderInputField = () => {
     switch (columnMeta.variant) {
+      case 'multiSelect':
       case 'select':
         return (
           <div className="w-full">
@@ -120,8 +123,26 @@ export function EditTableCell<TData>({ getValue, row, column, table }: EditTable
     }
   }
 
+  const renderLabel = () => {
+    switch (columnMeta.variant) {
+      case 'select':
+      case 'multiSelect':
+        return (
+          <Badge variant="outline" className="py-1 [&>svg]:size-3.5">
+            {icon && createElement(icon)}
+            <span className="capitalize">{value}</span>
+          </Badge>
+        )
+
+      default:
+        return (
+          <span className="w-auto">{value}</span>
+        )
+    }
+  }
+
   if (!tableMeta.editedRows[row.id]) {
-    return <span className="w-auto">{value}</span>
+    return renderLabel()
   }
 
   return renderInputField()

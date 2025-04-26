@@ -1,10 +1,11 @@
 import { SearchParams } from 'nuqs'
 import { searchParamsCache } from '@/registry/blocks/server-table/lib/schema/table'
-import { api } from '@/trpc/server'
+import { api, HydrateClient } from '@/trpc/server'
 import TABLE_USER from '@/app/_comp/table-users'
 import { Metadata } from 'next'
 import { constructMetadata } from '@/lib/configs/metadata'
 import { absoluteUrl } from '@/lib/utils'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = constructMetadata({
   title: 'Beautifully Designed Shadcn UI Templates',
@@ -39,6 +40,13 @@ export default async function ExampleDataTable(props: { searchParams: TSearchPar
   const search = await props.searchParams
   const query = searchParamsCache.parse(search)
   console.info('searchParams incik boss', query)
-  await api.users.getManyUsers(query)
-  return <TABLE_USER query={query} />
+  void api.users.getManyUsers.prefetch(query)
+  void api.users.getRoleCounts.prefetch()
+  return (
+    <HydrateClient>
+      <Suspense fallback={<div>Loading...</div>}>
+        <TABLE_USER query={query} />
+      </Suspense>
+    </HydrateClient>
+  )
 }

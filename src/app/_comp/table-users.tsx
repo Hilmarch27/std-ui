@@ -2,11 +2,11 @@
 import { useDataTable } from '@/registry/blocks/server-table/hooks/use-data-table'
 import { api } from '@/trpc/react'
 import React from 'react'
-import { COLUMNS_USERS as columns } from './columns-users'
+import { COLUMNS_USERS } from './columns-users'
 import { DataTable } from '@/registry/blocks/server-table/block/data-table'
 import { DataTableToolbar } from '@/registry/blocks/server-table/block/data-table-toolbar'
 import { toast } from 'sonner'
-import { User } from '@prisma/client'
+import { Role, User } from '@prisma/client'
 import { Button } from '@/components/ui/button'
 import { UserRoundPlus } from 'lucide-react'
 import { keepPreviousData } from '@tanstack/react-query'
@@ -18,6 +18,8 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
     { ...query },
     { placeholderData: keepPreviousData }
   )
+
+  const [roleCount] = api.users.getRoleCounts.useSuspenseQuery()
 
   const utils = api.useUtils()
 
@@ -48,6 +50,12 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
     }
   }, [isLoading, originalData])
 
+  const columns = React.useMemo(() => {
+    return COLUMNS_USERS({
+      roleCount: roleCount
+    })
+  }, [roleCount])
+
   // ? useDataTable
   const { table } = useDataTable({
     initialState: {
@@ -66,6 +74,7 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
         id: '',
         name: '',
         email: '',
+        role: 'guest' as Role,
         phone: '',
         image: '',
         createdAt: new Date(),

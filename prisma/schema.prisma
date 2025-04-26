@@ -11,13 +11,20 @@ datasource db {
 }
 
 model User {
-    id         String   @id @default(nanoid(11)) @map("_id")
-    name       String
-    email      String   @unique
-    phone      String
-    image      String
-    createdAt DateTime @map("created_at") @default(now())
-    updatedAt DateTime @map("updated_at") @updatedAt
+    id        String   @id @default(nanoid(11)) @map("_id")
+    name      String
+    email     String   @unique
+    role      Role     @default(guest)
+    phone     String
+    image     String
+    createdAt DateTime @default(now()) @map("created_at")
+    updatedAt DateTime @updatedAt @map("updated_at")
 
     @@map("users")
+}
+
+enum Role {
+    user
+    admin
+    guest
 }

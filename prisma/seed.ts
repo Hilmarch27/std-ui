@@ -8,6 +8,7 @@ async function main() {
     const userData = {
       name: faker.person.fullName(),
       email: faker.internet.email(),
+      role: faker.helpers.arrayElement(['admin', 'user', 'guest']),
       phone: faker.phone.number(),
       image: faker.image.avatar()
     }
@@ -26,7 +27,7 @@ async function main() {
     })
   }
 
-  console.log(`Successfully seeded ${users.length} users`)
+  console.info(`Successfully seeded ${users.length} users`)
 }
 
 main()
