@@ -138,14 +138,9 @@
           "target": "lib/schema/table.ts"
         },
         {
-          "path": "src/registry/blocks/server-table/lib/types/data-table.d.ts",
+          "path": "src/registry/blocks/server-table/lib/types/data-table.ts",
           "type": "registry:lib",
           "target": "lib/types/table.ts"
-        },
-        {
-          "path": "src/registry/blocks/server-table/lib/types/index.ts",
-          "type": "registry:lib",
-          "target": "lib/types/index.ts"
         },
         {
           "path": "src/registry/blocks/server-table/block/columns.tsx",

@@ -64,15 +64,18 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
       },
       sorting: [{ id: 'name', desc: true }]
     },
+    defaultColumn: {
+      minSize: 150
+    },
     data: data ?? [],
     pageCount: originalData?.pageCount ?? -1,
     columns,
     originalData: originalData?.result ?? [],
-    getRowId: (originalRow) => originalRow.id,  // this is required for overide id
+    getRowId: (originalRow) => originalRow.id, // this is required for overide id
     setData,
     createEmptyRow() {
       return {
-        id: '',
+        id: 'create',
         name: '',
         email: '',
         role: 'guest' as Role,

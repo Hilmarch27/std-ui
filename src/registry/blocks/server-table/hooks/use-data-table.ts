@@ -67,6 +67,7 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>(initialState?.columnVisibility ?? {})
 
   const [editedRows, setEditedRows] = React.useState<Record<string, boolean>>({})
+
   const [validRows, setValidRows] = React.useState<Record<string, Record<string, boolean>>>({})
   const [pendingCreate, setPendingCreate] = React.useState<{
     data: TData
@@ -83,16 +84,6 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
       .withDefault(initialState?.pagination?.pageSize ?? 10)
   )
 
-  // * helper functions
-  const initializeValidationState = () => {
-    const validationState: Record<string, boolean> = {}
-    columns.forEach((column: any) => {
-      if (column.meta?.zod) {
-        validationState[column.accessorKey as string] = false
-      }
-    })
-    return validationState
-  }
 
   // * row actions
   const handleOnRemove = (id: string) => {
@@ -259,13 +250,7 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
 
     setEditedRows((old) => ({
       ...old,
-      0: true
-    }))
-
-    const initialValidation = initializeValidationState()
-    setValidRows((old) => ({
-      ...old,
-      0: initialValidation
+      create: true
     }))
   }
 

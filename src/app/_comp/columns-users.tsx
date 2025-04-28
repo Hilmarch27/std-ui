@@ -6,7 +6,6 @@ import { Role, User } from '@prisma/client'
 import { EditedCell } from '@/registry/blocks/server-table/block/edit-table-row-action'
 import { z } from 'zod'
 import { CalendarIcon, Text, User as Guest, UserCog, UserCheck, CircleDashed } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
 
 export function getRoleIcon(status: User['role']) {
   const statusIcons = {
