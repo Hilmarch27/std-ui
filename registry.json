@@ -11,7 +11,7 @@
       "registryDependencies": ["button"],
       "files": [
         {
-          "path": "./src/registry/ui/hello-world.tsx",
+          "path": "src/registry/ui/hello-world.tsx",
           "type": "registry:ui"
         }
       ]
@@ -43,11 +43,47 @@
       ]
     },
     {
+      "name": "button-inpur-file",
+      "type": "registry:ui",
+      "title": "Button with input file",
+      "description": "A simple Enhanced Button Input",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/registry/ui/button-input-file.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "csv",
+      "type": "registry:lib",
+      "title": "Csv",
+      "description": "A simple parsed or read csv with zod validation",
+      "dependencies": ["zod"],
+      "files": [
+        {
+          "path": "src/registry/lib/csv.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "title": "Form with tanstack form",
       "description": "A simple Enhanced Form and tanstack form",
-      "registryDependencies": ["button", "input", "select", "label", "command", "popover", "https://std-ui.vercel.app/r/input", "https://std-ui.vercel.app/r/input-idr", "https://std-ui.vercel.app/r/floating-input"],
+      "registryDependencies": [
+        "button",
+        "input",
+        "select",
+        "label",
+        "command",
+        "popover",
+        "https://std-ui.vercel.app/r/input",
+        "https://std-ui.vercel.app/r/input-idr",
+        "https://std-ui.vercel.app/r/floating-input"
+      ],
       "dependencies": ["lucide-react", "@tanstack/react-form", "zod"],
       "files": [
         {
@@ -120,7 +156,10 @@
         "select",
         "alert-dialog",
         "input",
-        "sonner"
+        "sonner",
+        "nuqs",
+        "zod",
+        "https://std-ui.vercel.app/r/calendar"
       ],
       "dependencies": ["lucide-react", "@tanstack/react-table", "zod", "sonner", "@tanstack/react-query"],
       "files": [
@@ -146,6 +185,11 @@
           "path": "src/registry/blocks/server-table/block/columns.tsx",
           "type": "registry:component",
           "target": "components/server-table/columns.tsx"
+        },
+        {
+          "path": "src/registry/blocks/server-table/block/data-table-date-filter.tsx",
+          "type": "registry:component",
+          "target": "components/server-table/data-table-date-filter.tsx"
         },
         {
           "path": "src/registry/blocks/server-table/block/data-table-column-header.tsx",
@@ -198,15 +242,15 @@
       "dependencies": ["@radix-ui/react-visually-hidden"],
       "files": [
         {
-          "path": "./src/registry/hooks/use-media-query.tsx",
+          "path": "src/registry/hooks/use-media-query.tsx",
           "type": "registry:hook"
         },
         {
-          "path": "./src/registry/hooks/use-modal.tsx",
+          "path": "src/registry/hooks/use-modal.tsx",
           "type": "registry:hook"
         },
         {
-          "path": "./src/registry/ui/modals.tsx",
+          "path": "src/registry/ui/modals.tsx",
           "type": "registry:ui"
         }
       ]
@@ -217,10 +261,10 @@
       "title": "Date Time Picker",
       "description": "A simple Date Time Picker",
       "registryDependencies": ["label", "input", "button", "popover", "select", "https://std-ui.vercel.app/r/calendar"],
-      "dependencies": ["lucide-react", "date-fns", "react-day-picker"],
+      "dependencies": ["lucide-react", "date-fns", "react-day-picker@latest"],
       "files": [
         {
-          "path": "./src/registry/ui/date-time-picker.tsx",
+          "path": "src/registry/ui/date-time-picker.tsx",
           "type": "registry:ui"
         }
       ]
@@ -231,10 +275,10 @@
       "title": "Calendar",
       "description": "A simple Calendar",
       "registryDependencies": ["button"],
-      "dependencies": ["lucide-react", "react-day-picker"],
+      "dependencies": ["lucide-react", "react-day-picker@latest"],
       "files": [
         {
-          "path": "./src/registry/ui/calendar.tsx",
+          "path": "src/registry/ui/calendar.tsx",
           "type": "registry:ui"
         }
       ]
@@ -248,11 +292,11 @@
       "dependencies": ["lucide-react"],
       "files": [
         {
-          "path": "./src/registry/ui/input-file.tsx",
+          "path": "src/registry/ui/input-file.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "./src/registry/hooks/use-modal.tsx",
+          "path": "src/registry/hooks/use-modal.tsx",
           "type": "registry:hook"
         }
       ]

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button-inpur-file",
+  "type": "registry:ui",
+  "title": "Button with input file",
+  "description": "A simple Enhanced Button Input",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/registry/ui/button-input-file.tsx",
+      "content": "'use client'\r\nimport { Button } from '@/components/ui/button'\r\nimport { cn } from '@/lib/utils'\r\nimport { Download, LucideIcon } from 'lucide-react'\r\nimport React from 'react'\r\n\r\ntype ButtonInputFileProps = Omit<React.ComponentProps<'button'>, 'onChange'> & {\r\n  onChange: (file: File | null) => void\r\n  maxSize?: number\r\n  accept?: string\r\n  icon?: LucideIcon\r\n}\r\n\r\nfunction ButtonInputFile({\r\n  onChange,\r\n  accept = '.csv',\r\n  className,\r\n  maxSize = 2 * 1024 * 1024, //2MB\r\n  icon: Icon = Download,\r\n  ...props\r\n}: ButtonInputFileProps) {\r\n  const [fileName, setFileName] = React.useState<string | null>(null)\r\n  const fileInputRef = React.useRef<HTMLInputElement>(null)\r\n\r\n  const handleClick = () => {\r\n    fileInputRef.current?.click()\r\n  }\r\n\r\n  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {\r\n    const file = e.target.files?.[0] || null\r\n\r\n    if (file) {\r\n      if (file.size > maxSize) {\r\n        alert('File is too large. Max size is 2MB.')\r\n        e.target.value = '' // Clear file input\r\n        onChange(null)\r\n        return\r\n      }\r\n      setFileName(file.name)\r\n      onChange(file)\r\n    } else {\r\n      setFileName(null)\r\n      onChange(null)\r\n    }\r\n  }\r\n\r\n  return (\r\n    <Button\r\n      {...props}\r\n      className={cn('bg-accent dark:bg-accent', fileName && 'border-primary dark:border-primary', className)}\r\n      variant={'outline'}\r\n      size={'sm'}\r\n      type=\"button\"\r\n      title={fileName ? fileName : 'Input File'}\r\n      onClick={handleClick}\r\n    >\r\n      <Icon className={fileName ? 'stroke-primary' : undefined} />\r\n      <input\r\n        ref={fileInputRef}\r\n        type=\"file\"\r\n        accept={accept}\r\n        onChange={handleFileChange}\r\n        className=\"sr-only\"\r\n        aria-hidden=\"true\"\r\n      />\r\n    </Button>\r\n  )\r\n}\r\n\r\nexport { ButtonInputFile }\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}
