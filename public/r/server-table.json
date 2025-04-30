@@ -9,7 +9,8 @@
     "@tanstack/react-table",
     "zod",
     "sonner",
-    "@tanstack/react-query"
+    "@tanstack/react-query",
+    "nuqs"
   ],
   "registryDependencies": [
     "table",
@@ -24,8 +25,6 @@
     "alert-dialog",
     "input",
     "sonner",
-    "nuqs",
-    "zod",
     "https://std-ui.vercel.app/r/calendar"
   ],
   "files": [

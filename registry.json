@@ -157,11 +157,9 @@
         "alert-dialog",
         "input",
         "sonner",
-        "nuqs",
-        "zod",
         "https://std-ui.vercel.app/r/calendar"
       ],
-      "dependencies": ["lucide-react", "@tanstack/react-table", "zod", "sonner", "@tanstack/react-query"],
+      "dependencies": ["lucide-react", "@tanstack/react-table", "zod", "sonner", "@tanstack/react-query", "nuqs"],
       "files": [
         {
           "path": "src/registry/blocks/server-table/hooks/use-data-table.ts",

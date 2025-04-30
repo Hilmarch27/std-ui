@@ -21,14 +21,30 @@ export function parseError(errors: Array<{ line: number; error: z.ZodError | Err
  * @param options Parsing options
  * @returns Object with parsed valid data and any parsing errors
  */
+
+/**
+ * Extracts expected field names from a Zod schema
+ */
+type ExtractFieldNames<T extends z.ZodType> = keyof z.infer<T>
+
+export interface ParseCSVOptions<T extends z.ZodType> {
+  delimiter?: string
+  hasHeaderRow?: boolean
+  /**
+   * Map CSV headers to schema fields
+   * Key: The header name in the CSV
+   * Value: The corresponding field name in the schema
+   */
+  headerMap?: Partial<Record<string, ExtractFieldNames<T>>>
+}
+
+/**
+ * Parses a CSV string into JSON objects validated against a Zod schema
+ */
 export function parseCSVToJSON<T extends z.ZodType>(
   csvString: string,
   schema: T,
-  options: {
-    delimiter?: string
-    hasHeaderRow?: boolean
-    headerMap?: Record<string, string>
-  } = {}
+  options: ParseCSVOptions<T> = {}
 ): {
   validData: z.infer<T>[]
   errors: Array<{ line: number; error: z.ZodError | Error }>
@@ -37,7 +53,6 @@ export function parseCSVToJSON<T extends z.ZodType>(
 
   // Split the CSV string into rows
   const rows = csvString.split('\n').filter((row) => row.trim().length > 0)
-
   if (rows.length === 0) {
     return { validData: [], errors: [] }
   }
@@ -51,7 +66,11 @@ export function parseCSVToJSON<T extends z.ZodType>(
     headers = headerRow
       .split(delimiter)
       .map((header) => header.trim())
-      .map((header) => headerMap[header] || header)
+      .map((header) => {
+        // Convert CSV header to schema field name using headerMap
+        const mappedHeader = headerMap[header]
+        return mappedHeader !== undefined ? String(mappedHeader) : header
+      })
     dataRows = rows.slice(1)
   }
 
@@ -129,51 +148,83 @@ export function readCSVFile(file: File): Promise<string> {
   })
 }
 
-
 /**
  * Converts data to CSV format and initiates download
  * @param data Array of objects to convert to CSV
  * @param filename Name of the file to download (without extension)
  */
-export function exportToCSV<T>(data: T[], filename: string): void {
-  // Get headers from the first object's keys
-  const headers = Object.keys(data[0] || {});
-  
+export interface CSVExportOptions<T> {
+  excludeFields?: Array<keyof T>
+  headerMapping?: { [K in keyof T]?: string }
+  filename?: string
+}
+
+export function exportToCSV<T extends Record<string, any>>(
+  data: T[],
+  filenameOrOptions: string | CSVExportOptions<T>
+): void {
+  // Handle options
+  let options: CSVExportOptions<T> = {}
+  let filename = 'export'
+
+  if (typeof filenameOrOptions === 'string') {
+    filename = filenameOrOptions
+  } else {
+    options = filenameOrOptions
+    filename = options.filename || 'export'
+  }
+
+  const excludeFields = options.excludeFields || []
+  const headerMapping = options.headerMapping || ({} as { [K in keyof T]?: string })
+
+  if (data.length === 0) {
+    alert('No data to export')
+    return
+  }
+
+  // Get headers from the first object's keys, excluding specified fields
+  const allHeaders = Object.keys(data[0] || {}) as Array<keyof T>
+  const headers = allHeaders.filter((header) => !excludeFields.includes(header))
+
+  // Map headers if header mapping is provided
+  const mappedHeaders = headers.map((header) => {
+    // Check if this header has a mapping
+    return headerMapping[header] || String(header)
+  })
+
   // Create CSV header row
-  const csvRows = [headers.join(',')];
-  
+  const csvRows = [mappedHeaders.join(',')]
+
   // Add data rows
   for (const row of data) {
-    const values = headers.map(header => {
-      const value = row[header as keyof T];
-      
+    const values = headers.map((header) => {
+      const value = row[header]
       // Handle values that need quotes (contain commas, quotes, or newlines)
-      const stringValue = String(value ?? '');
+      const stringValue = String(value ?? '')
       if (stringValue.includes(',') || stringValue.includes('"') || stringValue.includes('\n')) {
-        return `"${stringValue.replace(/"/g, '""')}"`;
+        return `"${stringValue.replace(/"/g, '""')}"`
       }
-      return stringValue;
-    });
-    
-    csvRows.push(values.join(','));
+      return stringValue
+    })
+    csvRows.push(values.join(','))
   }
-  
+
   // Combine all rows with newlines
-  const csvString = csvRows.join('\n');
-  
+  const csvString = csvRows.join('\n')
+
   // Create a blob with the CSV data
-  const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
-  
+  const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' })
+
   // Create a download link
-  const link = document.createElement('a');
-  
+  const link = document.createElement('a')
+
   // Support for browsers that have the URL API
   if (window.URL && URL.createObjectURL) {
-    link.href = URL.createObjectURL(blob);
-    link.download = `${filename}.csv`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(link.href);
+    link.href = URL.createObjectURL(blob)
+    link.download = `${filename}.csv`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(link.href)
   }
 }
