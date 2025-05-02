@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { z } from 'zod'
 import { exportToCSV, parseCSVToJSON, parseError, readCSVFile } from '@/registry/lib/csv'
 import { ButtonInputFile } from '@/registry/ui/button-input-file'
+import { AutoSizeTextArea } from '@/registry/ui/autosize-text-area'
 
 const EmployeeSchema = z.object({
   id: z.string(),
@@ -61,7 +62,6 @@ export default function CSVImporter() {
 
   return (
     <div>
-
       <button onClick={handleExportCSV}>Export to CSV</button>
       {errors.length > 0 && (
         <div>
@@ -92,6 +92,10 @@ export default function CSVImporter() {
 
       <div>
         <ButtonInputFile accept=".csv" maxSize={100 * 1024} onChange={(file) => handleFileUpload(file)} />
+      </div>
+
+      <div className='max-w-sm'>
+        <AutoSizeTextArea placeholder="This textarea with min height 52 and max height 200." maxHeight={200} />
       </div>
     </div>
   )
