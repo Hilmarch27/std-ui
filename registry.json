@@ -108,7 +108,7 @@
       },
       "files": [
         {
-          "path": "src/registry/blocks/sidebar/block/app-sidebar.tsx",
+          "path": "src/registry/blocks/sidebar/components/app-sidebar.tsx",
           "type": "registry:component",
           "target": "components/block/sidebar/app-sidebar.tsx"
         },
@@ -123,17 +123,17 @@
           "target": "lib/types/sidebar.ts"
         },
         {
-          "path": "src/registry/blocks/sidebar/block/nav-group.tsx",
+          "path": "src/registry/blocks/sidebar/components/nav-group.tsx",
           "type": "registry:component",
           "target": "components/block/sidebar/nav-group.tsx"
         },
         {
-          "path": "src/registry/blocks/sidebar/block/nav-user.tsx",
+          "path": "src/registry/blocks/sidebar/components/nav-user.tsx",
           "type": "registry:component",
           "target": "components/block/sidebar/nav-user.tsx"
         },
         {
-          "path": "src/registry/blocks/sidebar/block/team-switcher.tsx",
+          "path": "src/registry/blocks/sidebar/components/team-switcher.tsx",
           "type": "registry:component",
           "target": "components/block/sidebar/team-switcher.tsx"
         }
@@ -170,6 +170,14 @@
           "type": "registry:hook"
         },
         {
+          "path": "src/registry/hooks/use-callback-ref.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "src/registry/hooks/use-debounced-callback.ts",
+          "type": "registry:hook"
+        },
+        {
           "path": "src/registry/blocks/server-table/lib/table-utils.ts",
           "type": "registry:lib"
         },
@@ -189,57 +197,57 @@
           "target": "lib/types/table.ts"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-date-filter.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-date-filter.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-date-filter.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/columns.tsx",
+          "path": "src/registry/blocks/server-table/components/columns.tsx",
           "type": "registry:component",
           "target": "components/server-table/columns.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-date-filter.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-date-filter.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-date-filter.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-column-header.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-column-header.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-column-header.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-faceted-filter.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-faceted-filter.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-faceted-filter.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-pagination.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-pagination.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-pagination.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-toolbar.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-toolbar.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-toolbar.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table-view-options.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table-view-options.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table-view-options.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/data-table.tsx",
+          "path": "src/registry/blocks/server-table/components/data-table.tsx",
           "type": "registry:component",
           "target": "components/server-table/data-table.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/edit-table-cell.tsx",
+          "path": "src/registry/blocks/server-table/components/edit-table-cell.tsx",
           "type": "registry:component",
           "target": "components/server-table/edit-table-cell.tsx"
         },
         {
-          "path": "src/registry/blocks/server-table/block/edit-table-row-action.tsx",
+          "path": "src/registry/blocks/server-table/components/edit-table-row-action.tsx",
           "type": "registry:component",
           "target": "components/server-table/edit-table-row-action.tsx"
         }
