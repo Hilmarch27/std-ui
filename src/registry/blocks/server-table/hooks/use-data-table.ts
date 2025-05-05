@@ -33,7 +33,7 @@ interface UseDataTableProps<TData>
   columns: ColumnDef<TData>[]
   data: TData[]
   originalData?: TData[]
-  createEmptyRow?: () => TData
+  createEmptyRow?: () => Partial<TData>
   setData?: React.Dispatch<React.SetStateAction<TData[]>>
   updateRow?: (id: string, payload: TData) => void
   createRow?: (payload: TData) => void
@@ -83,7 +83,6 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
       .withOptions({ shallow: false })
       .withDefault(initialState?.pagination?.pageSize ?? 10)
   )
-
 
   // * row actions
   const handleOnRemove = (id: string) => {
@@ -240,7 +239,8 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
   }
 
   const handleCreateRow = () => {
-    const newRow = createEmptyRow!()
+    if (!createEmptyRow) throw new Error('createEmptyRow required')
+    const newRow = createEmptyRow() as TData
     setData!((old) => [newRow, ...old])
 
     setPendingCreate({

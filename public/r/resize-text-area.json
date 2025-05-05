@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resize-text-area",
+  "type": "registry:ui",
+  "title": "Resize Text Area",
+  "description": "A simple Auto Resize Text Area",
+  "registryDependencies": [
+    "text-area"
+  ],
+  "files": [
+    {
+      "path": "src/registry/ui/autosize-text-area.tsx",
+      "content": "'use client'\r\nimport * as React from 'react'\r\nimport { cn } from '@/lib/utils'\r\nimport { useImperativeHandle } from 'react'\r\nimport { Textarea } from '@/components/ui/textarea'\r\n\r\ntype UseAutosizeTextAreaProps = {\r\n  textAreaRef: React.RefObject<HTMLTextAreaElement | null>\r\n  minHeight?: number\r\n  maxHeight?: number\r\n  triggerAutoSize: string\r\n}\r\n\r\nconst useAutosizeTextArea = ({\r\n  textAreaRef,\r\n  triggerAutoSize,\r\n  maxHeight = Number.MAX_SAFE_INTEGER,\r\n  minHeight = 0\r\n}: UseAutosizeTextAreaProps) => {\r\n  const [init, setInit] = React.useState(true)\r\n  React.useEffect(() => {\r\n    // We need to reset the height momentarily to get the correct scrollHeight for the textarea\r\n    const offsetBorder = 6\r\n    const textAreaElement = textAreaRef.current\r\n    if (textAreaElement) {\r\n      if (init) {\r\n        textAreaElement.style.minHeight = `${minHeight + offsetBorder}px`\r\n        if (maxHeight > minHeight) {\r\n          textAreaElement.style.maxHeight = `${maxHeight}px`\r\n        }\r\n        setInit(false)\r\n      }\r\n      textAreaElement.style.height = `${minHeight + offsetBorder}px`\r\n      const scrollHeight = textAreaElement.scrollHeight\r\n      // We then set the height directly, outside of the render loop\r\n      // Trying to set this with state or a ref will product an incorrect value.\r\n      if (scrollHeight > maxHeight) {\r\n        textAreaElement.style.height = `${maxHeight}px`\r\n      } else {\r\n        textAreaElement.style.height = `${scrollHeight + offsetBorder}px`\r\n      }\r\n    }\r\n  }, [textAreaRef.current, triggerAutoSize])\r\n}\r\n\r\ntype AutosizeTextAreaRef = {\r\n  textArea: HTMLTextAreaElement\r\n  maxHeight: number\r\n  minHeight: number\r\n}\r\n\r\ntype AutosizeTextAreaProps = {\r\n  maxHeight?: number\r\n  minHeight?: number\r\n  ref?: React.Ref<AutosizeTextAreaRef>\r\n} & React.ComponentProps<'textarea'>\r\n\r\nfunction AutoSizeTextArea({\r\n  maxHeight = Number.MAX_SAFE_INTEGER,\r\n  minHeight = 52,\r\n  className,\r\n  onChange,\r\n  value,\r\n  ref,\r\n  ...props\r\n}: AutosizeTextAreaProps) {\r\n  const textAreaRef = React.useRef<HTMLTextAreaElement | null>(null)\r\n  const [triggerAutoSize, setTriggerAutoSize] = React.useState('')\r\n\r\n  useAutosizeTextArea({\r\n    textAreaRef,\r\n    triggerAutoSize: triggerAutoSize,\r\n    maxHeight,\r\n    minHeight\r\n  })\r\n\r\n  useImperativeHandle(ref, () => ({\r\n    textArea: textAreaRef.current as HTMLTextAreaElement,\r\n    focus: () => textAreaRef?.current?.focus(),\r\n    maxHeight,\r\n    minHeight\r\n  }))\r\n\r\n  React.useEffect(() => {\r\n    setTriggerAutoSize(value as string)\r\n  }, [props?.defaultValue, value])\r\n\r\n  return (\r\n    <Textarea\r\n      {...props}\r\n      value={value}\r\n      ref={textAreaRef}\r\n      className={cn('w-full', className)}\r\n      onChange={(e) => {\r\n        setTriggerAutoSize(e.target.value)\r\n        onChange?.(e)\r\n      }}\r\n    />\r\n  )\r\n}\r\n\r\nexport { AutoSizeTextArea, useAutosizeTextArea }\r\nexport type { AutosizeTextAreaRef }\r\n",
+      "type": "registry:ui"
+    }
+  ]
+}

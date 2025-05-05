@@ -53,7 +53,7 @@ type AutosizeTextAreaProps = {
   maxHeight?: number
   minHeight?: number
   ref?: React.Ref<AutosizeTextAreaRef>
-} & React.ComponentProps<'textarea'>
+} & Omit<React.ComponentProps<'textarea'>, "ref">
 
 function AutoSizeTextArea({
   maxHeight = Number.MAX_SAFE_INTEGER,

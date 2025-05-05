@@ -4,6 +4,9 @@ import { z } from 'zod'
 import { exportToCSV, parseCSVToJSON, parseError, readCSVFile } from '@/registry/lib/csv'
 import { ButtonInputFile } from '@/registry/ui/button-input-file'
 import { AutoSizeTextArea } from '@/registry/ui/autosize-text-area'
+import { Button } from '@/components/ui/button'
+import { useModal } from '@/registry/hooks/use-modal'
+import { Webhook } from 'lucide-react'
 
 const EmployeeSchema = z.object({
   id: z.string(),
@@ -59,9 +62,10 @@ export default function CSVImporter() {
     exportToCSV(data, 'users-data')
   }
 
+  const { openModal } = useModal()
 
   return (
-    <div>
+    <div className="px-8 flex flex-col gap-6">
       <button onClick={handleExportCSV}>Export to CSV</button>
       {errors.length > 0 && (
         <div>
@@ -94,8 +98,19 @@ export default function CSVImporter() {
         <ButtonInputFile accept=".csv" maxSize={100 * 1024} onChange={(file) => handleFileUpload(file)} />
       </div>
 
-      <div className='max-w-sm'>
+      <div className="max-w-sm">
         <AutoSizeTextArea placeholder="This textarea with min height 52 and max height 200." maxHeight={200} />
+      </div>
+
+      <div>
+        <Button onClick={() => openModal('dialog motion', <p className="aspect-square size-10">eyowww</p>)}>
+          Test
+        </Button>
+      </div>
+      <div>
+        <Button>
+          <Webhook className='animate-spin'/>
+        </Button>
       </div>
     </div>
   )

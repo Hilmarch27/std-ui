@@ -82,7 +82,6 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
         phone: '',
         image: '',
         createdAt: new Date(),
-        updatedAt: new Date()
       }
     },
     createRow(payload) {

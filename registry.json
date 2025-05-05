@@ -170,6 +170,15 @@
           "type": "registry:hook"
         },
         {
+          "path": "src/registry/blocks/server-table/lib/table-utils.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "src/registry/blocks/server-table/lib/config/table.ts",
+          "type": "registry:lib",
+          "target": "lib/config/table.ts"
+        },
+        {
           "path": "src/registry/blocks/server-table/lib/schema/table.ts",
           "type": "registry:lib",
           "target": "lib/schema/table.ts"
@@ -178,6 +187,11 @@
           "path": "src/registry/blocks/server-table/lib/types/data-table.ts",
           "type": "registry:lib",
           "target": "lib/types/table.ts"
+        },
+        {
+          "path": "src/registry/blocks/server-table/block/data-table-date-filter.tsx",
+          "type": "registry:component",
+          "target": "components/server-table/data-table-date-filter.tsx"
         },
         {
           "path": "src/registry/blocks/server-table/block/columns.tsx",
@@ -263,6 +277,19 @@
       "files": [
         {
           "path": "src/registry/ui/date-time-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resize-text-area",
+      "type": "registry:ui",
+      "title": "Resize Text Area",
+      "description": "A simple Auto Resize Text Area",
+      "registryDependencies": ["text-area"],
+      "files": [
+        {
+          "path": "src/registry/ui/autosize-text-area.tsx",
           "type": "registry:ui"
         }
       ]
