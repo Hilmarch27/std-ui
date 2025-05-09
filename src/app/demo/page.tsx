@@ -7,6 +7,9 @@ import { AutoSizeTextArea } from '@/registry/ui/autosize-text-area'
 import { Button } from '@/components/ui/button'
 import { useModal } from '@/registry/hooks/use-modal'
 import { Webhook } from 'lucide-react'
+import profiles from '@/registry/blocks/fam-tree/lib/data/fam-data.json'
+import { FamTree } from '@/registry/blocks/fam-tree/components/fam-tree'
+import { FamTreeTypes } from '@/registry/blocks/fam-tree/lib/types/fam-types'
 
 const EmployeeSchema = z.object({
   id: z.string(),
@@ -109,8 +112,16 @@ export default function CSVImporter() {
       </div>
       <div>
         <Button>
-          <Webhook className='animate-spin'/>
+          <Webhook className="animate-spin" />
         </Button>
+      </div>
+      <div className="flex flex-col justify-center items-center mt-10">
+        <h1 className="text-3xl top-0 absolute">Organisation Flow chart</h1>
+        <div className="container mx-auto text-center pt-32">
+          <div className="items-center justify-center flex">
+            {profiles && profiles.map((profile, idX) => <FamTree key={idX} {...(profile as FamTreeTypes)} />)}
+          </div>
+        </div>
       </div>
     </div>
   )
