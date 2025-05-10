@@ -1,9 +1,9 @@
 import { ColumnDef } from '@tanstack/react-table'
-import { DataTableColumnHeader } from '@/registry/blocks/server-table/block/data-table-column-header'
-import { EditTableCell } from '@/registry/blocks/server-table/block/edit-table-cell'
+import { DataTableColumnHeader } from '@/registry/blocks/server-table/components/data-table-column-header'
+import { EditTableCell } from '@/registry/blocks/server-table/components/edit-table-cell'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Role, User } from '@prisma/client'
-import { EditedCell } from '@/registry/blocks/server-table/block/edit-table-row-action'
+import { EditedCell } from '@/registry/blocks/server-table/components/edit-table-row-action'
 import { z } from 'zod'
 import { CalendarIcon, Text, User as Guest, UserCog, UserCheck, CircleDashed } from 'lucide-react'
 

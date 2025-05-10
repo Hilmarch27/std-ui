@@ -5,7 +5,7 @@ import { X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { DataTableViewOptions } from './data-table-view-options'
-import { DataTableFacetedFilter } from '@/registry/blocks/server-table/block/data-table-faceted-filter'
+import { DataTableFacetedFilter } from '@/registry/blocks/server-table/components/data-table-faceted-filter'
 import { cn } from '@/lib/utils'
 import React from 'react'
 import { DataTableDateFilter } from './data-table-date-filter'
