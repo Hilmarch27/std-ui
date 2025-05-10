@@ -9,3 +9,7 @@ export type FamTreeTypes = {
     image?: string
   }
 }
+
+export type ExpandedState = {
+  [key: string]: boolean
+}

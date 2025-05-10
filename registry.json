@@ -368,6 +368,62 @@
           "target": "components/top-nav.tsx"
         }
       ]
+    },
+    {
+      "name": "fam-tree",
+      "type": "registry:component",
+      "title": "Fam Tree Component",
+      "description": "A simple layouts Fam Tree",
+      "registryDependencies": ["badge", "avatar"],
+      "dependencies": ["lucide-react"],
+      "cssVars": {
+        "theme": {
+          "--animate-fade-in": "fade-in 0.5s ease-out forwards",
+          "--animate-fade": "fade 0.5s ease-out forwards"
+        }
+      },
+      "css": {
+        "@keyframes fade-in": {
+          "from": {
+            "opacity": "0",
+            "transform": "translateY(-10px)"
+          },
+          "to": {
+            "opacity": "1",
+            "transform": "translateY(0)"
+          }
+        },
+        "@keyframes fade": {
+          "from": {
+            "opacity": "0"
+          },
+          "to": {
+            "opacity": "1"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "src/registry/blocks/fam-tree/components/fam-tree.tsx",
+          "type": "registry:component",
+          "target": "components/fam-tree.tsx"
+        },
+        {
+          "path": "src/features/demo/fam-tree.tsx",
+          "type": "registry:file",
+          "target": "components/preview-fam-tree.tsx"
+        },
+        {
+          "path": "src/registry/blocks/fam-tree/lib/types/fam-types.ts",
+          "type": "registry:lib",
+          "target": "lib/types/fam-types.ts"
+        },
+        {
+          "path": "src/registry/blocks/fam-tree/lib/data/fam-data.json",
+          "type": "registry:lib",
+          "target": "lib/data/fam-data.json"
+        }
+      ]
     }
   ]
 }
