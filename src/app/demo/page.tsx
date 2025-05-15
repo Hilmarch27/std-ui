@@ -9,7 +9,6 @@ import { useModal } from '@/registry/hooks/use-modal'
 import { Webhook } from 'lucide-react'
 import DemoFamTree from '@/features/demo/fam-tree'
 
-
 const EmployeeSchema = z.object({
   id: z.string(),
   firstName: z.string().min(1),
@@ -116,6 +115,7 @@ export default function CSVImporter() {
     //   </div>
 
     // </div>
-    <DemoFamTree />
+    // <DemoFamTree />
+    <Button onClick={() => openModal({ title: 'Modal', content: <>p</> })}>awikwok</Button>
   )
 }
