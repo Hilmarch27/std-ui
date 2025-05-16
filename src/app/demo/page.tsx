@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { useModal } from '@/registry/hooks/use-modal'
 import { Webhook } from 'lucide-react'
 import DemoFamTree from '@/features/demo/fam-tree'
+import { Notif } from '@/registry/components/notif'
 
 const EmployeeSchema = z.object({
   id: z.string(),
@@ -116,6 +117,9 @@ export default function CSVImporter() {
 
     // </div>
     // <DemoFamTree />
-    <Button onClick={() => openModal({ title: 'Modal', content: <>p</> })}>awikwok</Button>
+    // <Button onClick={() => openModal({ title: 'Modal', content: <>p</> })}>awikwok</Button>
+    <div className="flex items-center justify-center mt-10">
+      <Notif />
+    </div>
   )
 }

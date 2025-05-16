@@ -6,7 +6,7 @@ function PreviewModal() {
   const { openModal } = useModal()
 
   const handleClick = () => {
-    openModal('Modal title', <p>Modal content</p>)
+    openModal({ title: 'Modal title', content: <>Modal Content</> })
   }
 
   return (

@@ -15,15 +15,7 @@ interface InputFileProps {
   onChange?: (files: File[] | null) => void
 }
 
-export function InputFile({
-  id,
-  name,
-  className,
-  accept,
-  multiple = false,
-  onChange,
-  ...props
-}: InputFileProps) {
+export function InputFile({ id, name, className, accept, multiple = false, onChange, ...props }: InputFileProps) {
   const [files, setFiles] = useState<File[] | null>(null)
   const [preview, setPreview] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -67,7 +59,7 @@ export function InputFile({
   }
 
   const togglePreview = () => {
-    openModal('Preview', previewFile())
+    openModal({ title: 'Preview', content: previewFile() })
   }
 
   const truncateFileName = (fileName: string, maxLength: number) => {

@@ -303,6 +303,19 @@
       ]
     },
     {
+      "name": "notification",
+      "type": "registry:component",
+      "title": "Notification",
+      "description": "A simple button icon Notification",
+      "registryDependencies": ["button", "badge", "popover"],
+      "files": [
+        {
+          "path": "src/registry/components/notif.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "calendar",
       "type": "registry:ui",
       "title": "Calendar",
