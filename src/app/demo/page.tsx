@@ -9,6 +9,8 @@ import { useModal } from '@/registry/hooks/use-modal'
 import { Webhook } from 'lucide-react'
 import DemoFamTree from '@/features/demo/fam-tree'
 import { Notif } from '@/registry/components/notif'
+import { Accordion, Figure, InputSelect, Popover, DelIns, Data, Ruby, Progress, Fieldset } from '@/registry/blocks/native/html'
+import { LoginForm } from '@/registry/components/login'
 
 const EmployeeSchema = z.object({
   id: z.string(),
@@ -118,8 +120,21 @@ export default function CSVImporter() {
     // </div>
     // <DemoFamTree />
     // <Button onClick={() => openModal({ title: 'Modal', content: <>p</> })}>awikwok</Button>
-    <div className="flex items-center justify-center mt-10">
-      <Notif />
+    // <div className="flex flex-col gap-10 items-center justify-center mt-10">
+    //   <Notif />
+    //   <InputSelect />
+    //   <Popover />
+    //   <Accordion />
+    //   <Data />
+    //   <Ruby />
+    //   <Progress />
+    //   <Fieldset />
+    //   <Figure />
+    // </div>
+    <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+      <div className="w-full max-w-sm md:max-w-3xl">
+        <LoginForm />
+      </div>
     </div>
   )
 }
