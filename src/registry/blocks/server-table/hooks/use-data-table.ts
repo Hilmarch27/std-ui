@@ -23,6 +23,7 @@ import React from 'react'
 import { parseAsArrayOf, parseAsInteger, parseAsString, Parser, useQueryState, useQueryStates } from 'nuqs'
 import { sortByToState, stateToSortBy } from '../lib/table-utils'
 import { useDebouncedCallback } from '@/registry/hooks/use-debounced-callback'
+import { useEditableTableFeatures } from './use-edit-table'
 
 interface UseDataTableProps<TData>
   extends Omit<
@@ -32,16 +33,22 @@ interface UseDataTableProps<TData>
     Required<Pick<TableOptions<TData>, 'pageCount'>> {
   columns: ColumnDef<TData>[]
   data: TData[]
+  getRowCanExpand?: (row: Row<TData>) => boolean
+  onRemove?: (id: string) => void
+  onUpdate?: (payload: TData) => void
+  initialState?: Partial<TableState>
+  // editable props
   originalData?: TData[]
   createEmptyRow?: () => Partial<TData>
   setData?: React.Dispatch<React.SetStateAction<TData[]>>
   updateRow?: (id: string, payload: TData) => void
   createRow?: (payload: TData) => void
   removeRow?: (id: string) => void
-  getRowCanExpand?: (row: Row<TData>) => boolean
-  onRemove?: (id: string) => void
-  onUpdate?: (payload: TData) => void
-  initialState?: Partial<TableState>
+  /**
+   * Set to true to enable editable row behavior.
+   * Required if using props like setData, updateRow, createRow, etc.
+   */
+  isEditable?: boolean
 }
 
 export function useDataTable<TData>(props: UseDataTableProps<TData>) {
@@ -59,8 +66,45 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
     onRemove,
     onUpdate,
     pageCount = -1,
+    isEditable = false,
     ...tableProps
   } = props
+
+  if (!isEditable && (setData || updateRow || createRow || removeRow || createEmptyRow || originalData)) {
+    throw new Error(
+      '[useDataTable] You provided editable-related props without setting isEditable={true}. Please set isEditable or remove editable props.'
+    )
+  }
+
+  if (isEditable) {
+    const missingProps: string[] = []
+
+    if (!setData) missingProps.push('setData')
+    if (!updateRow) missingProps.push('updateRow')
+    if (!createRow) missingProps.push('createRow')
+    if (!removeRow) missingProps.push('removeRow')
+    if (!createEmptyRow) missingProps.push('createEmptyRow')
+    if (!originalData) missingProps.push('originalData')
+
+    if (missingProps.length > 0) {
+      throw new Error(`[useDataTable] Missing required props for editable mode: ${missingProps.join(', ')}`)
+    }
+  }
+
+  let editableMeta = {}
+
+  if (isEditable && setData) {
+    const editable = useEditableTableFeatures<TData>({
+      data,
+      setData,
+      updateRow,
+      createRow,
+      removeRow,
+      createEmptyRow,
+      originalData
+    })
+    editableMeta = editable.editableMeta
+  }
 
   // * states
   const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(initialState?.rowSelection ?? {})
@@ -196,86 +240,6 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
     [debouncedSetFilterValues, filterableColumns]
   )
 
-  // * editable functions
-  const handleRevertData = (rowIndex: number) => {
-    if (pendingCreate?.index === rowIndex) {
-      setData!((old) => old.filter((_, index) => index !== rowIndex))
-      setPendingCreate(null)
-      setValidRows((old) => {
-        const newValidRows = { ...old }
-        delete newValidRows[rowIndex]
-        return newValidRows
-      })
-    } else {
-      setData!((old) => old.map((row, index) => (index === rowIndex ? originalData![rowIndex]! : row)))
-    }
-  }
-
-  const handleUpdateRow = (rowIndex: number, rowId: string) => {
-    if (pendingCreate?.index === rowIndex && createRow && data[rowIndex]) {
-      createRow(data[rowIndex])
-      setPendingCreate(null)
-    } else if (updateRow && data[rowIndex]) {
-      updateRow(rowId, data[rowIndex])
-    }
-  }
-
-  const handleUpdateData = (rowIndex: number, columnId: string, value: TData, isValid: boolean) => {
-    setData!((old: TData[]) =>
-      old.map((row, index) => {
-        if (index === rowIndex) {
-          return {
-            ...old[rowIndex]!,
-            [columnId]: value
-          }
-        }
-        return row
-      })
-    )
-    setValidRows((old) => ({
-      ...old,
-      [rowIndex]: { ...old[rowIndex], [columnId]: isValid }
-    }))
-  }
-
-  const handleCreateRow = () => {
-    if (!createEmptyRow) throw new Error('createEmptyRow required')
-    const newRow = createEmptyRow() as TData
-    setData!((old) => [newRow, ...old])
-
-    setPendingCreate({
-      data: newRow,
-      index: 0
-    })
-
-    setEditedRows((old) => ({
-      ...old,
-      create: true
-    }))
-  }
-
-  const handleRemoveRow = (rowIndex: number, rowId: string) => {
-    if (pendingCreate?.index === rowIndex) {
-      setData!((old) => old.filter((_, index) => index !== rowIndex))
-      setPendingCreate(null)
-      setValidRows((old) => {
-        const newValidRows = { ...old }
-        delete newValidRows[rowIndex]
-        return newValidRows
-      })
-    } else if (removeRow) {
-      removeRow(rowId)
-    }
-  }
-
-  const handleRemoveSelectedRows = (rowIds: string[]) => {
-    rowIds.forEach((rowid, rowIndex) => {
-      if (pendingCreate?.index !== rowIndex && removeRow) {
-        removeRow(rowid)
-      }
-    })
-  }
-
   /**
    ** Table Configuration
    */
@@ -322,12 +286,7 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
       setPendingCreate,
       onRemove: handleOnRemove,
       onUpdate: handleUpdate,
-      revertData: handleRevertData,
-      updateRow: handleUpdateRow,
-      updateData: handleUpdateData,
-      createRow: handleCreateRow,
-      removeRow: handleRemoveRow,
-      removeSelectedRows: handleRemoveSelectedRows
+      ...editableMeta
     },
     manualPagination: true,
     manualFiltering: true,

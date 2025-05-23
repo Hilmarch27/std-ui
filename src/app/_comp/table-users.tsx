@@ -58,6 +58,7 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
 
   // ? useDataTable
   const { table } = useDataTable({
+    isEditable: true,
     initialState: {
       columnPinning: {
         right: ['actions']
