@@ -2,6 +2,7 @@ import {
   ColumnDef,
   ColumnFiltersState,
   ExpandedState,
+  FilterFn,
   getCoreRowModel,
   getExpandedRowModel,
   getFacetedRowModel,
@@ -118,6 +119,9 @@ export function useClientTable<TData>(props: ClientTableProps<TData>) {
     initialState,
     data,
     columns,
+    filterFns: {
+      dateBetweenFilterFn: dateBetweenFilterFn
+    },
     state: {
       sorting,
       columnVisibility,
@@ -159,3 +163,43 @@ export function useClientTable<TData>(props: ClientTableProps<TData>) {
 
   return { table }
 }
+
+
+function parseAsDate(input: unknown): Date | undefined {
+  if (!input || typeof input !== 'string') return undefined
+  const date = new Date(input)
+  return isNaN(date.getTime()) ? undefined : date
+}
+
+export const dateBetweenFilterFn: FilterFn<any> = (row, columnId, value) => {
+  console.log("filter date dijalankan")
+  const rawDate = row.getValue(columnId)
+  const rowDate = rawDate instanceof Date ? rawDate : parseAsDate(rawDate)
+  const [startRaw, endRaw] = Array.isArray(value) ? value : []
+
+  const start = parseAsDate(startRaw)
+  const end = parseAsDate(endRaw)
+
+  // Jika ada salah satu filter tapi rowDate tidak valid, exclude row
+  if ((start || end) && !rowDate) return false
+
+  if (start && !end) {
+    return rowDate!.getTime() >= start.getTime()
+  } else if (!start && end) {
+    return rowDate!.getTime() <= end.getTime()
+  } else if (start && end) {
+    return rowDate!.getTime() >= start.getTime() && rowDate!.getTime() <= end.getTime()
+  }
+
+  // Jika tidak ada filter, tampilkan semua
+  return true
+}
+
+// Auto hapus filter jika tidak ada tanggal valid
+dateBetweenFilterFn.autoRemove = (val) => {
+  if (!Array.isArray(val)) return true
+  const [start, end] = val
+  return !parseAsDate(start) && !parseAsDate(end)
+}
+
+export default dateBetweenFilterFn
