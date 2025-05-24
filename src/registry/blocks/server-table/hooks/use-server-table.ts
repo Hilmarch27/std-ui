@@ -24,6 +24,7 @@ import { parseAsArrayOf, parseAsInteger, parseAsString, Parser, useQueryState, u
 import { sortByToState, stateToSortBy } from '../lib/table-utils'
 import { useDebouncedCallback } from '@/registry/hooks/use-debounced-callback'
 import { useEditableTableFeatures } from './use-edit-table'
+import { validateEditableProps } from '../lib/config/table'
 
 interface UseDataTableProps<TData>
   extends Omit<
@@ -37,9 +38,9 @@ interface UseDataTableProps<TData>
   onRemove?: (id: string) => void
   onUpdate?: (payload: TData) => void
   initialState?: Partial<TableState>
-  // editable props
+  // * editable props
   originalData?: TData[]
-  createEmptyRow?: () => Partial<TData>
+  fieldRow?: Partial<TData>
   setData?: React.Dispatch<React.SetStateAction<TData[]>>
   updateRow?: (id: string, payload: TData) => void
   createRow?: (payload: TData) => void
@@ -57,7 +58,7 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
     data,
     originalData,
     initialState,
-    createEmptyRow,
+    fieldRow,
     setData,
     updateRow,
     createRow,
@@ -70,38 +71,28 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
     ...tableProps
   } = props
 
-  if (!isEditable && (setData || updateRow || createRow || removeRow || createEmptyRow || originalData)) {
-    throw new Error(
-      '[useDataTable] You provided editable-related props without setting isEditable={true}. Please set isEditable or remove editable props.'
-    )
-  }
-
-  if (isEditable) {
-    const missingProps: string[] = []
-
-    if (!setData) missingProps.push('setData')
-    if (!updateRow) missingProps.push('updateRow')
-    if (!createRow) missingProps.push('createRow')
-    if (!removeRow) missingProps.push('removeRow')
-    if (!createEmptyRow) missingProps.push('createEmptyRow')
-    if (!originalData) missingProps.push('originalData')
-
-    if (missingProps.length > 0) {
-      throw new Error(`[useDataTable] Missing required props for editable mode: ${missingProps.join(', ')}`)
-    }
-  }
-
   let editableMeta = {}
 
   if (isEditable && setData) {
-    const editable = useEditableTableFeatures<TData>({
-      data,
+    // * validate editable props
+    validateEditableProps<TData>(isEditable, {
       setData,
       updateRow,
       createRow,
       removeRow,
-      createEmptyRow,
+      fieldRow,
       originalData
+    })
+
+    // * push editable props to meta
+    const editable = useEditableTableFeatures<TData>({
+      data,
+      setData,
+      updateRow: updateRow!, // safe because validated
+      createRow: createRow!, // safe because validated
+      removeRow: removeRow!, // safe because validated
+      fieldRow: fieldRow!, // safe because validated
+      originalData: originalData! // safe because validated
     })
     editableMeta = editable.editableMeta
   }

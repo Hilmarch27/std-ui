@@ -1,5 +1,5 @@
 'use client'
-import { useDataTable } from '@/registry/blocks/server-table/hooks/use-data-table'
+import { useDataTable } from '@/registry/blocks/server-table/hooks/use-server-table'
 import { api } from '@/trpc/react'
 import React from 'react'
 import { COLUMNS_USERS } from './columns-users'
@@ -74,16 +74,14 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
     originalData: originalData?.result ?? [],
     getRowId: (originalRow) => originalRow.id, // this is required for overide id
     setData,
-    createEmptyRow() {
-      return {
-        id: 'create',
-        name: '',
-        email: '',
-        role: 'guest' as Role,
-        phone: '',
-        image: '',
-        createdAt: new Date(),
-      }
+    fieldRow: {
+      id: 'create',
+      name: '',
+      email: '',
+      role: 'guest' as Role,
+      phone: '',
+      image: '',
+      createdAt: new Date()
     },
     createRow(payload) {
       create.mutate(payload)

@@ -6,16 +6,16 @@ export function useEditableTableFeatures<TData>({
   updateRow,
   createRow,
   removeRow,
-  createEmptyRow,
+  fieldRow,
   originalData
 }: {
   data: TData[]
   setData: React.Dispatch<React.SetStateAction<TData[]>>
-  updateRow?: (id: string, payload: TData) => void
-  createRow?: (payload: TData) => void
-  removeRow?: (id: string) => void
-  createEmptyRow?: () => Partial<TData>
-  originalData?: TData[]
+  updateRow: (id: string, payload: TData) => void
+  createRow: (payload: TData) => void
+  removeRow: (id: string) => void
+  fieldRow: Partial<TData>
+  originalData: TData[]
 }) {
   const [editedRows, setEditedRows] = useState<Record<string, boolean>>({})
   const [validRows, setValidRows] = useState<Record<string, Record<string, boolean>>>({})
@@ -31,7 +31,7 @@ export function useEditableTableFeatures<TData>({
         return newValid
       })
     } else {
-      setData((old) => old.map((row, index) => (index === rowIndex ? originalData![rowIndex]! : row)))
+      setData((old) => old.map((row, index) => (index === rowIndex ? originalData[rowIndex]! : row)))
     }
   }
 
@@ -53,9 +53,7 @@ export function useEditableTableFeatures<TData>({
   }
 
   const handleCreateRow = () => {
-    if (!createEmptyRow) throw new Error('createEmptyRow is required')
-    const newRow = createEmptyRow() as TData
-    console.log('newRow', newRow)
+    const newRow = fieldRow as TData
     setData((old) => [newRow, ...old])
     setPendingCreate({ data: newRow, index: 0 })
     setEditedRows((old) => ({ ...old, create: true }))
