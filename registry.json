@@ -140,7 +140,7 @@
       ]
     },
     {
-      "name": "data-table",
+      "name": "server-table",
       "type": "registry:block",
       "title": "Server Side Table",
       "description": "A simple Server Side Table",

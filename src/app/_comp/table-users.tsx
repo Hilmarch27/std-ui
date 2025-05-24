@@ -81,7 +81,7 @@ function TABLE_USER({ query }: { query?: QuerySchema }) {
       role: 'guest' as Role,
       phone: '',
       image: '',
-      createdAt: new Date()
+      createdAt: new Date()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
     },
     createRow(payload) {
       create.mutate(payload)

@@ -9,7 +9,17 @@ import { useModal } from '@/registry/hooks/use-modal'
 import { Webhook } from 'lucide-react'
 import DemoFamTree from '@/features/demo/fam-tree'
 import { Notif } from '@/registry/components/notif'
-import { Accordion, Figure, InputSelect, Popover, DelIns, Data, Ruby, Progress, Fieldset } from '@/registry/blocks/native/html'
+import {
+  Accordion,
+  Figure,
+  InputSelect,
+  Popover,
+  DelIns,
+  Data,
+  Ruby,
+  Progress,
+  Fieldset
+} from '@/registry/blocks/native/html'
 import { LoginForm } from '@/registry/components/login'
 import { ClientTable } from '@/features/demo/client-table'
 
@@ -18,10 +28,7 @@ const EmployeeSchema = z.object({
   firstName: z.string().min(1),
   lastName: z.string({ required_error: 'Columns Last Name Required' }).min(1),
   department: z.string(),
-  salary: z
-    .string()
-    .transform((val) => parseFloat(val))
-    .refine((val) => !isNaN(val) && val >= 0, 'Salary must be a positive number')
+  salary: z.string()
 })
 
 type Employee = z.infer<typeof EmployeeSchema>

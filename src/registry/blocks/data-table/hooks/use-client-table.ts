@@ -91,7 +91,6 @@ export function useClientTable<TData>(props: ClientTableProps<TData>) {
   const [rowSelection, setRowSelection] = useState(initialState?.rowSelection ?? {})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(initialState?.columnVisibility ?? {})
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(initialState?.columnFilters ?? [])
-  console.log('columnFilters', columnFilters)
   const [sorting, setSorting] = useState<SortingState>(initialState?.sorting ?? [])
   const [expanded, setExpanded] = useState<ExpandedState>(initialState?.expanded ?? {})
 
@@ -119,9 +118,6 @@ export function useClientTable<TData>(props: ClientTableProps<TData>) {
     initialState,
     data,
     columns,
-    filterFns: {
-      dateRangeFilterFn: dateRangeFilterFn
-    },
     state: {
       sorting,
       columnVisibility,

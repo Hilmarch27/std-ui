@@ -6,6 +6,7 @@ import { Role, User } from '@prisma/client'
 import { EditedCell } from '@/registry/blocks/data-table/components/edit-table-row-action'
 import { z } from 'zod'
 import { CalendarIcon, Text, User as Guest, UserCog, UserCheck, CircleDashed } from 'lucide-react'
+import dateRangeFilterFn from '@/registry/blocks/data-table/hooks/use-client-table'
 
 export function getRoleIcon(status: User['role']) {
   const statusIcons = {
@@ -138,7 +139,7 @@ export function COLUMNS_USERS_CLIENT(): ColumnDef<User>[] {
         variant: 'dateRange',
         icon: CalendarIcon
       },
-      filterFn: 'dateRangeFilterFn',
+      filterFn: dateRangeFilterFn as any,
       enableColumnFilter: true
     },
     {
