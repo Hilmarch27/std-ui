@@ -1,5 +1,5 @@
 import { createTRPCRouter, publicProcedure } from '@/server/api/trpc'
-import { searchParams, UserSchema } from '@/registry/blocks/server-table/lib/schema/table'
+import { searchParams, UserSchema } from '@/registry/blocks/data-table/lib/schema/table'
 import { z } from 'zod'
 import { Prisma, Role } from '@prisma/client'
 
@@ -36,7 +36,7 @@ export const userRouter = createTRPCRouter({
 
       ...(filters.role?.length && {
         role: {
-          in: filters.role.map(role => role as Role)
+          in: filters.role.map((role) => role as Role)
         }
       })
     }
@@ -72,6 +72,17 @@ export const userRouter = createTRPCRouter({
     return {
       result: users ?? [],
       pageCount: Math.ceil(count / perPage)
+    }
+  }),
+
+  getManyClientUsers: publicProcedure.query(async ({ ctx }) => {
+    const users = await ctx.db.user.findMany({
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
+    return {
+      result: users ?? []
     }
   }),
 

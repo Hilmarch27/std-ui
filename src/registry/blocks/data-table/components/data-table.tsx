@@ -9,7 +9,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 export interface DataTableProps<TData> extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * The table instance returned from useDataTable hook with pagination, sorting, filtering, etc.
+   * The table instance returned from useServerTable hook with pagination, sorting, filtering, etc.
    * @type TanstackTable<TData>
    */
   table: TanstackTable<TData>
@@ -58,9 +58,7 @@ export function DataTable<TData>({
     <div className={cn('w-full space-y-2.5 overflow-auto', className)} {...props}>
       {children}
       <div className="rounded-md border">
-        <Table
-          className="[&_td]:border-border [&_th]:border-border table-fixed border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b"
-        >
+        <Table className="[&_td]:border-border [&_th]:border-border table-fixed border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="bg-muted/50">

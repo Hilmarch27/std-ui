@@ -26,7 +26,7 @@ import { useDebouncedCallback } from '@/registry/hooks/use-debounced-callback'
 import { useEditableTableFeatures } from './use-edit-table'
 import { validateEditableProps } from '../lib/config/table'
 
-interface UseDataTableProps<TData>
+interface ServerTableProps<TData>
   extends Omit<
       TableOptions<TData>,
       'state' | 'pageCount' | 'getCoreRowModel' | 'manualFiltering' | 'manualPagination' | 'manualSorting'
@@ -52,7 +52,7 @@ interface UseDataTableProps<TData>
   isEditable?: boolean
 }
 
-export function useDataTable<TData>(props: UseDataTableProps<TData>) {
+export function useServerTable<TData>(props: ServerTableProps<TData>) {
   const {
     columns,
     data,
@@ -121,11 +121,13 @@ export function useDataTable<TData>(props: UseDataTableProps<TData>) {
 
   // * row actions
   const handleOnRemove = (id: string) => {
-    onRemove!(id)
+    if (!onRemove) throw new Error('onRemove function is required')
+    onRemove(id)
   }
 
   const handleUpdate = (payload: TData) => {
-    onUpdate!(payload)
+    if (!onUpdate) throw new Error('onUpdate function is required')
+    onUpdate(payload)
   }
 
   // * paginate

@@ -1,28 +1,28 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { Column, Table } from '@tanstack/react-table'
 import { X } from 'lucide-react'
-
-import { Button } from '@/components/ui/button'
+import { useCallback, useMemo } from 'react'
 import { DataTableViewOptions } from './data-table-view-options'
-import { DataTableFacetedFilter } from '@/registry/blocks/server-table/components/data-table-faceted-filter'
-import { cn } from '@/lib/utils'
-import React from 'react'
-import { DataTableDateFilter } from './data-table-date-filter'
 import { Input } from '@/registry/ui/input'
+import { DataTableFacetedFilter } from './data-table-faceted-filter'
+import { ClientTableDateFilter } from './client-table-date-filter'
 
-interface DataTableToolbarProps<TData> extends React.HTMLAttributes<HTMLDivElement> {
+interface ClientTableToolbarProps<TData> extends React.HTMLAttributes<HTMLDivElement> {
   table: Table<TData>
 }
-export function DataTableToolbar<TData>({ table, children, className, ...props }: DataTableToolbarProps<TData>) {
+
+export function ClientTableToolbar<TData>({ table, children, className, ...props }: ClientTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
 
   const meta = table.options.meta
   const selectedRows = table.getSelectedRowModel().rows
 
-  const columns = React.useMemo(() => table.getAllColumns().filter((column) => column.getCanFilter()), [table])
+  const columns = useMemo(() => table.getAllColumns().filter((column) => column.getCanFilter()), [table])
 
-  const onReset = React.useCallback(() => {
+  const onReset = useCallback(() => {
     table.resetColumnFilters()
   }, [table])
 
@@ -33,13 +33,12 @@ export function DataTableToolbar<TData>({ table, children, className, ...props }
       table.resetRowSelection()
     }
   }
-
   return (
     <div className={cn('flex w-full items-center justify-between gap-2 overflow-auto p-1', className)} {...props}>
       <div className="flex flex-1 items-center space-x-2">
         <div className="flex flex-1 flex-wrap items-center gap-2">
           {columns.map((column) => (
-            <DataTableToolbarFilter key={column.id} column={column} />
+            <ClientTableToolbarFilter key={column.id} column={column} />
           ))}
           {isFiltered && (
             <Button aria-label="Reset filters" variant="outline" size="sm" className="border-dashed" onClick={onReset}>
@@ -62,14 +61,14 @@ export function DataTableToolbar<TData>({ table, children, className, ...props }
   )
 }
 
-interface DataTableToolbarFilterProps<TData> {
+interface ClientTableToolbarFilterProps<TData> {
   column: Column<TData>
 }
 
-function DataTableToolbarFilter<TData>({ column }: DataTableToolbarFilterProps<TData>) {
+function ClientTableToolbarFilter<TData>({ column }: ClientTableToolbarFilterProps<TData>) {
   {
     const columnMeta = column.columnDef.meta
-    const onFilterRender = React.useCallback(() => {
+    const onFilterRender = useCallback(() => {
       if (!columnMeta?.variant) return null
 
       switch (columnMeta.variant) {
@@ -86,7 +85,7 @@ function DataTableToolbarFilter<TData>({ column }: DataTableToolbarFilterProps<T
         case 'date':
         case 'dateRange':
           return (
-            <DataTableDateFilter
+            <ClientTableDateFilter
               column={column}
               title={columnMeta.label ?? column.id}
               multiple={columnMeta.variant === 'dateRange'}

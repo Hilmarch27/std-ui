@@ -45,13 +45,13 @@ function parseColumnFilterValue(value: unknown) {
   return []
 }
 
-interface DataTableDateFilterProps<TData> {
+interface ServerTableDateFilterProps<TData> {
   column: Column<TData, unknown>
   title?: string
   multiple?: boolean
 }
 
-export function DataTableDateFilter<TData>({ column, title, multiple }: DataTableDateFilterProps<TData>) {
+export function ServerTableDateFilter<TData>({ column, title, multiple }: ServerTableDateFilterProps<TData>) {
   const columnFilterValue = column.getFilterValue()
 
   const selectedDates = React.useMemo<DateSelection>(() => {

@@ -11,6 +11,7 @@ import DemoFamTree from '@/features/demo/fam-tree'
 import { Notif } from '@/registry/components/notif'
 import { Accordion, Figure, InputSelect, Popover, DelIns, Data, Ruby, Progress, Fieldset } from '@/registry/blocks/native/html'
 import { LoginForm } from '@/registry/components/login'
+import { ClientTable } from '@/features/demo/client-table'
 
 const EmployeeSchema = z.object({
   id: z.string(),
@@ -131,10 +132,13 @@ export default function CSVImporter() {
     //   <Fieldset />
     //   <Figure />
     // </div>
+    // <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+    //   <div className="w-full max-w-sm md:max-w-3xl">
+    //     <LoginForm />
+    //   </div>
+    // </div>
     <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
-      <div className="w-full max-w-sm md:max-w-3xl">
-        <LoginForm />
-      </div>
+      <ClientTable />
     </div>
   )
 }

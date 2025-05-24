@@ -1,5 +1,5 @@
 import { SearchParams } from 'nuqs'
-import { searchParamsCache } from '@/registry/blocks/server-table/lib/schema/table'
+import { searchParamsCache } from '@/registry/blocks/data-table/lib/schema/table'
 import { api, HydrateClient } from '@/trpc/server'
 import TABLE_USER from '@/app/_comp/table-users'
 import { Metadata } from 'next'

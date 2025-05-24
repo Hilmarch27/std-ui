@@ -32,7 +32,7 @@ export function validateEditableProps<TData>(
 
   if (!isEditable && editablePropsProvided) {
     throw new Error(
-      '[useDataTable] You provided editable-related props without setting isEditable={true}. Please set isEditable or remove editable props.'
+      '[useServerTable] You provided editable-related props without setting isEditable={true}. Please set isEditable or remove editable props.'
     )
   }
 
@@ -46,7 +46,7 @@ export function validateEditableProps<TData>(
     if (!originalData) missingProps.push('originalData')
 
     if (missingProps.length > 0) {
-      throw new Error(`[useDataTable] Missing required props for editable mode: ${missingProps.join(', ')}`)
+      throw new Error(`[useServerTable] Missing required props for editable mode: ${missingProps.join(', ')}`)
     }
   }
 }

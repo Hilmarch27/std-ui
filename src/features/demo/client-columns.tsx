@@ -1,9 +1,9 @@
 import { ColumnDef } from '@tanstack/react-table'
-import { DataTableColumnHeader } from '@/registry/blocks/server-table/components/data-table-column-header'
-import { EditTableCell } from '@/registry/blocks/server-table/components/edit-table-cell'
+import { DataTableColumnHeader } from '@/registry/blocks/data-table/components/data-table-column-header'
+import { EditTableCell } from '@/registry/blocks/data-table/components/edit-table-cell'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Role, User } from '@prisma/client'
-import { EditedCell } from '@/registry/blocks/server-table/components/edit-table-row-action'
+import { EditedCell } from '@/registry/blocks/data-table/components/edit-table-row-action'
 import { z } from 'zod'
 import { CalendarIcon, Text, User as Guest, UserCog, UserCheck, CircleDashed } from 'lucide-react'
 
@@ -17,11 +17,7 @@ export function getRoleIcon(status: User['role']) {
   return statusIcons[status] || Guest
 }
 
-type ColumnUsersProps = {
-  roleCount: Record<User['role'], number>
-}
-
-export function COLUMNS_USERS({ roleCount }: ColumnUsersProps): ColumnDef<User>[] {
+export function COLUMNS_USERS_CLIENT(): ColumnDef<User>[] {
   return [
     {
       id: 'select',
@@ -116,7 +112,6 @@ export function COLUMNS_USERS({ roleCount }: ColumnUsersProps): ColumnDef<User>[
         options: Object.values(Role).map((role) => ({
           label: role.charAt(0).toUpperCase() + role.slice(1),
           value: role,
-          count: roleCount[role],
           icon: getRoleIcon(role)
         })),
         icon: CircleDashed
