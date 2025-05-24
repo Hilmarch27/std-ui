@@ -1,14 +1,13 @@
 import '@tanstack/react-table'
-import {  FilterFn, Row, RowData } from '@tanstack/react-table'
+import { FilterFn, Row, RowData } from '@tanstack/react-table'
 import { ZodType, ZodTypeDef } from 'zod'
 import { DataTableConfig } from '../config/table'
 
 declare module '@tanstack/table-core' {
   interface FilterFns {
-    dateBetweenFilterFn: FilterFn<unknown>
+    dateRangeFilterFn: FilterFn<unknown>
   }
 }
-
 
 export interface PendingCreate<TData> {
   data: TData

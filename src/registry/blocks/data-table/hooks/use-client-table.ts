@@ -120,7 +120,7 @@ export function useClientTable<TData>(props: ClientTableProps<TData>) {
     data,
     columns,
     filterFns: {
-      dateBetweenFilterFn: dateBetweenFilterFn
+      dateRangeFilterFn: dateRangeFilterFn
     },
     state: {
       sorting,
@@ -164,15 +164,14 @@ export function useClientTable<TData>(props: ClientTableProps<TData>) {
   return { table }
 }
 
-
 function parseAsDate(input: unknown): Date | undefined {
   if (!input || typeof input !== 'string') return undefined
   const date = new Date(input)
   return isNaN(date.getTime()) ? undefined : date
 }
 
-export const dateBetweenFilterFn: FilterFn<any> = (row, columnId, value) => {
-  console.log("filter date dijalankan")
+export const dateRangeFilterFn: FilterFn<any> = (row, columnId, value) => {
+  console.log('filter date dijalankan')
   const rawDate = row.getValue(columnId)
   const rowDate = rawDate instanceof Date ? rawDate : parseAsDate(rawDate)
   const [startRaw, endRaw] = Array.isArray(value) ? value : []
@@ -196,10 +195,10 @@ export const dateBetweenFilterFn: FilterFn<any> = (row, columnId, value) => {
 }
 
 // Auto hapus filter jika tidak ada tanggal valid
-dateBetweenFilterFn.autoRemove = (val) => {
+dateRangeFilterFn.autoRemove = (val) => {
   if (!Array.isArray(val)) return true
   const [start, end] = val
   return !parseAsDate(start) && !parseAsDate(end)
 }
 
-export default dateBetweenFilterFn
+export default dateRangeFilterFn

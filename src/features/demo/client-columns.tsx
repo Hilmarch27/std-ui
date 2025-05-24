@@ -138,7 +138,7 @@ export function COLUMNS_USERS_CLIENT(): ColumnDef<User>[] {
         variant: 'dateRange',
         icon: CalendarIcon
       },
-      filterFn: 'dateBetweenFilterFn',
+      filterFn: 'dateRangeFilterFn',
       enableColumnFilter: true
     },
     {
